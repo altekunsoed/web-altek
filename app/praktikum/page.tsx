@@ -1,25 +1,30 @@
-import Card from "@/components/Card";
 import Link from "next/link";
-import { praktikumList } from "@/data/praktikum";
+import { praktikumBySemester } from "@/data/praktikum";
 
 export default function PraktikumPage() {
   return (
-    <main className="min-h-screen  bg-black">
-      
-      <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-10">Daftar Praktikum</h1>
+    <main className="min-h-screen bg-black text-white p-6">
+      <h1 className="text-3xl font-bold text-center mb-10">Daftar Praktikum</h1>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 py-1 ">
-          {praktikumList.map((item) => (
-            <Link key={item.slug} href={`/praktikum/${item.slug}`}>
-              <Card title={item.title} description={item.description} />
-            </Link>
-          ))}
-        </div>
-        
-      </div>
-      
+      {praktikumBySemester.map((semester) => (
+        <section key={semester.semester} className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6">
+            Semester {semester.semester}
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {semester.praktikum.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/praktikum/${p.slug}`}
+                className="block p-6 border rounded-lg hover:bg-gray-800 transition"
+              >
+                <h3 className="text-xl font-bold mb-2">{p.title}</h3>
+                <p className="text-sm text-gray-400">{p.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ))}
     </main>
-    
   );
 }

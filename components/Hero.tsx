@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function Hero() {
   return (
-    <section className="h-[70vh] flex flex-col justify-center items-center text-center bg  text-white px-6">
+    <section className="h-[70vh] flex flex-col justify-center items-center text-center bg-gradient-to-br from-slate-500 via-slate-600 to-slate-900  text-white px-6">
       {/* logo */}
       <Image
         src="/LogoAltek.png"
