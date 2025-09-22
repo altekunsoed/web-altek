@@ -16,7 +16,7 @@ export default function PraktikumPage() {
               <Link
                 key={p.slug}
                 href={`/praktikum/${p.slug}`}
-                className="block p-6 border rounded-lg hover:bg-gray-800 transition"
+                className="block p-6 border rounded-lg hover:bg-gray-500 transition"
               >
                 <h3 className="text-xl font-bold mb-2">{p.title}</h3>
                 <p className="text-sm text-gray-400">{p.description}</p>

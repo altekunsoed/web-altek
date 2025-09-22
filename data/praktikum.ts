@@ -27,7 +27,7 @@ export const praktikumBySemester: {
         title: "Praktikum Fisika",
         slug: "fisika",
         description: "Modul praktikum fisika untuk semester 2.",
-        pdf: "/ModulFisika.pdf",
+        pdf: "/praktikum/ModulFisika.pdf",
       },
     ],
   },

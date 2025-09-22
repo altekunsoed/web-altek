@@ -19,7 +19,7 @@ export default function Home() {
           ALIANSI LABORATORIUM TEKNIK ELEKTRO
         </h1>
         <p className="text-lg md:text-2xl max-w-2xl">
-          Selamat datang di website resmi ALTEK ✨
+          ✨Selamat datang di website resmi ALTEK ✨
         </p>
       </section>
     </main>
