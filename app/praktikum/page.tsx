@@ -3,7 +3,7 @@ import { praktikumBySemester } from "@/data/praktikum";
 
 export default function PraktikumPage() {
   return (
-    <main className="min-h-screen bg-black text-white p-6">
+    <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white p-6">
       <h1 className="text-3xl font-bold text-center mb-10">Daftar Praktikum</h1>
 
       {praktikumBySemester.map((semester) => (

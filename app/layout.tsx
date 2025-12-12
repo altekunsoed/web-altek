@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Altek",
   description: "Website Organisasi Altek",
+  icons: {
+    icon: "/LogoAltek.png",
+    apple: "/LogoAltek.png",
+  },
 };
 
 export default function RootLayout({

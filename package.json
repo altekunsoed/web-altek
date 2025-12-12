@@ -6,10 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "15.5.2",
+    "lucide-react": "^0.561.0",
+    "next": "16.0.10",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },

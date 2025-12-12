@@ -1,19 +1,10 @@
+import { contactList } from "@/data/contact";
+import { ContactGrid } from "@/components/contact/organisms/ContactGrid";
+
 export default function Contact() {
   return (
-    <main>
-      
-      <section className="px-6 py-12 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-4">Tentang Kami</h1>
-        <p>
-          Altek atau Aliansi Laboratorium Teknik Elektro adalah
-          asdlksadlds <br />
-          asdkdks <br />
-          akwdhakhaskahsd <br />
-          laksalsdlk <br />
-
-        </p>
-      </section>
-      
+    <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      <ContactGrid contacts={contactList} />
     </main>
   );
 }

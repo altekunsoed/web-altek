@@ -1,10 +1,9 @@
-import Hero from "@/components/Hero";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex-1">
-      <section className="flex flex-col justify-center items-center text-center bg-black text-white px-6 py-35">
+    <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      <section className="flex flex-col justify-center items-center text-center text-white px-6 py-35">
         {/* logo */}
         <Image
           src="/LogoAltek.png"
