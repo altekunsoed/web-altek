@@ -11,6 +11,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@prisma/client": "6",
     "lucide-react": "^0.561.0",
     "next": "16.0.10",
     "react": "19.1.0",
@@ -26,7 +27,17 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
     "postcss": "^8.5.6",
+    "prisma": "6",
     "tailwindcss": "^4.1.12",
     "typescript": "^5"
+  },
+  "trustedDependencies": [
+    "esbuild",
+    "sharp",
+    "unrs-resolver",
+    "workerd"
+  ],
+"prisma": {
+    "seed": "bun prisma/seed.ts"
   }
 }
