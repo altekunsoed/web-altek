@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "prisma generate && next build --turbopack",
+    "postinstall": "prisma generate",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
@@ -37,7 +38,7 @@
     "unrs-resolver",
     "workerd"
   ],
-"prisma": {
+  "prisma": {
     "seed": "bun prisma/seed.ts"
   }
 }
