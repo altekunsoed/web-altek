@@ -15,7 +15,9 @@ export default async function About() {
   // Menggabungkan data database dengan icon dan deskripsi statis
   const mappedDivisions = staticDivisions.map((staticDiv) => {
     // Cocokkan nama divisi di data statis dengan nama di database
-    const dbDiv = dbDivisions.find((d) => d.name === staticDiv.name);
+    const dbDiv = dbDivisions.find(
+      (d: (typeof dbDivisions)[number]) => d.name === staticDiv.name,
+    );
 
     return {
       ...staticDiv,
