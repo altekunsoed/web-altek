@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { TutorialVideo } from "@/data/tutorials";
 import {
   getTutorialsByCourse,
   getYoutubeEmbedUrl,
+  getYoutubeThumbnailUrl,
   getYoutubeWatchUrl,
 } from "@/data/tutorials";
 import { trapFocusInContainer } from "@/components/altek/focusTrap";
@@ -14,6 +15,53 @@ export interface VideoPlayerModalProps {
   onClose: () => void;
   onSelectVideo: (video: TutorialVideo) => void;
   triggerElement?: HTMLElement | null;
+}
+
+/** Batas tunggu sebelum iframe ditampilkan paksa (agar spinner tidak menggantung). */
+const IFRAME_READY_FALLBACK_MS = 6000;
+
+/**
+ * Area 16:9: thumbnail + spinner tampil lebih dulu, iframe YouTube dimuat di
+ * belakangnya lalu ditampilkan setelah siap, sehingga tidak ada layar gelap/kosong.
+ * Dipasang dengan key={video.id} supaya status "siap" ter-reset tiap ganti video.
+ */
+function VideoStage({ video }: { video: TutorialVideo }) {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(
+      () => setReady(true),
+      IFRAME_READY_FALLBACK_MS,
+    );
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  return (
+    <div
+      className={ready ? "altek-video-stage is-ready" : "altek-video-stage"}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="altek-video-poster"
+        src={getYoutubeThumbnailUrl(video.id)}
+        alt=""
+        aria-hidden="true"
+      />
+      <span
+        className="altek-video-spinner"
+        role="status"
+        aria-label="Memuat video"
+      />
+      <iframe
+        src={getYoutubeEmbedUrl(video.id)}
+        title={video.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        onLoad={() => setReady(true)}
+      />
+    </div>
+  );
 }
 
 /**
@@ -123,16 +171,7 @@ export function VideoPlayerModal({
           </button>
         </div>
 
-        <div className="altek-video-stage">
-          <iframe
-            key={video.id}
-            src={getYoutubeEmbedUrl(video.id)}
-            title={video.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
-        </div>
+        <VideoStage key={video.id} video={video} />
 
         <div className="altek-video-body">
           <div className="altek-video-desc-row">
