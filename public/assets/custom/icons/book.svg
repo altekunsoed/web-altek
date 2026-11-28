@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ALTEK book"><style><![CDATA[
+.p{stroke:#244b70;stroke-width:2.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.a{stroke:#4b9fc3;stroke-width:2.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.d{fill:#4b9fc3;stroke:none}
+.altek-book-cover,.altek-folder-lid,.altek-flip,.altek-tilt,.altek-slide,.altek-pulse,.altek-waves,.altek-spin{transition:transform .52s cubic-bezier(.2,.85,.27,1),opacity .3s;transform-box:fill-box;transform-origin:center}
+.altek-book-cover{transform-origin:right center;transform:scaleX(.20)}
+.altek-folder-lid{transform-origin:top center}
+svg:hover .altek-book-cover{transform:scaleX(1)}
+svg:hover .altek-folder-lid{transform:translateY(-7px) rotate(-7deg)}
+svg:hover .altek-flip{transform:rotateX(58deg) translateY(-2px)}
+svg:hover .altek-tilt{transform:rotate(-13deg) translateY(-2px)}
+svg:hover .altek-slide{transform:translateX(5px)}
+svg:hover .altek-pulse{transform:scale(1.24)}
+svg:hover .altek-waves{transform:scale(1.13);opacity:.63}
+svg:hover .altek-spin{transform:rotate(35deg)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;transform:none!important}}
+]]></style><path class="p" d="M33 17 Q43 10 53 16 V49 Q43 44 33 52Z"/><path class="a" d="M38 23Q43 20 48 22M38 30Q43 27 48 29M38 37h10"/><g class="altek-book-cover"><path class="p" d="M33 17 Q23 11 11 16 V49 Q24 44 33 52Z" fill="var(--altek-icon-wash,#e8f4fc)"/><path class="a" d="M17 23q6-2 11 1M17 30q6-2 11 1M17 37q6-2 11 1"/></g><path class="p" d="M33 17V52"/><path class="a" d="M47 17v13l-4-3-4 3V19"/></svg>

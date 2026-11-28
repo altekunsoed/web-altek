@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 190" width="720" height="190" role="img" aria-label="Animasi Wordmark ALTEK">
+  <style>
+    :root {
+      --altek-ink: #0d1b2c;
+      --altek-accent: #0e8f9e;
+      --altek-glow: rgba(14, 143, 158, 0.35);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --altek-ink: #edf4fc;
+        --altek-accent: #5ee0df;
+        --altek-glow: rgba(94, 224, 223, 0.42);
+      }
+    }
+    .altek-wm-trace {
+      fill: none;
+      stroke: var(--altek-ink);
+      stroke-width: 16;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 480;
+      stroke-dashoffset: 480;
+      animation: altekDrawLetter 0.88s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .altek-wm-accent {
+      stroke: var(--altek-accent);
+    }
+    .altek-wm-letter-a { animation-delay: 0.04s; }
+    .altek-wm-letter-l { animation-delay: 0.14s; }
+    .altek-wm-letter-t { animation-delay: 0.24s; }
+    .altek-wm-letter-e { animation-delay: 0.36s; }
+    .altek-wm-letter-k { animation-delay: 0.48s; }
+    .altek-wm-underline {
+      fill: none;
+      stroke: var(--altek-accent);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 680;
+      stroke-dashoffset: 680;
+      filter: drop-shadow(0 0 7px var(--altek-glow));
+      animation: altekDrawLine 0.62s cubic-bezier(0.22, 1, 0.36, 1) 0.56s forwards;
+    }
+    @keyframes altekDrawLetter {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes altekDrawLine {
+      to { stroke-dashoffset: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .altek-wm-trace, .altek-wm-underline {
+        animation: none !important;
+        stroke-dashoffset: 0 !important;
+      }
+    }
+  </style>
+  <g>
+    <!-- A -->
+    <path class="altek-wm-trace altek-wm-letter-a" d="M 32 146 L 90 36 L 148 146 M 56 108 L 124 108" />
+    <!-- L -->
+    <path class="altek-wm-trace altek-wm-letter-l" d="M 192 36 L 192 146 L 264 146" />
+    <!-- T -->
+    <path class="altek-wm-trace altek-wm-letter-t altek-wm-accent" d="M 294 36 L 414 36 M 354 36 L 354 146" />
+    <!-- E -->
+    <path class="altek-wm-trace altek-wm-letter-e" d="M 526 36 L 452 36 L 452 146 L 526 146 M 452 91 L 514 91" />
+    <!-- K -->
+    <path class="altek-wm-trace altek-wm-letter-k" d="M 568 36 L 568 146 M 656 36 L 574 96 L 658 146" />
+    <!-- Accent baseline -->
+    <line class="altek-wm-underline" x1="28" y1="168" x2="692" y2="168" />
+  </g>
+</svg>

@@ -1,0 +1,672 @@
+/* ============================================================================
+   ALTEK UNSOED — Beranda (Mengacu pada UI v0.6.13, Ink Navy & Teal/Sky/Gold)
+   ============================================================================ */
+
+.altek-home-page {
+  width: 100%;
+}
+
+/* --- Hero Bersih (2-Layer Ink Navy + Building Photo + SVG Editorial Curve) --- */
+.altek-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--altek-hero-gradient);
+  color: #ffffff;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 16px 40px rgba(11, 22, 36, 0.14);
+}
+
+.altek-hero-photo-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.altek-hero-photo-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.altek-hero[data-model="home-clean"] .altek-hero-photo-layer img {
+  object-position: 78% 28%;
+  filter: saturate(0.92) contrast(1.05);
+  transform: scale(1.02);
+  opacity: 0.7;
+}
+
+.altek-hero[data-model="home-clean"] .altek-hero-photo-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      95deg,
+      #0b1624 0%,
+      rgba(11, 22, 36, 0.96) 42%,
+      rgba(13, 27, 44, 0.44) 65%,
+      rgba(13, 27, 44, 0.1) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(11, 22, 36, 0.14) 0%,
+      transparent 36%,
+      rgba(11, 22, 36, 0.7) 100%
+    );
+}
+
+.altek-hero-svg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.altek-hero-svg-layer svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.altek-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.altek-home-open-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 32px;
+  align-items: end;
+  padding: 62px 0 58px;
+}
+
+.altek-hero-copy {
+  max-width: 620px;
+}
+
+.altek-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(245, 193, 93, 0.13);
+  border: 1px solid rgba(245, 193, 93, 0.36);
+  color: #ffe19c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.altek-hero-eyebrow i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 7px;
+  background: #f5c15d;
+  box-shadow: 0 0 10px rgba(245, 193, 93, 0.85);
+}
+
+.altek-hero h1 {
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  margin: 18px 0 18px;
+  max-width: 680px;
+  color: #ffffff;
+  text-shadow: 0 6px 24px rgba(5, 12, 22, 0.34);
+}
+
+.altek-hero h1 span {
+  color: #f5c15d;
+}
+
+.altek-hero p {
+  color: #ccdbeb;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 570px;
+  margin: 0 0 26px;
+}
+
+.altek-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.altek-btn {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 11px;
+  padding: 12px 17px;
+  font-size: 13px;
+  font-weight: 750;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.altek-btn:hover {
+  transform: translateY(-1px);
+}
+
+.altek-btn:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-btn .altek-mini {
+  width: 17px;
+  height: 17px;
+}
+
+.altek-hero .altek-btn-primary {
+  background: #f1f5fa;
+  color: #0d1b2c;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.altek-hero .altek-btn-primary:hover {
+  background: #ffffff;
+}
+
+.altek-hero .altek-btn-ghost {
+  background: rgba(11, 22, 36, 0.46);
+  border: 1px solid rgba(159, 215, 240, 0.36);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.altek-hero .altek-btn-ghost:hover {
+  background: rgba(94, 224, 223, 0.14);
+  border-color: #5ee0df;
+}
+
+.altek-hero-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(159, 215, 240, 0.18);
+}
+
+.altek-hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.altek-hero-stat strong {
+  font-size: 14.5px;
+  font-weight: 850;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.altek-hero-stat small {
+  font-size: 11.5px;
+  color: #a8c1d9;
+}
+
+.altek-hero-right-dock {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.altek-hero-identity-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 10px 12px;
+  border-radius: 16px;
+  background: rgba(11, 22, 36, 0.78);
+  border: 1px solid rgba(245, 193, 93, 0.34);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 36px rgba(4, 10, 18, 0.42);
+}
+
+.altek-hero-identity-pill .altek-brand-logo {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  color: #ffffff;
+}
+
+.altek-hero-identity-pill strong {
+  display: block;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.altek-hero-identity-pill small {
+  display: block;
+  font-size: 11px;
+  color: #c4d7ea;
+  margin-top: 2px;
+}
+
+/* --- Sections & Headings --- */
+.altek-home-section {
+  padding: 58px 0;
+}
+
+.altek-home-section--compact {
+  padding-top: 10px;
+}
+
+.altek-home-section--quick {
+  padding-top: 8px;
+}
+
+.altek-home-section--about {
+  padding-top: 4px;
+}
+
+.altek-home-section + .altek-home-section > .altek-container {
+  border-top: 1px solid var(--altek-line);
+  padding-top: 34px;
+}
+
+.altek-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.altek-kicker {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--altek-muted);
+  font-weight: 750;
+}
+
+.altek-section-head h2 {
+  font-size: clamp(23px, 3vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  margin: 7px 0 0;
+  color: var(--altek-text);
+}
+
+.altek-section-desc {
+  font-size: 13px;
+  color: var(--altek-muted);
+  margin: 8px 0 0;
+  max-width: 570px;
+}
+
+.altek-text-link {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: var(--altek-teal);
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+
+.altek-text-link .altek-mini {
+  width: 16px;
+  height: 16px;
+}
+
+.altek-text-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.altek-text-link:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* --- Pill & Calm Empty State --- */
+.altek-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 750;
+  background: var(--altek-surface-2);
+  color: var(--altek-muted);
+}
+
+.altek-pill.live {
+  background: var(--altek-success-bg);
+  color: var(--altek-success);
+}
+
+.altek-pill.upcoming {
+  background: var(--altek-warning-bg);
+  color: var(--altek-warning);
+}
+
+.altek-rich-empty {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  min-height: 0;
+  padding: 22px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: none;
+  text-align: left;
+}
+
+html[data-theme="dark"] .altek-rich-empty {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-empty-art {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 14px;
+  background: var(--altek-surface-2);
+  border: 1px solid var(--altek-line);
+  display: grid;
+  place-items: center;
+}
+
+.altek-empty-core {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--altek-muted);
+}
+
+.altek-empty-core .altek-icon-box,
+.altek-empty-core svg {
+  width: 28px;
+  height: 28px;
+}
+
+.altek-empty-copy {
+  flex: 1;
+  min-width: 0;
+  max-width: 650px;
+}
+
+.altek-empty-copy > strong {
+  display: block;
+  color: var(--altek-text);
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.altek-empty-copy > p {
+  color: var(--altek-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 5px 0 0;
+  max-width: 540px;
+}
+
+/* --- Akses Cepat --- */
+.altek-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.altek-quick-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 17px;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  transition:
+    transform 190ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-quick-card {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-quick-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 46%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+}
+
+.altek-quick-card:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-quick-card .quick-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+
+.altek-quick-card .quick-icon .altek-icon-box,
+.altek-quick-card .quick-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.altek-quick-card h3 {
+  font-size: 13.5px;
+  font-weight: 750;
+  line-height: 1.35;
+  margin: 1px 0 4px;
+  color: var(--altek-text);
+}
+
+.altek-quick-card p {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--altek-muted);
+  margin: 0;
+}
+
+/* --- About Strip --- */
+.altek-about-strip {
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      var(--altek-teal-soft),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 72% 100%,
+      var(--altek-gold-soft),
+      transparent 30%
+    ),
+    var(--altek-surface-2);
+  border: 1px solid var(--altek-line);
+  border-radius: 22px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 22px;
+}
+
+.altek-about-strip h2 {
+  margin: 7px 0 8px;
+  font-size: clamp(22px, 2.8vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--altek-text);
+}
+
+.altek-about-strip p {
+  margin: 0;
+  color: var(--altek-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  max-width: 690px;
+}
+
+.altek-about-strip-btn {
+  background: var(--altek-navy-850);
+  color: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 30%, var(--altek-line));
+  white-space: nowrap;
+}
+
+.altek-about-strip-btn:hover {
+  background: var(--altek-navy-750);
+}
+
+html[data-theme="dark"] .altek-about-strip-btn {
+  background: var(--altek-teal);
+  color: var(--altek-navy-950);
+  border-color: var(--altek-teal);
+}
+
+html[data-theme="dark"] .altek-about-strip-btn:hover {
+  background: #7ae9e8;
+}
+
+/* --- Responsive Calibration --- */
+@media (max-width: 900px) {
+  .altek-quick-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .altek-home-open-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 44px 0 42px;
+  }
+
+  .altek-hero-right-dock {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .altek-about-strip {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .altek-hero {
+    border-radius: 0 0 22px 22px;
+  }
+
+  .altek-hero[data-model="home-clean"] .altek-hero-photo-layer::after {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 22, 36, 0.88) 0%,
+      rgba(13, 27, 44, 0.78) 58%,
+      rgba(11, 22, 36, 0.9) 100%
+    );
+  }
+
+  .altek-home-open-grid {
+    padding: 36px 0 34px;
+  }
+
+  .altek-hero-meta-strip {
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 14px;
+  }
+
+  .altek-hero-identity-pill {
+    padding: 8px 13px 8px 10px;
+  }
+
+  .altek-hero-identity-pill .altek-brand-logo {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .altek-home-section {
+    padding: 42px 0;
+  }
+
+  .altek-home-section + .altek-home-section > .altek-container {
+    padding-top: 28px;
+  }
+
+  .altek-rich-empty {
+    align-items: flex-start;
+    padding: 18px 16px;
+    gap: 14px;
+  }
+
+  .altek-empty-art {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    border-radius: 12px;
+  }
+
+  .altek-empty-core .altek-icon-box,
+  .altek-empty-core svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .altek-quick-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .altek-btn,
+  .altek-text-link,
+  .altek-quick-card {
+    transition: none;
+  }
+}

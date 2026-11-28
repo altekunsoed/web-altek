@@ -1,0 +1,1813 @@
+/* ============================================================================
+   ALTEK UNSOED — Halaman Praktikum & Detail Mata Kuliah (UI v0.6.13)
+   ============================================================================ */
+
+.altek-praktikum-page,
+.altek-course-detail-page {
+  width: 100%;
+}
+
+/* --- Hero Praktikum Model 2 --- */
+.altek-hero[data-model="praktikum"] .altek-hero-eyebrow {
+  background: rgba(94, 224, 223, 0.11);
+  border-color: rgba(94, 224, 223, 0.3);
+  color: #a2f0f2;
+}
+
+.altek-hero[data-model="praktikum"] .altek-hero-eyebrow i {
+  background: #5ee0df;
+  box-shadow: 0 0 10px rgba(94, 224, 223, 0.85);
+}
+
+.altek-hero[data-model="praktikum"] h1 span {
+  color: #5ee0df;
+}
+
+.altek-hero[data-model="praktikum"] .altek-hero-photo-layer img {
+  object-position: 82% 34%;
+  filter: saturate(0.78) contrast(1.06);
+  clip-path: polygon(58% 0, 100% 0, 100% 100%, 48% 100%);
+  opacity: 0.52;
+}
+
+html[data-theme="dark"]
+  .altek-hero[data-model="praktikum"]
+  .altek-hero-photo-layer
+  img {
+  opacity: 0.56;
+}
+
+.altek-hero[data-model="praktikum"] .altek-hero-photo-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      102deg,
+      #0b1624 0%,
+      #0d1b2c 49%,
+      rgba(13, 27, 44, 0.44) 70%,
+      rgba(14, 143, 158, 0.18) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(11, 22, 36, 0.22) 0%,
+      transparent 38%,
+      rgba(11, 22, 36, 0.74) 100%
+    );
+}
+
+/* --- Tab Navigasi Utama & Subtab --- */
+.altek-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 26px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--altek-line);
+}
+
+.altek-tab-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 13px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-muted);
+  font-size: 13.5px;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+html[data-theme="dark"] .altek-tab-btn {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-tab-btn:hover {
+  color: var(--altek-text);
+  border-color: color-mix(in srgb, var(--altek-teal) 42%, var(--altek-line));
+  background: var(--altek-surface-2);
+}
+
+.altek-tab-btn.active,
+.altek-tab-btn[aria-selected="true"] {
+  background: var(--altek-teal-soft);
+  border-color: color-mix(in srgb, var(--altek-teal) 48%, var(--altek-line));
+  color: var(--altek-text);
+}
+
+.altek-tab-btn:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+#tab-semester-ini,
+#tab-daftar,
+#tab-modul,
+#tab-tutorial {
+  animation: altekAccordionContentIn 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.altek-info-note {
+  margin-top: 18px;
+  padding: 13px 16px;
+  border-radius: 13px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+}
+
+/* --- Tab Daftar Praktikum (13 Mata Kuliah) --- */
+.altek-catalog-toolbar {
+  display: grid;
+  gap: 13px;
+  margin: 20px 0 25px;
+}
+
+.altek-catalog-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 480px;
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid var(--altek-line);
+  border-radius: 13px;
+  background: var(--altek-surface);
+  color: var(--altek-muted);
+}
+
+html[data-theme="dark"] .altek-catalog-search {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-catalog-search:focus-within {
+  border-color: var(--altek-teal);
+  box-shadow: 0 0 0 3px var(--altek-teal-soft);
+}
+
+.altek-catalog-search .altek-mini {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: var(--altek-muted);
+}
+
+.altek-catalog-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--altek-text);
+  font: inherit;
+  font-size: 13px;
+}
+
+.altek-semester-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.altek-filter-btn {
+  position: relative;
+  overflow: hidden;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-muted);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+html[data-theme="dark"] .altek-filter-btn {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-filter-btn:hover {
+  border-color: color-mix(in srgb, var(--altek-teal) 45%, var(--altek-line));
+  color: var(--altek-text);
+}
+
+.altek-filter-btn.active {
+  background: linear-gradient(120deg, #0d1b2c, #14263d 55%, #0e8f9e);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.altek-filter-btn:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-semester-group {
+  margin: 26px 0 34px;
+}
+
+.altek-semester-group-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.altek-semester-group-head h3 {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 4px 0 0;
+  color: var(--altek-text);
+}
+
+.altek-course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.altek-course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 190ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-course-card {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-course-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 52%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+
+  .altek-course-card:hover .altek-course-open-label {
+    background: var(--altek-teal);
+    border-color: var(--altek-teal);
+    color: #ffffff;
+  }
+
+  html[data-theme="dark"] .altek-course-card:hover .altek-course-open-label {
+    color: #0b1624;
+  }
+}
+
+.altek-course-card:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-course-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 82px;
+  padding: 16px 20px 14px;
+  background: var(--altek-surface-2);
+  border-bottom: 1px solid var(--altek-line);
+}
+
+html[data-theme="dark"] .altek-course-card-top {
+  background: #16283d;
+}
+
+/* Kotak Ikon Kartu Daftar Praktikum: 64x64 / SVG 52x52 desktop */
+.altek-course-card .course-icon {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  border-radius: 16px;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, var(--altek-line) 75%, transparent);
+}
+
+.altek-course-card .course-icon .altek-icon-box,
+.altek-course-card .course-icon svg {
+  width: 52px;
+  height: 52px;
+  display: block;
+}
+
+.altek-course-card-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  min-width: 0;
+  text-align: right;
+}
+
+.altek-semester-chip {
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  font-weight: 850;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--altek-surface);
+  border: 1px solid var(--altek-line);
+  color: var(--altek-muted);
+}
+
+.altek-course-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 20px 18px;
+}
+
+.altek-course-card h4 {
+  margin: 0 0 8px;
+  font-size: 15.5px;
+  font-weight: 800;
+  line-height: 1.38;
+  color: var(--altek-text);
+}
+
+.altek-course-card p {
+  margin: 0 0 14px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+}
+
+.altek-card-labs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.altek-card-lab-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+html[data-theme="dark"] .altek-card-lab-chip {
+  background: #192d44;
+  border-color: #2b4563;
+  color: #edf4fc;
+}
+
+.altek-card-lab-chip .altek-mini {
+  width: 14px;
+  height: 14px;
+  color: var(--altek-teal);
+}
+
+.altek-course-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--altek-line);
+}
+
+.altek-module-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 750;
+  color: var(--altek-success);
+}
+
+.altek-module-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--altek-success);
+}
+
+.altek-course-open-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 9px;
+  background: var(--altek-teal-soft);
+  color: var(--altek-text);
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 26%, var(--altek-line));
+  font-size: 11.5px;
+  font-weight: 750;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.altek-course-open-label .altek-mini {
+  width: 14px;
+  height: 14px;
+}
+
+/* --- Tab Modul & Aturan --- */
+.altek-module-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 20px;
+  padding: 16px 18px;
+  border-radius: 15px;
+  background: var(--gradient-soft);
+  border: 1px solid var(--altek-line);
+}
+
+.altek-module-summary-row strong {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-module-summary-row small {
+  display: block;
+  font-size: 12px;
+  color: var(--altek-muted);
+  margin-top: 3px;
+}
+
+.altek-module-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 17px 0 20px;
+}
+
+.altek-module-filter {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--altek-line);
+  border-radius: 10px;
+  color: var(--altek-muted);
+  background: var(--altek-surface);
+  padding: 9px 14px;
+  min-height: 40px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.altek-module-filter:hover {
+  border-color: color-mix(in srgb, var(--altek-teal) 45%, var(--altek-line));
+  color: var(--altek-text);
+}
+
+html[data-theme="dark"] .altek-module-filter {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-module-filter[aria-pressed="true"] {
+  background: linear-gradient(120deg, #0d1b2c, #14263d 55%, #0e8f9e);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.altek-module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.altek-module-card {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 15px;
+  padding: 19px;
+  border: 1px solid var(--altek-line);
+  border-radius: 16px;
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  min-width: 0;
+  transition:
+    transform 190ms ease,
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-module-card {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-module-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 46%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+}
+
+.altek-module-card .altek-module-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+}
+
+.altek-module-card .altek-module-icon .altek-icon-box,
+.altek-module-card .altek-module-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.altek-module-label {
+  display: block;
+  font-size: 11px;
+  color: var(--altek-teal);
+  font-weight: 750;
+}
+
+.altek-module-card strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.45;
+  margin: 4px 0;
+  color: var(--altek-text);
+}
+
+.altek-module-card small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--altek-muted);
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.altek-module-actions {
+  grid-column: 2;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.altek-module-actions a {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid var(--altek-line);
+  border-radius: 9px;
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.altek-module-actions a:first-child {
+  color: #ffffff;
+  background: var(--altek-navy-850);
+  border-color: var(--altek-navy-850);
+}
+
+html[data-theme="dark"] .altek-module-actions a:first-child {
+  background: var(--altek-teal);
+  border-color: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.altek-module-actions a:hover {
+  border-color: var(--altek-teal);
+}
+
+/* --- Aturan & Pedoman Praktikum --- */
+.altek-policy-section {
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid var(--altek-line);
+}
+
+.altek-policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.altek-policy-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px;
+  min-width: 0;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  transition:
+    transform 190ms ease,
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-policy-card {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-policy-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 46%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+}
+
+.altek-policy-card:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-policy-card .policy-icon {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+}
+
+.altek-policy-card .policy-icon .altek-icon-box,
+.altek-policy-card .policy-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.altek-policy-card-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.altek-policy-card-copy small {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  color: var(--altek-muted);
+}
+
+.altek-policy-card-copy h3 {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.38;
+  margin: 4px 0 6px;
+  color: var(--altek-text);
+}
+
+.altek-policy-card-copy p {
+  font-size: 12.5px;
+  line-height: 1.58;
+  color: var(--altek-muted);
+  margin: 0;
+}
+
+.altek-policy-card-arrow {
+  align-self: center;
+  color: var(--altek-teal);
+  display: inline-flex;
+}
+
+.altek-policy-card-arrow .altek-mini {
+  width: 18px;
+  height: 18px;
+}
+
+.altek-policy-official-note,
+.altek-policy-sheet-note {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  margin-top: 16px;
+  border: 1px solid var(--altek-line);
+  border-radius: 13px;
+  background: var(--gradient-soft);
+}
+
+.altek-policy-note-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: var(--altek-surface);
+  border: 1px solid var(--altek-line);
+  color: var(--altek-teal);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.altek-policy-official-note strong,
+.altek-policy-sheet-note strong {
+  display: block;
+  font-size: 13px;
+  color: var(--altek-text);
+}
+
+.altek-policy-official-note p,
+.altek-policy-sheet-note p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+  margin: 3px 0 0;
+}
+
+/* --- PolicyDetailModal --- */
+.altek-policy-sections {
+  display: grid;
+  gap: 12px;
+}
+
+.modal-close-btn {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--altek-line);
+  border-radius: 12px;
+  background: var(--altek-surface);
+  color: var(--altek-text);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--altek-navy-850);
+  border-color: var(--altek-navy-850);
+  color: var(--altek-surface);
+}
+
+html[data-theme="dark"] .modal-close-btn {
+  background: var(--altek-surface-2);
+}
+
+html[data-theme="dark"] .modal-close-btn:hover {
+  background: var(--altek-teal);
+  border-color: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.modal-close-btn:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-policy-section-panel {
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+}
+
+html[data-theme="dark"] .altek-policy-section-panel {
+  background: #16283d;
+}
+
+.altek-policy-section-panel small {
+  display: block;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  color: var(--altek-teal);
+  margin-bottom: 3px;
+}
+
+.altek-policy-section-panel h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-policy-sheet-list {
+  padding-left: 18px;
+  margin: 10px 0 2px;
+  display: grid;
+  gap: 7px;
+}
+
+.altek-policy-sheet-list li {
+  font-size: 13px;
+  line-height: 1.62;
+  color: var(--altek-muted);
+}
+
+.altek-policy-grade-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+  border: 1px solid var(--altek-line);
+  border-radius: 12px;
+  background: var(--altek-surface);
+}
+
+.altek-policy-grade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.altek-policy-grade-table th,
+.altek-policy-grade-table td {
+  padding: 10px 13px;
+  text-align: left;
+  border-bottom: 1px solid var(--altek-line);
+}
+
+.altek-policy-grade-table th {
+  background: var(--altek-surface-2);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--altek-muted);
+}
+
+.altek-policy-grade-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.altek-policy-grade-table td:last-child {
+  color: var(--altek-teal);
+  font-weight: 850;
+}
+
+.altek-policy-doc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* --- Halaman Detail Mata Kuliah (/praktikum/[slug]) --- */
+.altek-course-detail-page .altek-page-content {
+  padding-top: 28px;
+  padding-bottom: 64px;
+}
+
+.altek-course-detail-banner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 22px;
+  padding: 24px 26px 26px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(94, 224, 223, 0.24);
+  background:
+    radial-gradient(
+      circle at 88% 14%,
+      rgba(94, 224, 223, 0.16),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 12% 100%,
+      rgba(245, 193, 93, 0.12),
+      transparent 40%
+    ),
+    var(--altek-hero-gradient);
+  color: #ffffff;
+  box-shadow: 0 16px 38px rgba(11, 22, 36, 0.16);
+}
+
+.altek-detail-back-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.altek-detail-back-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 9px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(159, 215, 240, 0.3);
+  background: rgba(11, 22, 36, 0.45);
+  color: #edf4fc;
+  font-size: 12.5px;
+  font-weight: 750;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.altek-detail-back-btn .altek-mini {
+  width: 17px;
+  height: 17px;
+}
+
+.altek-detail-back-btn:hover,
+.altek-detail-back-btn:focus-visible {
+  background: rgba(94, 224, 223, 0.16);
+  border-color: #5ee0df;
+  color: #ffffff;
+}
+
+.altek-detail-back-btn:focus-visible {
+  outline: 3px solid #5ee0df;
+  outline-offset: 2px;
+}
+
+.altek-course-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 750;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(11, 22, 36, 0.5);
+  color: #dcebf8;
+}
+
+.altek-course-status-pill.is-started {
+  background: rgba(36, 122, 89, 0.32);
+  border-color: rgba(118, 198, 162, 0.48);
+  color: #b7f5db;
+}
+
+.altek-course-status-pill.is-pending {
+  background: rgba(217, 143, 40, 0.26);
+  border-color: rgba(245, 193, 93, 0.48);
+  color: #ffe2a4;
+}
+
+.altek-course-status-pill i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.altek-course-banner-main {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.altek-course-banner-icon {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  border-radius: 19px;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(159, 215, 240, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.altek-course-banner-icon .altek-icon-box,
+.altek-course-banner-icon svg {
+  width: 56px;
+  height: 56px;
+}
+
+.altek-course-banner-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.altek-course-banner-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.altek-course-kicker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(94, 224, 223, 0.14);
+  border: 1px solid rgba(94, 224, 223, 0.34);
+  color: #a8f4f2;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.altek-course-kicker-pill i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5ee0df;
+}
+
+.altek-course-banner-copy h1 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 850;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+
+.altek-course-banner-copy p {
+  margin: 0;
+  color: #c7d9ec;
+  font-size: 13.5px;
+  line-height: 1.65;
+  max-width: 66ch;
+}
+
+.altek-course-banner-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(159, 215, 240, 0.2);
+}
+
+.altek-banner-meta-chip {
+  padding: 10px 13px;
+  border-radius: 12px;
+  background: rgba(11, 22, 36, 0.45);
+  border: 1px solid rgba(159, 215, 240, 0.2);
+}
+
+.altek-banner-meta-chip small {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8fd8e0;
+}
+
+.altek-banner-meta-chip strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+/* --- Subtab Panels (Modul, Kelas, Starterpack, Tutorial) --- */
+.altek-course-module-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.altek-course-detail-section {
+  border-radius: 18px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  padding: 22px 24px;
+}
+
+html[data-theme="dark"] .altek-course-detail-section {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-course-detail-section > h3 {
+  margin: 0 0 14px;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-course-module-action-card {
+  display: grid;
+  gap: 14px;
+}
+
+.altek-course-module-file {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+}
+
+.altek-course-module-file .module-card-icon {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+}
+
+.altek-course-module-file .module-card-icon .altek-icon-box,
+.altek-course-module-file .module-card-icon svg {
+  width: 46px;
+  height: 46px;
+}
+
+.altek-module-badge-alt,
+.altek-module-semester-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.altek-module-semester-label {
+  background: var(--altek-surface);
+  border: 1px solid var(--altek-line);
+  color: var(--altek-muted);
+}
+
+.altek-module-badge-alt {
+  background: var(--altek-gold-soft);
+  color: var(--altek-gold);
+}
+
+.altek-course-module-file strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-course-module-file small {
+  display: block;
+  font-size: 12px;
+  color: var(--altek-muted);
+  overflow-wrap: anywhere;
+}
+
+.altek-module-subdesc {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--altek-muted);
+}
+
+.altek-course-resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.altek-btn-doc-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #0d1b2c, #14263d 55%, #0e8f9e);
+  color: #ffffff;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: opacity 180ms ease;
+}
+
+.altek-btn-doc-primary:hover {
+  opacity: 0.92;
+}
+
+.altek-btn-doc-download {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  border: 1px solid var(--altek-line);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.altek-btn-doc-download:hover {
+  border-color: var(--altek-teal);
+  background: var(--altek-teal-soft);
+}
+
+.altek-btn-doc-primary .altek-mini,
+.altek-btn-doc-download .altek-mini {
+  width: 17px;
+  height: 17px;
+}
+
+/* Silabus & Tools */
+.altek-course-syllabus-card {
+  margin-top: 16px;
+  border: 1px solid var(--altek-line);
+  border-radius: 18px;
+  padding: 22px 24px;
+  background: var(--altek-surface);
+  display: grid;
+  gap: 16px;
+}
+
+html[data-theme="dark"] .altek-course-syllabus-card {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-syllabus-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.altek-syllabus-head h3 {
+  margin: 4px 0 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-syllabus-edition {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: var(--altek-teal-soft);
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 32%, var(--altek-line));
+  color: var(--altek-text);
+  font-size: 11.5px;
+  font-weight: 750;
+}
+
+.altek-syllabus-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+  counter-reset: altek-unit;
+}
+
+.altek-syllabus-list li {
+  counter-increment: altek-unit;
+  position: relative;
+  padding: 12px 14px 12px 46px;
+  border-radius: 12px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.altek-syllabus-list li::before {
+  content: counter(altek-unit, decimal-leading-zero);
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: var(--altek-teal-soft);
+  color: var(--altek-teal);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+html[data-theme="dark"] .altek-syllabus-list li {
+  background: #192d44;
+  border-color: #233a54;
+  color: #edf4fc;
+}
+
+.altek-syllabus-tools-wrap {
+  padding-top: 14px;
+  border-top: 1px solid var(--altek-line);
+  display: grid;
+  gap: 10px;
+}
+
+.altek-syllabus-tools-label {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--altek-muted);
+}
+
+.altek-tool-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.altek-tool-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 9px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .altek-tool-chips span {
+  background: #192d44;
+  border-color: #2b4563;
+  color: #edf4fc;
+}
+
+/* Lab Resmi */
+.altek-official-labs-panel {
+  border: 1px solid var(--altek-line);
+  border-radius: 18px;
+  padding: 20px 22px;
+  background: var(--altek-surface);
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+html[data-theme="dark"] .altek-official-labs-panel {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-official-labs-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.altek-official-labs-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 13px;
+  background: var(--altek-surface-2);
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 28%, var(--altek-line));
+  display: grid;
+  place-items: center;
+}
+
+.altek-official-labs-icon .altek-icon-box,
+.altek-official-labs-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.altek-official-labs-head h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-official-labs-head small {
+  display: block;
+  font-size: 12px;
+  color: var(--altek-muted);
+  margin-top: 2px;
+}
+
+.altek-official-lab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.altek-official-lab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 11px;
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 36%, var(--altek-line));
+  background: var(--altek-teal-soft);
+  color: var(--altek-text);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.altek-official-lab-pill i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--altek-teal);
+}
+
+/* Starterpack */
+.altek-starterpack-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.altek-starterpack-head h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-starterpack-intro {
+  margin: 5px 0 0;
+  color: var(--altek-muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.altek-starterpack-count {
+  flex-shrink: 0;
+  border: 1px solid var(--altek-line);
+  border-radius: 999px;
+  background: var(--altek-surface-2);
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--altek-muted);
+}
+
+.altek-starterpack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.altek-starterpack-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--altek-line);
+  border-radius: 16px;
+  background: var(--altek-surface);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--altek-shadow-card);
+  transition:
+    transform 190ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-starterpack-card {
+  background: var(--altek-surface-2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-starterpack-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 46%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+}
+
+.altek-starterpack-card-head {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.altek-starterpack-card-head .starterpack-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  padding: 4px;
+}
+
+.altek-starterpack-card-head .starterpack-icon .altek-icon-box,
+.altek-starterpack-card-head .starterpack-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.altek-starterpack-type {
+  display: block;
+  color: var(--altek-teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.altek-starterpack-title {
+  display: block;
+  color: var(--altek-text);
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+  margin-top: 3px;
+  overflow-wrap: anywhere;
+}
+
+.altek-starterpack-description {
+  margin: 10px 0 0;
+  color: var(--altek-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.altek-starterpack-file {
+  font-size: 11.5px;
+  color: var(--altek-muted);
+  overflow-wrap: anywhere;
+  margin: 8px 0 0;
+}
+
+.altek-starterpack-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* Subtab Tutorial di Detail Mata Kuliah */
+.altek-course-tut-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.altek-course-tut-head h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-course-tut-head p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--altek-muted);
+}
+
+.altek-course-tut-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+}
+
+html[data-theme="dark"] .altek-course-tut-empty {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-course-tut-empty strong {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-course-tut-empty p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+  max-width: 62ch;
+}
+
+/* --- Responsive Calibration --- */
+@media (max-width: 900px) {
+  .altek-course-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .altek-course-banner-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .altek-hero[data-model="praktikum"] .altek-hero-photo-layer img {
+    clip-path: none;
+    opacity: 0.34;
+  }
+}
+
+@media (max-width: 800px) {
+  .altek-module-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .altek-starterpack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .altek-starterpack-head {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 680px) {
+  .altek-course-grid,
+  .altek-policy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Kotak Ikon Kartu Daftar Praktikum: 56x56 / SVG 46x46 mobile */
+  .altek-course-card .course-icon {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    border-radius: 14px;
+    padding: 4px;
+  }
+
+  .altek-course-card .course-icon .altek-icon-box,
+  .altek-course-card .course-icon svg {
+    width: 46px;
+    height: 46px;
+  }
+
+  .altek-catalog-search {
+    max-width: none;
+  }
+
+  .altek-semester-filter {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .altek-filter-btn {
+    white-space: nowrap;
+  }
+
+  .altek-module-card {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .altek-module-card .altek-module-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .altek-module-card .altek-module-icon .altek-icon-box,
+  .altek-module-card .altek-module-icon svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .altek-course-detail-banner {
+    padding: 20px 18px;
+  }
+
+  .altek-course-banner-main {
+    align-items: flex-start;
+  }
+
+  .altek-course-banner-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .altek-course-detail-section,
+  .altek-course-syllabus-card {
+    padding: 18px 16px;
+  }
+
+  .altek-syllabus-list li {
+    padding: 11px 12px 11px 42px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #tab-semester-ini,
+  #tab-daftar,
+  #tab-modul,
+  #tab-tutorial,
+  .altek-tab-btn,
+  .altek-filter-btn,
+  .altek-course-card,
+  .altek-course-open-label,
+  .altek-module-filter,
+  .altek-module-card,
+  .altek-module-actions a,
+  .altek-policy-card,
+  .modal-close-btn,
+  .altek-detail-back-btn,
+  .altek-btn-doc-primary,
+  .altek-btn-doc-download,
+  .altek-starterpack-card {
+    animation: none !important;
+    transition: none !important;
+  }
+}

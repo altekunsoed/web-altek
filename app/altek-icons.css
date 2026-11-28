@@ -1,0 +1,993 @@
+/* ALTEK Official Icon Library v1.2.1 — Internal SVG Animations */
+/* ============================================================================
+ ALTEK Official Icon Library v1.2.1 PATCH — Consolidated Styles (58 SVGs)
+ Desktop :hover separated via @media (hover: hover) to prevent mobile sticky hover
+ ============================================================================ */
+.altek-master-icon[data-icon="activity"] .altek_detail_activity_pulse{
+ stroke-dasharray:26 88;stroke-dashoffset:0;
+ animation:altekActivityPulse 3.2s linear infinite;
+}
+.altek-master-icon[data-icon="activity"] .altek_detail_activity_led1{
+ animation:altekActivityLed 2.6s ease-in-out infinite;
+}
+.altek-master-icon[data-icon="activity"] .altek_detail_activity_led2{
+ animation:altekActivityLed 2.6s ease-in-out -1.3s infinite;
+}
+.altek-master-icon[data-icon="activity"] .altek_detail_activity_wave_wrap{
+ opacity:.78;transition:opacity .3s ease,filter .3s ease;
+}
+.altek-master-icon[data-icon="activity"] .altek_detail_activity_bezel_glow{
+ opacity:0;transition:opacity .3s ease;
+}
+.altek-master-icon[data-icon="activity"] .altek_detail_activity_badge{
+ transform-box:view-box;transform-origin:97px 27px;transform:scale(.86);opacity:.82;
+ transition:transform .36s cubic-bezier(.22,.86,.2,1),opacity .26s ease;
+}
+.altek-master-icon[data-icon="activity"] .altek_detail_activity_bar{
+ transform-box:view-box;transform-origin:60px 95px;transform:scaleX(.62);
+ transition:transform .38s cubic-bezier(.22,.84,.2,1);
+}
+.altek-master-icon[data-icon="activity"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_activity_wave_wrap{opacity:1;filter:drop-shadow(0 0 3.5px rgba(255,222,135,.8));}
+.altek-master-icon[data-icon="activity"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_activity_bezel_glow{opacity:.85;}
+.altek-master-icon[data-icon="activity"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_activity_badge{transform:scale(1.1);opacity:1;}
+.altek-master-icon[data-icon="activity"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_activity_bar{transform:scaleX(1);}
+@keyframes altekActivityPulse{to{stroke-dashoffset:-114}}
+@keyframes altekActivityLed{0%,100%{opacity:.4}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .altek-master-icon[data-icon="activity"] *{animation:none!important;transition:none!important}
+ .altek-master-icon[data-icon="activity"] .altek_detail_activity_pulse{stroke-dasharray:none;opacity:.85}
+}
+.altek-icon[data-icon="antenna"] .sd_ant_w1{animation:altekSdAntWave 2.4s ease-in-out infinite}
+.altek-icon[data-icon="antenna"] .sd_ant_w2{animation:altekSdAntWave 2.4s ease-in-out -.8s infinite}
+.altek-icon[data-icon="antenna"] .sd_ant_w3{animation:altekSdAntWave 2.4s ease-in-out -1.6s infinite}
+.altek-icon[data-icon="antenna"] .sd_ant_beacon{
+ transform-box:view-box;transform-origin:64px 31px;
+ animation:altekSdAntBeacon 2.4s ease-in-out infinite;
+}
+.altek-icon[data-icon="antenna"] .sd_ant_waves_wrap{
+ filter:drop-shadow(0 0 0 rgba(34,205,196,0));
+ transition:filter .3s ease,transform .36s cubic-bezier(.22,.84,.2,1);
+ transform-box:view-box;transform-origin:64px 31px;transform:scale(1);
+}
+.altek-icon[data-icon="antenna"] .sd_ant_bar{
+ transform-box:view-box;transform-origin:34px 96px;transform:scaleX(.55);
+ transition:transform .38s cubic-bezier(.22,.84,.2,1);
+}
+.altek-icon[data-icon="antenna"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ant_waves_wrap{transform:scale(1.06);filter:drop-shadow(0 0 4px rgba(34,205,196,.75));}
+.altek-icon[data-icon="antenna"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ant_bar{transform:scaleX(1);}
+@keyframes altekSdAntWave{
+ 0%,100%{opacity:.32}
+ 40%{opacity:1}
+ 75%{opacity:.45}
+}
+@keyframes altekSdAntBeacon{
+ 0%,100%{transform:scale(.94)}
+ 45%{transform:scale(1.12)}
+}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="antenna"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="antenna"] .sd_ant_w1,
+ .altek-icon[data-icon="antenna"] .sd_ant_w2,
+ .altek-icon[data-icon="antenna"] .sd_ant_w3{opacity:.9}
+}
+.altek-icon[data-icon="arrow-left"] .altek_detail_arrow_left_unit{transform-box:view-box;transform:translateX(0);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="arrow-left"] .altek_detail_arrow_left_trail{transform-box:view-box;transform:translateX(0);transition:transform .38s cubic-bezier(.22,.84,.2,1) .03s}
+.altek-icon[data-icon="arrow-left"] .altek_detail_arrow_left_lines{opacity:.68;transition:opacity .26s ease}
+.altek-icon[data-icon="arrow-left"] .altek_detail_arrow_left_dot{transform-box:view-box;transform-origin:101px 64px;transform:scale(1);transition:transform .32s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="arrow-left"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_arrow_left_unit{transform:translateX(-8px)}
+.altek-icon[data-icon="arrow-left"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_arrow_left_trail{transform:translateX(-4px)}
+.altek-icon[data-icon="arrow-left"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_arrow_left_lines{opacity:1}
+.altek-icon[data-icon="arrow-left"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_arrow_left_dot{transform:scale(1.12)}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="arrow-left"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="arrow-right"] .sd_ar_unit{transform-box:view-box;transform:translateX(0);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="arrow-right"] .sd_ar_trail{transform-box:view-box;transform:translateX(0);transition:transform .38s cubic-bezier(.22,.84,.2,1) .03s}
+.altek-icon[data-icon="arrow-right"] .sd_ar_lines{opacity:.72;transition:opacity .26s ease}
+.altek-icon[data-icon="arrow-right"] .sd_ar_dot{transform-box:view-box;transform-origin:27px 64px;transform:scale(1);transition:transform .32s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="arrow-right"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ar_unit{transform:translateX(6px)}
+.altek-icon[data-icon="arrow-right"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ar_trail{transform:translateX(4px)}
+.altek-icon[data-icon="arrow-right"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ar_lines{opacity:1}
+.altek-icon[data-icon="arrow-right"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ar_dot{transform:scale(1.14)}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="arrow-right"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="atom"] .sd_atom_e1{transform:translate(48px,0);animation:altekSdAtomE1 4.2s linear infinite}
+.altek-icon[data-icon="atom"] .sd_atom_e2{transform:translate(-24px,17.32px);animation:altekSdAtomE2 4.8s linear infinite}
+.altek-icon[data-icon="atom"] .sd_atom_e3{transform:translate(-24px,-17.32px);animation:altekSdAtomE3 5.4s linear infinite}
+.altek-icon[data-icon="atom"] .sd_atom_core{
+ transform-box:view-box;transform-origin:64px 64px;transform:scale(1);
+ filter:drop-shadow(0 0 0 rgba(246,188,78,0));
+ transition:transform .36s cubic-bezier(.22,.86,.2,1),filter .3s ease;
+}
+.altek-icon[data-icon="atom"] .sd_atom_orbits{
+ filter:drop-shadow(0 0 0 rgba(83,205,218,0));
+ transition:filter .3s ease;
+}
+.altek-icon[data-icon="atom"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_atom_core{transform:scale(1.12);filter:drop-shadow(0 0 6px rgba(246,188,78,.75));}
+.altek-icon[data-icon="atom"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_atom_orbits{filter:drop-shadow(0 0 3px rgba(104,218,220,.6));}
+@keyframes altekSdAtomE1{0%{transform:translate(48.0px,0.0px)}4.17%{transform:translate(46.36px,5.18px)}8.33%{transform:translate(41.57px,10.0px)}12.5%{transform:translate(33.94px,14.14px)}16.67%{transform:translate(24.0px,17.32px)}20.83%{transform:translate(12.42px,19.32px)}25%{transform:translate(0.0px,20.0px)}29.17%{transform:translate(-12.42px,19.32px)}33.33%{transform:translate(-24.0px,17.32px)}37.5%{transform:translate(-33.94px,14.14px)}41.67%{transform:translate(-41.57px,10.0px)}45.83%{transform:translate(-46.36px,5.18px)}50%{transform:translate(-48.0px,0.0px)}54.17%{transform:translate(-46.36px,-5.18px)}58.33%{transform:translate(-41.57px,-10.0px)}62.5%{transform:translate(-33.94px,-14.14px)}66.67%{transform:translate(-24.0px,-17.32px)}70.83%{transform:translate(-12.42px,-19.32px)}75%{transform:translate(-0.0px,-20.0px)}79.17%{transform:translate(12.42px,-19.32px)}83.33%{transform:translate(24.0px,-17.32px)}87.5%{transform:translate(33.94px,-14.14px)}91.67%{transform:translate(41.57px,-10.0px)}95.83%{transform:translate(46.36px,-5.18px)}100%{transform:translate(48.0px,-0.0px)}}
+@keyframes altekSdAtomE2{0%{transform:translate(-24.0px,17.32px)}4.17%{transform:translate(-33.94px,14.14px)}8.33%{transform:translate(-41.57px,10.0px)}12.5%{transform:translate(-46.36px,5.18px)}16.67%{transform:translate(-48.0px,0.0px)}20.83%{transform:translate(-46.36px,-5.18px)}25%{transform:translate(-41.57px,-10.0px)}29.17%{transform:translate(-33.94px,-14.14px)}33.33%{transform:translate(-24.0px,-17.32px)}37.5%{transform:translate(-12.42px,-19.32px)}41.67%{transform:translate(-0.0px,-20.0px)}45.83%{transform:translate(12.42px,-19.32px)}50%{transform:translate(24.0px,-17.32px)}54.17%{transform:translate(33.94px,-14.14px)}58.33%{transform:translate(41.57px,-10.0px)}62.5%{transform:translate(46.36px,-5.18px)}66.67%{transform:translate(48.0px,-0.0px)}70.83%{transform:translate(46.36px,5.18px)}75%{transform:translate(41.57px,10.0px)}79.17%{transform:translate(33.94px,14.14px)}83.33%{transform:translate(24.0px,17.32px)}87.5%{transform:translate(12.42px,19.32px)}91.67%{transform:translate(0.0px,20.0px)}95.83%{transform:translate(-12.42px,19.32px)}100%{transform:translate(-24.0px,17.32px)}}
+@keyframes altekSdAtomE3{0%{transform:translate(-24.0px,-17.32px)}4.17%{transform:translate(-12.42px,-19.32px)}8.33%{transform:translate(-0.0px,-20.0px)}12.5%{transform:translate(12.42px,-19.32px)}16.67%{transform:translate(24.0px,-17.32px)}20.83%{transform:translate(33.94px,-14.14px)}25%{transform:translate(41.57px,-10.0px)}29.17%{transform:translate(46.36px,-5.18px)}33.33%{transform:translate(48.0px,-0.0px)}37.5%{transform:translate(46.36px,5.18px)}41.67%{transform:translate(41.57px,10.0px)}45.83%{transform:translate(33.94px,14.14px)}50%{transform:translate(24.0px,17.32px)}54.17%{transform:translate(12.42px,19.32px)}58.33%{transform:translate(0.0px,20.0px)}62.5%{transform:translate(-12.42px,19.32px)}66.67%{transform:translate(-24.0px,17.32px)}70.83%{transform:translate(-33.94px,14.14px)}75%{transform:translate(-41.57px,10.0px)}79.17%{transform:translate(-46.36px,5.18px)}83.33%{transform:translate(-48.0px,0.0px)}87.5%{transform:translate(-46.36px,-5.18px)}91.67%{transform:translate(-41.57px,-10.0px)}95.83%{transform:translate(-33.94px,-14.14px)}100%{transform:translate(-24.0px,-17.32px)}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="atom"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="atom"] .sd_atom_e1{transform:translate(48px,0)}
+ .altek-icon[data-icon="atom"] .sd_atom_e2{transform:translate(-24px,17.3px)}
+ .altek-icon[data-icon="atom"] .sd_atom_e3{transform:translate(-24px,-17.3px)}
+}
+.altek-master-icon[data-icon="battery"] .altek_detail_battery_c1{
+ animation:altekBatteryCell1 3.6s ease-in-out infinite;
+}
+.altek-master-icon[data-icon="battery"] .altek_detail_battery_c2{
+ animation:altekBatteryCell2 3.6s ease-in-out infinite;
+}
+.altek-master-icon[data-icon="battery"] .altek_detail_battery_c3{
+ animation:altekBatteryCell3 3.6s ease-in-out infinite;
+}
+.altek-master-icon[data-icon="battery"] .altek_detail_battery_led{
+ animation:altekBatteryLed 3.6s ease-in-out infinite;
+}
+.altek-master-icon[data-icon="battery"] .altek_detail_battery_cells_wrap{
+ filter:drop-shadow(0 0 0 rgba(150,245,223,0));
+ transition:filter .32s ease;
+}
+.altek-master-icon[data-icon="battery"] .altek_detail_battery_bolt{
+ transform-box:view-box;transform-origin:61px 33px;transform:translateY(0) scale(1);
+ filter:drop-shadow(0 0 0 rgba(255,222,125,0));
+ transition:transform .38s cubic-bezier(.22,.86,.2,1),filter .3s ease;
+}
+.altek-master-icon[data-icon="battery"] .altek_detail_battery_cap{
+ transform-box:view-box;transform:translateX(0);
+ transition:transform .34s cubic-bezier(.22,.84,.2,1);
+}
+.altek-master-icon[data-icon="battery"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_battery_cells_wrap{filter:drop-shadow(0 0 4px rgba(130,245,216,.7));}
+.altek-master-icon[data-icon="battery"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_battery_bolt{transform:translateY(-4px) scale(1.09);filter:drop-shadow(0 0 4px rgba(255,222,125,.8));}
+.altek-master-icon[data-icon="battery"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_battery_cap{transform:translateX(1.5px);}
+@keyframes altekBatteryCell1{
+ 0%{opacity:.25}
+ 12%,82%{opacity:1}
+ 94%,100%{opacity:.25}
+}
+@keyframes altekBatteryCell2{
+ 0%,24%{opacity:.12}
+ 36%,82%{opacity:1}
+ 94%,100%{opacity:.12}
+}
+@keyframes altekBatteryCell3{
+ 0%,48%{opacity:.12}
+ 60%,82%{opacity:1}
+ 94%,100%{opacity:.12}
+}
+@keyframes altekBatteryLed{
+ 0%,55%{opacity:.35}
+ 68%,84%{opacity:1}
+ 96%,100%{opacity:.35}
+}
+@media(prefers-reduced-motion:reduce){
+ .altek-master-icon[data-icon="battery"] *{animation:none!important;transition:none!important}
+ .altek-master-icon[data-icon="battery"] .altek_detail_battery_c1,
+ .altek-master-icon[data-icon="battery"] .altek_detail_battery_c2,
+ .altek-master-icon[data-icon="battery"] .altek_detail_battery_c3{opacity:1}
+}
+.altek-icon[data-icon="binary"] .sd_bin_a{animation:altekSdBinA 4s linear infinite}
+.altek-icon[data-icon="binary"] .sd_bin_b{opacity:0;animation:altekSdBinB 4s linear infinite}
+.altek-icon[data-icon="binary"] .sd_bin_scan{transform-box:view-box;animation:altekSdBinScan 4s linear infinite}
+.altek-icon[data-icon="binary"] .sd_bin_l1{animation:altekSdBinLed 2s ease-in-out infinite}
+.altek-icon[data-icon="binary"] .sd_bin_l2{animation:altekSdBinLed 2s ease-in-out -.66s infinite}
+.altek-icon[data-icon="binary"] .sd_bin_l3{animation:altekSdBinLed 2s ease-in-out -1.33s infinite}
+.altek-icon[data-icon="binary"] .sd_bin_scan_wrap{opacity:.72;transition:opacity .28s ease,filter .28s ease}
+.altek-icon[data-icon="binary"] .sd_bin_bezel{opacity:0;transition:opacity .28s ease}
+.altek-icon[data-icon="binary"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_bin_scan_wrap{opacity:1;filter:drop-shadow(0 0 4px rgba(150,252,233,.9))}
+.altek-icon[data-icon="binary"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_bin_bezel{opacity:.95}
+@keyframes altekSdBinA{
+ 0%,17.9%{opacity:1}
+ 18%,67.9%{opacity:0}
+ 68%,100%{opacity:1}
+}
+@keyframes altekSdBinB{
+ 0%,17.9%{opacity:0}
+ 18%,67.9%{opacity:1}
+ 68%,100%{opacity:0}
+}
+@keyframes altekSdBinScan{
+ 0%{transform:translateY(0);opacity:0}
+ 5%{opacity:1}
+ 31%{opacity:1}
+ 36%{transform:translateY(52px);opacity:0}
+ 49.9%{transform:translateY(0);opacity:0}
+ 50%{transform:translateY(0);opacity:0}
+ 55%{opacity:1}
+ 81%{opacity:1}
+ 86%{transform:translateY(52px);opacity:0}
+ 100%{transform:translateY(0);opacity:0}
+}
+@keyframes altekSdBinLed{0%,100%{opacity:.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="binary"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="binary"] .sd_bin_a{opacity:1}
+ .altek-icon[data-icon="binary"] .sd_bin_b{opacity:0}
+ .altek-icon[data-icon="binary"] .sd_bin_scan{opacity:0}
+}
+.altek-icon[data-icon="book"] .sd_book_closed{
+ transform-box:view-box;transform-origin:64px 64px;
+ transform:translateX(0) scaleX(1) skewY(0deg);opacity:1;
+ transition:transform .26s cubic-bezier(.32,.08,.28,1) .24s,opacity .1s ease .24s;
+}
+.altek-icon[data-icon="book"] .sd_book_spread_l{
+ transform-box:view-box;transform-origin:64px 64px;
+ transform:scaleX(.05) skewY(8deg);opacity:0;
+ transition:transform .26s cubic-bezier(.38,.06,.35,1) 0s,opacity .1s ease .16s;
+}
+.altek-icon[data-icon="book"] .sd_book_spread_r{
+ transform-box:view-box;transform-origin:64px 64px;
+ transform:scaleX(.05) skewY(-8deg);opacity:0;
+ transition:transform .26s cubic-bezier(.38,.06,.35,1) 0s,opacity .1s ease .16s;
+}
+.altek-icon[data-icon="book"] .sd_book_spine_mid{
+ transform-box:view-box;transform-origin:64px 64px;
+ transform:scaleX(.3);opacity:0;
+ transition:transform .22s ease .08s,opacity .12s ease .14s;
+}
+.altek-icon[data-icon="book"] .sd_book_ribbon{
+ transform-box:view-box;transform-origin:64px 20px;
+ transform:translateY(-8px) scaleY(.2);opacity:0;
+ transition:transform .2s ease 0s,opacity .12s ease 0s;
+}
+.altek-icon[data-icon="book"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_book_closed{transform:translateX(-16px) scaleX(.07) skewY(-9deg);opacity:0;
+ transition:transform .24s cubic-bezier(.4,.04,.35,1) 0s,opacity .08s ease .18s;}
+.altek-icon[data-icon="book"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_book_spine_mid{transform:scaleX(1);opacity:1;
+ transition:transform .24s cubic-bezier(.22,.84,.2,1) .16s,opacity .12s ease .16s;}
+.altek-icon[data-icon="book"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_book_spread_l,
+.altek-icon[data-icon="book"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_book_spread_r{transform:scaleX(1) skewY(0deg);opacity:1;
+ transition:transform .34s cubic-bezier(.22,.86,.22,1) .2s,opacity .1s ease .18s;}
+.altek-icon[data-icon="book"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_book_ribbon{transform:translateY(0) scaleY(1);opacity:1;
+ transition:transform .3s cubic-bezier(.22,.86,.22,1) .36s,opacity .16s ease .36s;}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="book"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="calendar"] .sd_cal_front_page{
+ transform-box:view-box;transform-origin:64px 48px;
+ transform:scaleY(1) skewX(0deg);opacity:1;
+ transition:transform .44s cubic-bezier(.34,.08,.22,1),opacity .2s ease .14s;
+}
+.altek-icon[data-icon="calendar"] .sd_cal_next_page{
+ transform-box:view-box;transform-origin:64px 80px;
+ transform:scale(.95);opacity:.2;
+ transition:transform .42s cubic-bezier(.22,.84,.2,1) .06s,opacity .28s ease .06s;
+}
+.altek-icon[data-icon="calendar"] .sd_cal_flip_shadow{
+ transform-box:view-box;transform-origin:64px 48px;
+ transform:scaleY(0);opacity:0;
+ transition:transform .38s ease,opacity .26s ease;
+}
+.altek-icon[data-icon="calendar"] .sd_cal_badge{
+ transform-box:view-box;transform-origin:105px 101px;
+ transform:scale(.45) translateY(6px);opacity:0;
+ transition:transform .38s cubic-bezier(.22,.88,.2,1) .14s,opacity .22s ease .14s;
+}
+.altek-icon[data-icon="calendar"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cal_front_page{transform:scaleY(.04) skewX(-11deg);opacity:0;
+ transition:transform .42s cubic-bezier(.42,.04,.24,1),opacity .14s ease .24s;}
+.altek-icon[data-icon="calendar"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cal_next_page{transform:scale(1);opacity:1;}
+.altek-icon[data-icon="calendar"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cal_flip_shadow{transform:scaleY(1);opacity:.26;}
+.altek-icon[data-icon="calendar"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cal_badge{transform:scale(1) translateY(0);opacity:1;}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="calendar"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="chevron"] .altek_detail_chevron_chev{transform-box:view-box;transform-origin:64px 62px;transform:rotate(0deg);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="chevron"] .altek_detail_chevron_glint{opacity:.76;transform-box:view-box;transform:translateY(0);transition:opacity .26s ease,transform .32s cubic-bezier(.22,.8,.2,1)}
+.altek-icon[data-icon="chevron"] .altek_detail_chevron_rim{opacity:.42;transition:opacity .26s ease}
+.altek-icon[data-icon="chevron"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_chevron_chev{transform:rotate(180deg)}
+.altek-icon[data-icon="chevron"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_chevron_glint{opacity:1;transform:translateY(-1px)}
+.altek-icon[data-icon="chevron"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_chevron_rim{opacity:.9}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="chevron"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="circuit"] .sd_cir_fa{stroke-dasharray:8 18;stroke-dashoffset:0;animation:altekSdCirA 3.4s linear infinite}
+.altek-icon[data-icon="circuit"] .sd_cir_fb{stroke-dasharray:8 18;stroke-dashoffset:0;animation:altekSdCirB 3.8s linear -1.1s infinite}
+.altek-icon[data-icon="circuit"] .sd_cir_led{animation:altekSdCirLed 2.6s ease-in-out infinite}
+.altek-icon[data-icon="circuit"] .sd_cir_flows{opacity:.76;transition:opacity .3s ease,filter .3s ease}
+.altek-icon[data-icon="circuit"] .sd_cir_ic{transform-box:view-box;transform:translateY(0);transition:transform .36s cubic-bezier(.22,.84,.2,1),filter .3s ease}
+.altek-icon[data-icon="circuit"] .sd_cir_core{opacity:.55;transition:opacity .3s ease}
+.altek-icon[data-icon="circuit"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cir_flows{opacity:1;filter:drop-shadow(0 0 3.5px rgba(255,226,138,.85))}
+.altek-icon[data-icon="circuit"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cir_ic{transform:translateY(-3px);filter:drop-shadow(0 4px 5px rgba(13,44,68,.35))}
+.altek-icon[data-icon="circuit"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cir_core{opacity:1}
+@keyframes altekSdCirA{to{stroke-dashoffset:-52}}
+@keyframes altekSdCirB{to{stroke-dashoffset:52}}
+@keyframes altekSdCirLed{0%,100%{opacity:.48}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="circuit"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="circuit"] .sd_cir_fa,.altek-icon[data-icon="circuit"] .sd_cir_fb{stroke-dasharray:none;opacity:.88}
+}
+.altek-icon[data-icon="clipboard"] .sd_clip_head{transform-box:view-box;transform:translateY(0);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="clipboard"] .sd_clip_c3{stroke-dasharray:28;stroke-dashoffset:28;opacity:0;transition:stroke-dashoffset .36s cubic-bezier(.22,.84,.2,1) .08s,opacity .18s ease .08s}
+.altek-icon[data-icon="clipboard"] .sd_clip_hl3{opacity:0;transition:opacity .28s ease .06s}
+.altek-icon[data-icon="clipboard"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_clip_head{transform:translateY(-3.5px)}
+.altek-icon[data-icon="clipboard"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_clip_c3{stroke-dashoffset:0;opacity:1}
+.altek-icon[data-icon="clipboard"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_clip_hl3{opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="clipboard"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="close"] .altek_detail_close_cross{transform-box:view-box;transform-origin:64px 62px;transform:rotate(0deg) scale(1);transition:transform .34s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="close"] .altek_detail_close_glint{opacity:.72;transition:opacity .26s ease}
+.altek-icon[data-icon="close"] .altek_detail_close_rim{opacity:.42;transition:opacity .26s ease}
+.altek-icon[data-icon="close"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_close_cross{transform:rotate(90deg) scale(.92)}
+.altek-icon[data-icon="close"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_close_glint{opacity:1}
+.altek-icon[data-icon="close"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_close_rim{opacity:.88}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="close"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="code"] .altek_detail_code_lt{transform-box:view-box;transform:translateX(0);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="code"] .altek_detail_code_gt{transform-box:view-box;transform:translateX(0);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="code"] .altek_detail_code_slash{transform-box:view-box;transform-origin:42px 54px;transform:scale(1);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="code"] .altek_detail_code_l1{stroke-dasharray:26;stroke-dashoffset:26;opacity:0;transition:stroke-dashoffset .34s cubic-bezier(.22,.8,.2,1) .04s,opacity .16s ease .04s}
+.altek-master-icon[data-icon="code"] .altek_detail_code_l2{stroke-dasharray:30;stroke-dashoffset:30;opacity:0;transition:stroke-dashoffset .36s cubic-bezier(.22,.8,.2,1) .14s,opacity .16s ease .14s}
+.altek-master-icon[data-icon="code"] .altek_detail_code_l3{stroke-dasharray:28;stroke-dashoffset:28;opacity:0;transition:stroke-dashoffset .36s cubic-bezier(.22,.8,.2,1) .24s,opacity .16s ease .24s}
+.altek-master-icon[data-icon="code"] .altek_detail_code_cursor{transform-box:view-box;transform:translateX(0);opacity:.45;transition:transform .42s cubic-bezier(.22,.82,.2,1) .2s,opacity .22s ease .12s}
+.altek-master-icon[data-icon="code"] .altek_detail_code_run{transform-box:view-box;transform-origin:100px 30px;transform:scale(.85);opacity:.65;transition:transform .34s cubic-bezier(.22,.86,.2,1) .12s,opacity .24s ease .12s}
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_lt{transform:translateX(-2.5px)}
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_gt{transform:translateX(2.5px)}
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_slash{transform:scale(1.08)}
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_l1,
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_l2,
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_l3{stroke-dashoffset:0;opacity:1}
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_cursor{transform:translateX(16px);opacity:1}
+.altek-master-icon[data-icon="code"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_code_run{transform:scale(1.12);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="code"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="cpu"] .sd_cpu_trace_a{stroke-dasharray:8 14;stroke-dashoffset:0;animation:altekSdCpuFlowA 2.8s linear infinite}
+.altek-icon[data-icon="cpu"] .sd_cpu_trace_b{stroke-dasharray:8 14;stroke-dashoffset:0;animation:altekSdCpuFlowB 3.2s linear -1s infinite}
+.altek-icon[data-icon="cpu"] .sd_cpu_scan{transform-box:view-box;animation:altekSdCpuScan 3s ease-in-out infinite}
+.altek-icon[data-icon="cpu"] .sd_cpu_led{animation:altekSdCpuLed 2.2s ease-in-out infinite}
+.altek-icon[data-icon="cpu"] .sd_cpu_pins{animation:altekSdCpuPins 3s ease-in-out infinite}
+.altek-icon[data-icon="cpu"] .sd_cpu_chip{
+ transform-box:view-box;transform:translateY(0);
+ transition:transform .36s cubic-bezier(.22,.84,.2,1),filter .3s ease;
+}
+.altek-icon[data-icon="cpu"] .sd_cpu_traces_wrap{
+ opacity:.72;transition:opacity .28s ease,filter .28s ease;
+}
+.altek-icon[data-icon="cpu"] .sd_cpu_core_glow{
+ opacity:0;transition:opacity .3s ease;
+}
+.altek-icon[data-icon="cpu"] .sd_cpu_led_halo{
+ transform-box:view-box;transform-origin:87px 41px;transform:scale(.6);opacity:0;
+ transition:transform .34s cubic-bezier(.22,.86,.2,1),opacity .26s ease;
+}
+.altek-icon[data-icon="cpu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cpu_chip{transform:translateY(-3px);filter:drop-shadow(0 4px 5px rgba(13,44,68,.35));}
+.altek-icon[data-icon="cpu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cpu_traces_wrap{opacity:1;filter:drop-shadow(0 0 3.5px rgba(255,226,138,.85));}
+.altek-icon[data-icon="cpu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cpu_core_glow{opacity:.42;}
+.altek-icon[data-icon="cpu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_cpu_led_halo{transform:scale(1.2);opacity:.9;}
+@keyframes altekSdCpuFlowA{to{stroke-dashoffset:-44}}
+@keyframes altekSdCpuFlowB{to{stroke-dashoffset:44}}
+@keyframes altekSdCpuScan{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(22px);opacity:1}}
+@keyframes altekSdCpuLed{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes altekSdCpuPins{0%,100%{opacity:.78}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="cpu"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="cpu"] .sd_cpu_trace_a,.altek-icon[data-icon="cpu"] .sd_cpu_trace_b{stroke-dasharray:none;opacity:.9}
+}
+.altek-master-icon[data-icon="crown"] .altek_detail_crown_unit{transform-box:view-box;transform-origin:64px 74px;transform:translateY(0) scale(1);transition:transform .42s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="crown"] .altek_detail_crown_sheen{transform-box:view-box;transform:translateX(-54px);opacity:0;transition:transform .56s cubic-bezier(.2,.82,.2,1) .04s,opacity .16s ease .04s}
+.altek-master-icon[data-icon="crown"] .altek_detail_crown_jewels{opacity:.9;transition:opacity .28s ease}
+.altek-master-icon[data-icon="crown"] .altek_detail_crown_spark{transform-box:view-box;transform-origin:99px 23px;transform:scale(.45) rotate(-25deg);opacity:0;transition:transform .42s cubic-bezier(.22,.88,.2,1) .1s,opacity .24s ease .1s}
+.altek-master-icon[data-icon="crown"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_crown_unit{transform:translateY(-4.5px) scale(1.05)}
+.altek-master-icon[data-icon="crown"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_crown_sheen{transform:translateX(86px);opacity:.62}
+.altek-master-icon[data-icon="crown"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_crown_jewels{opacity:1}
+.altek-master-icon[data-icon="crown"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_crown_spark{transform:scale(1) rotate(0deg);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="crown"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="download"] .altek_detail_download_arrow{transform-box:view-box;transform:translateY(0);transition:transform .38s cubic-bezier(.22,.86,.2,1)}
+.altek-master-icon[data-icon="download"] .altek_detail_download_doc{transform-box:view-box;transform:translateY(0);transition:transform .4s cubic-bezier(.22,.8,.2,1)}
+.altek-master-icon[data-icon="download"] .altek_detail_download_notch{opacity:.78;transition:opacity .26s ease}
+.altek-master-icon[data-icon="download"] .altek_detail_download_badge{transform-box:view-box;transform-origin:96px 32px;transform:translateY(4px) scale(.75);opacity:0;transition:transform .36s cubic-bezier(.22,.88,.2,1) .08s,opacity .22s ease .08s}
+.altek-master-icon[data-icon="download"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_download_arrow{transform:translateY(9px)}
+.altek-master-icon[data-icon="download"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_download_doc{transform:translateY(3.5px)}
+.altek-master-icon[data-icon="download"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_download_notch{opacity:1}
+.altek-master-icon[data-icon="download"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_download_badge{transform:translateY(0) scale(1);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="download"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="drive"] .altek_detail_drive_rim{opacity:.42;transition:opacity .3s ease}
+.altek-master-icon[data-icon="drive"] .altek_detail_drive_sheen{transform-box:view-box;transform:translateX(-76px);opacity:0;transition:transform .56s cubic-bezier(.2,.82,.2,1) .04s,opacity .16s ease .04s}
+.altek-master-icon[data-icon="drive"] .altek_detail_drive_mark{transform-box:view-box;transform:translateY(0);transition:transform .36s cubic-bezier(.22,.82,.2,1)}
+.altek-master-icon[data-icon="drive"] .altek_detail_drive_badge{transform-box:view-box;transform-origin:101px 28px;transform:scale(.82);opacity:.78;transition:transform .36s cubic-bezier(.22,.86,.2,1) .06s,opacity .26s ease .06s}
+.altek-master-icon[data-icon="drive"] .altek_detail_drive_bar{transform-box:view-box;transform-origin:42px 96px;transform:scaleX(.62);transition:transform .4s cubic-bezier(.22,.82,.2,1) .04s}
+.altek-master-icon[data-icon="drive"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_drive_rim{opacity:.95}
+.altek-master-icon[data-icon="drive"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_drive_sheen{transform:translateX(118px);opacity:.65}
+.altek-master-icon[data-icon="drive"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_drive_mark{transform:translateY(-1.5px)}
+.altek-master-icon[data-icon="drive"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_drive_badge{transform:scale(1.08);opacity:1}
+.altek-master-icon[data-icon="drive"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_drive_bar{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="drive"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="external-link"] .ext-arrow-group{transform-box:view-box;transform-origin:0 0;transform:translate(0,0);transition:transform .42s cubic-bezier(.22,.78,.2,1)}
+.altek-icon[data-icon="external-link"] .ext-page-lines{stroke-dasharray:42;stroke-dashoffset:0;transition:stroke-dashoffset .58s cubic-bezier(.2,.8,.2,1),opacity .3s ease}
+.altek-icon[data-icon="external-link"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .ext-arrow-group{transform:translate(2.8px,-2.8px)}
+.altek-icon[data-icon="external-link"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .ext-page-lines{stroke-dashoffset:-10;opacity:.82}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="external-link"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="factory"] .sd_fac_gear{transform-box:view-box;transform-origin:94px 50px;animation:altekSdFacGear 7.2s linear infinite}
+.altek-icon[data-icon="factory"] .sd_fac_belt{stroke-dasharray:8 8;stroke-dashoffset:0;animation:altekSdFacBelt 3.2s linear infinite}
+.altek-icon[data-icon="factory"] .sd_fac_puff{transform-box:view-box;transform-origin:84px 14px;animation:altekSdFacPuff 4s ease-in-out infinite}
+.altek-icon[data-icon="factory"] .sd_fac_gear_wrap{transform-box:view-box;transform-origin:94px 50px;transform:scale(1);transition:transform .36s cubic-bezier(.22,.84,.2,1),filter .3s ease}
+.altek-icon[data-icon="factory"] .sd_fac_win{opacity:.78;transition:opacity .28s ease,filter .28s ease}
+.altek-icon[data-icon="factory"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_fac_gear_wrap{transform:scale(1.08);filter:drop-shadow(0 0 4px rgba(246,192,86,.6))}
+.altek-icon[data-icon="factory"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_fac_win{opacity:1;filter:brightness(1.1)}
+@keyframes altekSdFacGear{to{transform:rotate(360deg)}}
+@keyframes altekSdFacBelt{to{stroke-dashoffset:-32}}
+@keyframes altekSdFacPuff{0%,100%{transform:translateY(2px) scale(.9);opacity:.38}50%{transform:translateY(-3px) scale(1.08);opacity:.95}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="factory"] *{animation:none!important;transition:none!important}}
+.altek-icon[data-icon="file"] .sd_file_back{transform-box:view-box;transform-origin:68px 66px;transform:translate(0,0) rotate(0deg);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file"] .sd_file_front{transform-box:view-box;transform:translateY(0);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file"] .sd_file_hl{stroke-dasharray:44;stroke-dashoffset:44;opacity:0;transition:stroke-dashoffset .36s cubic-bezier(.22,.82,.2,1) .06s,opacity .18s ease .06s}
+.altek-icon[data-icon="file"] .sd_file_badge{transform-box:view-box;transform-origin:95px 95px;transform:scale(.65);opacity:0;transition:transform .36s cubic-bezier(.22,.88,.2,1) .08s,opacity .22s ease .08s}
+.altek-icon[data-icon="file"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_file_back{transform:translate(5px,2px) rotate(4deg)}
+.altek-icon[data-icon="file"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_file_front{transform:translateY(-3.5px)}
+.altek-icon[data-icon="file"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_file_hl{stroke-dashoffset:0;opacity:1}
+.altek-icon[data-icon="file"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_file_badge{transform:scale(1);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="file"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="file-docx"] .sd_docx_back{transform-box:view-box;transform-origin:68px 66px;transform:translate(0,0) rotate(0deg);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file-docx"] .sd_docx_badge{transform-box:view-box;transform:translateY(0);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file-docx"] .sd_docx_sheen{transform-box:view-box;transform:translateX(-38px);opacity:0;transition:transform .5s cubic-bezier(.2,.82,.2,1) .04s,opacity .16s ease .04s}
+.altek-icon[data-icon="file-docx"] .sd_docx_hl{stroke-dasharray:28;stroke-dashoffset:28;opacity:0;transition:stroke-dashoffset .34s ease .06s,opacity .18s ease .06s}
+.altek-icon[data-icon="file-docx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_docx_back{transform:translate(5px,2px) rotate(4deg)}
+.altek-icon[data-icon="file-docx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_docx_badge{transform:translateY(-4px)}
+.altek-icon[data-icon="file-docx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_docx_sheen{transform:translateX(72px);opacity:.65}
+.altek-icon[data-icon="file-docx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_docx_hl{stroke-dashoffset:0;opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="file-docx"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="file-pdf"] .sd_pdf_back{transform-box:view-box;transform-origin:68px 66px;transform:translate(0,0) rotate(0deg);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file-pdf"] .sd_pdf_rib{transform-box:view-box;transform:translateY(0);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file-pdf"] .sd_pdf_sheen{transform-box:view-box;transform:translateX(-44px);opacity:0;transition:transform .5s cubic-bezier(.2,.82,.2,1) .04s,opacity .16s ease .04s}
+.altek-icon[data-icon="file-pdf"] .sd_pdf_dl{transform-box:view-box;transform-origin:99px 95px;transform:scale(.62);opacity:0;transition:transform .36s cubic-bezier(.22,.88,.2,1) .08s,opacity .22s ease .08s}
+.altek-icon[data-icon="file-pdf"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pdf_back{transform:translate(5px,2px) rotate(4deg)}
+.altek-icon[data-icon="file-pdf"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pdf_rib{transform:translateY(-4px)}
+.altek-icon[data-icon="file-pdf"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pdf_sheen{transform:translateX(96px);opacity:.65}
+.altek-icon[data-icon="file-pdf"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pdf_dl{transform:scale(1);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="file-pdf"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="file-xlsx"] .sd_xlsx_back{transform-box:view-box;transform-origin:68px 66px;transform:translate(0,0) rotate(0deg);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file-xlsx"] .sd_xlsx_badge{transform-box:view-box;transform:translateY(0);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file-xlsx"] .sd_xlsx_sheen{transform-box:view-box;transform:translateX(-38px);opacity:0;transition:transform .5s cubic-bezier(.2,.82,.2,1) .04s,opacity .16s ease .04s}
+.altek-icon[data-icon="file-xlsx"] .sd_xlsx_cell{transform-box:view-box;transform-origin:78px 69px;transform:scale(.88);opacity:.55;transition:transform .34s cubic-bezier(.22,.86,.2,1) .05s,opacity .24s ease .05s}
+.altek-icon[data-icon="file-xlsx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_xlsx_back{transform:translate(5px,2px) rotate(4deg)}
+.altek-icon[data-icon="file-xlsx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_xlsx_badge{transform:translateY(-4px)}
+.altek-icon[data-icon="file-xlsx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_xlsx_sheen{transform:translateX(72px);opacity:.65}
+.altek-icon[data-icon="file-xlsx"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_xlsx_cell{transform:scale(1.04);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="file-xlsx"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="file-zip"] .sd_zip_slider{transform-box:view-box;transform:translateY(0);transition:transform .4s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="file-zip"] .sd_zip_peek{transform-box:view-box;transform-origin:92px 44px;transform:translate(-8px,8px) rotate(-6deg);opacity:0;transition:transform .4s cubic-bezier(.22,.86,.2,1) .05s,opacity .24s ease .05s}
+.altek-icon[data-icon="file-zip"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_zip_slider{transform:translateY(-16px)}
+.altek-icon[data-icon="file-zip"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_zip_peek{transform:translate(2px,-4px) rotate(6deg);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="file-zip"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="folder"] .altek_detail_folder_doc1{transform-box:view-box;transform-origin:48px 54px;transform:translateY(6px) rotate(-5deg);transition:transform .44s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="folder"] .altek_detail_folder_doc2{transform-box:view-box;transform-origin:78px 54px;transform:translateY(8px) rotate(3deg);transition:transform .44s cubic-bezier(.22,.84,.2,1) .07s}
+.altek-master-icon[data-icon="folder"] .altek_detail_folder_front{transform-box:view-box;transform-origin:64px 104px;transform:scaleY(1) skewX(0deg);transition:transform .42s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="folder"] .altek_detail_folder_badge{opacity:.82;transition:opacity .26s ease}
+.altek-master-icon[data-icon="folder"] .altek_detail_folder_spark{transform-box:view-box;transform-origin:109px 26px;transform:scale(.45) rotate(-20deg);opacity:0;transition:transform .4s cubic-bezier(.22,.86,.2,1) .12s,opacity .24s ease .12s}
+.altek-master-icon[data-icon="folder"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_folder_doc1{transform:translateY(-8px) rotate(-8deg)}
+.altek-master-icon[data-icon="folder"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_folder_doc2{transform:translateY(-11px) rotate(5deg)}
+.altek-master-icon[data-icon="folder"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_folder_front{transform:scaleY(.9) skewX(-6deg)}
+.altek-master-icon[data-icon="folder"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_folder_badge{opacity:1}
+.altek-master-icon[data-icon="folder"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_folder_spark{transform:scale(1) rotate(0deg);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="folder"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="gauge"] .sd_gauge_idle{
+ transform-box:view-box;transform-origin:64px 74px;
+ animation:altekSdGaugeTick 3.2s ease-in-out infinite;
+}
+.altek-icon[data-icon="gauge"] .sd_gauge_led{
+ animation:altekSdGaugeLed 2.4s ease-in-out infinite;
+}
+.altek-icon[data-icon="gauge"] .sd_gauge_needle_wrap{
+ transform-box:view-box;transform-origin:64px 74px;
+ transform:rotate(-38deg);
+ transition:transform .48s cubic-bezier(.22,.86,.2,1);
+}
+.altek-icon[data-icon="gauge"] .sd_gauge_arc_active{
+ stroke-dasharray:96;stroke-dashoffset:62;
+ transition:stroke-dashoffset .48s cubic-bezier(.22,.86,.2,1);
+}
+.altek-icon[data-icon="gauge"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_gauge_needle_wrap{transform:rotate(44deg);}
+.altek-icon[data-icon="gauge"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_gauge_arc_active{stroke-dashoffset:8;}
+@keyframes altekSdGaugeTick{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
+@keyframes altekSdGaugeLed{0%,100%{opacity:.45}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="gauge"] *{animation:none!important;transition:none!important}}
+.altek-icon[data-icon="github"] .sd_gh_glint{stroke-dasharray:34;stroke-dashoffset:0;animation:altekSdGhGlint 4.4s ease-in-out infinite}
+.altek-icon[data-icon="github"] .sd_gh_dot{transform-box:view-box;transform-origin:52px 12px;animation:altekSdGhDot 3s ease-in-out infinite}
+.altek-icon[data-icon="github"] .sd_gh_brand{transform-box:view-box;transform-origin:32px 32px;transform:translateY(0) scale(1);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="github"] .sd_gh_rim{opacity:.42;transition:opacity .28s ease}
+.altek-icon[data-icon="github"] .sd_gh_sheen{transform-box:view-box;transform:translateX(-40px);opacity:0;transition:transform .52s cubic-bezier(.2,.82,.2,1),opacity .16s ease}
+.altek-icon[data-icon="github"] .sd_gh_dot_wrap{transform-box:view-box;transform-origin:52px 12px;transform:scale(1);transition:transform .34s cubic-bezier(.22,.88,.2,1)}
+.altek-icon[data-icon="github"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_gh_brand{transform:translateY(-1.5px) scale(1.06)}
+.altek-icon[data-icon="github"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_gh_rim{opacity:1}
+.altek-icon[data-icon="github"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_gh_sheen{transform:translateX(56px);opacity:.48}
+.altek-icon[data-icon="github"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_gh_dot_wrap{transform:scale(1.22)}
+@keyframes altekSdGhGlint{0%,100%{stroke-dashoffset:0;opacity:.38}50%{stroke-dashoffset:12;opacity:.85}}
+@keyframes altekSdGhDot{0%,100%{transform:scale(.9);opacity:.65}50%{transform:scale(1.12);opacity:1}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="github"] *{animation:none!important;transition:none!important}}
+.altek-master-icon[data-icon="grid"] .altek_detail_grid_col{
+ transform-box:view-box;transform-origin:74px 72px;transform:scaleY(.92);opacity:.26;
+ transition:transform .38s cubic-bezier(.22,.84,.2,1),opacity .28s ease;
+}
+.altek-master-icon[data-icon="grid"] .altek_detail_grid_sel{
+ transform-box:view-box;transform-origin:74px 71px;transform:scale(.92);opacity:.65;
+ transition:transform .36s cubic-bezier(.22,.86,.2,1) .04s,opacity .24s ease .04s;
+}
+.altek-master-icon[data-icon="grid"] .altek_detail_grid_sweep{
+ stroke-dasharray:105;stroke-dashoffset:105;opacity:0;
+ transition:stroke-dashoffset .5s cubic-bezier(.22,.82,.2,1) .06s,opacity .2s ease .06s;
+}
+.altek-master-icon[data-icon="grid"] .altek_detail_grid_dot{
+ transform-box:view-box;transform-origin:95px 56px;transform:scale(.5);opacity:0;
+ transition:transform .34s cubic-bezier(.22,.88,.2,1) .28s,opacity .2s ease .28s;
+}
+.altek-master-icon[data-icon="grid"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_grid_col{transform:scaleY(1);opacity:.72;}
+.altek-master-icon[data-icon="grid"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_grid_sel{transform:scale(1.04);opacity:1;}
+.altek-master-icon[data-icon="grid"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_grid_sweep{stroke-dashoffset:0;opacity:1;}
+.altek-master-icon[data-icon="grid"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_grid_dot{transform:scale(1);opacity:1;}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="grid"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="history"] .sd_hist_tab{transform-box:view-box;transform:translateY(0);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="history"] .sd_hist_drawer{transform-box:view-box;transform:translateY(0);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="history"] .sd_hist_min{transform-box:view-box;transform-origin:84px 48px;transform:rotate(0deg);transition:transform .48s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="history"] .sd_hist_arc{transform-box:view-box;transform-origin:84px 48px;transform:rotate(0deg);transition:transform .48s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="history"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_hist_tab{transform:translateY(-6px)}
+.altek-icon[data-icon="history"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_hist_drawer{transform:translateY(4px)}
+.altek-icon[data-icon="history"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_hist_min{transform:rotate(-55deg)}
+.altek-icon[data-icon="history"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_hist_arc{transform:rotate(-35deg)}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="history"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="home"] .altek_detail_home_roof{transform-box:view-box;transform:translateY(0);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="home"] .altek_detail_home_door{transform-box:view-box;transform-origin:55px 92px;transform:scaleX(1);transition:transform .4s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="home"] .altek_detail_home_winwarm{opacity:0;transition:opacity .3s ease}
+.altek-icon[data-icon="home"] .altek_detail_home_dot{transform-box:view-box;transform-origin:106px 43px;opacity:.45;transform:scale(.88);transition:opacity .28s ease,transform .34s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="home"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_home_roof{transform:translateY(-2.5px)}
+.altek-icon[data-icon="home"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_home_door{transform:scaleX(.66)}
+.altek-icon[data-icon="home"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_home_winwarm{opacity:1}
+.altek-icon[data-icon="home"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_home_dot{opacity:1;transform:scale(1.16)}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="home"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="image"] .altek_detail_image_back{transform-box:view-box;transform-origin:56px 58px;transform:translate(0,0) rotate(-3deg);transition:transform .44s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="image"] .altek_detail_image_front{transform-box:view-box;transform-origin:72px 70px;transform:translate(0,0) rotate(0deg);transition:transform .44s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="image"] .altek_detail_image_sun{transform-box:view-box;transform-origin:86px 55px;transform:scale(1);transition:transform .38s cubic-bezier(.22,.86,.2,1) .06s}
+.altek-master-icon[data-icon="image"] .altek_detail_image_sheen{transform-box:view-box;transform:translateX(-52px);opacity:0;transition:transform .56s cubic-bezier(.2,.82,.2,1) .06s,opacity .16s ease .06s}
+.altek-master-icon[data-icon="image"] .altek_detail_image_spark{transform-box:view-box;transform-origin:107px 25px;transform:scale(.45) rotate(-20deg);opacity:0;transition:transform .4s cubic-bezier(.22,.86,.2,1) .12s,opacity .24s ease .12s}
+.altek-master-icon[data-icon="image"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_image_back{transform:translate(-5px,-4px) rotate(-7deg)}
+.altek-master-icon[data-icon="image"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_image_front{transform:translate(3px,-2px) rotate(2deg)}
+.altek-master-icon[data-icon="image"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_image_sun{transform:scale(1.14)}
+.altek-master-icon[data-icon="image"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_image_sheen{transform:translateX(84px);opacity:.6}
+.altek-master-icon[data-icon="image"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_image_spark{transform:scale(1) rotate(0deg);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="image"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="info"] .altek_detail_info_dot{transform-box:view-box;transform-origin:64px 41px;transform:translateY(0) scale(1);transition:transform .36s cubic-bezier(.22,.88,.2,1)}
+.altek-icon[data-icon="info"] .altek_detail_info_stem{transform-box:view-box;transform-origin:64px 72px;transform:translateY(0) scaleY(1);transition:transform .36s cubic-bezier(.22,.84,.2,1) .04s}
+.altek-icon[data-icon="info"] .altek_detail_info_glint{opacity:.74;transition:opacity .26s ease}
+.altek-icon[data-icon="info"] .altek_detail_info_rim{opacity:.42;transition:opacity .26s ease}
+.altek-icon[data-icon="info"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_info_dot{transform:translateY(-4px) scale(1.15)}
+.altek-icon[data-icon="info"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_info_stem{transform:translateY(-2px) scaleY(1.04)}
+.altek-icon[data-icon="info"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_info_glint{opacity:1}
+.altek-icon[data-icon="info"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_info_rim{opacity:.9}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="info"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="instagram"] .sd_ig_glint{stroke-dasharray:34;stroke-dashoffset:0;animation:altekSdIgGlint 4.4s ease-in-out infinite}
+.altek-icon[data-icon="instagram"] .sd_ig_dot{transform-box:view-box;transform-origin:52px 12px;animation:altekSdIgDot 3s ease-in-out infinite}
+.altek-icon[data-icon="instagram"] .sd_ig_brand{transform-box:view-box;transform-origin:32px 32px;transform:translateY(0) scale(1);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="instagram"] .sd_ig_rim{opacity:.42;transition:opacity .28s ease}
+.altek-icon[data-icon="instagram"] .sd_ig_sheen{transform-box:view-box;transform:translateX(-40px);opacity:0;transition:transform .52s cubic-bezier(.2,.82,.2,1),opacity .16s ease}
+.altek-icon[data-icon="instagram"] .sd_ig_dot_wrap{transform-box:view-box;transform-origin:52px 12px;transform:scale(1);transition:transform .34s cubic-bezier(.22,.88,.2,1)}
+.altek-icon[data-icon="instagram"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ig_brand{transform:translateY(-1.5px) scale(1.07)}
+.altek-icon[data-icon="instagram"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ig_rim{opacity:1}
+.altek-icon[data-icon="instagram"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ig_sheen{transform:translateX(56px);opacity:.48}
+.altek-icon[data-icon="instagram"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_ig_dot_wrap{transform:scale(1.22)}
+@keyframes altekSdIgGlint{0%,100%{stroke-dashoffset:0;opacity:.38}50%{stroke-dashoffset:12;opacity:.85}}
+@keyframes altekSdIgDot{0%,100%{transform:scale(.9);opacity:.65}50%{transform:scale(1.12);opacity:1}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="instagram"] *{animation:none!important;transition:none!important}}
+.altek-icon[data-icon="lab"] .sd_lab_pulse{stroke-dasharray:22 76;stroke-dashoffset:0;animation:altekSdLabWave 3.4s linear infinite}
+.altek-icon[data-icon="lab"] .sd_lab_led{animation:altekSdLabLed 2.6s ease-in-out infinite}
+.altek-icon[data-icon="lab"] .sd_lab_wave_wrap{opacity:.78;transition:opacity .3s ease,filter .3s ease}
+.altek-icon[data-icon="lab"] .sd_lab_probe{transform-box:view-box;transform-origin:100px 84px;transform:rotate(0deg);transition:transform .38s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="lab"] .sd_lab_knob{transform-box:view-box;transform-origin:33px 88px;transform:rotate(0deg);transition:transform .4s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="lab"] .sd_lab_bezel{opacity:0;transition:opacity .3s ease}
+.altek-icon[data-icon="lab"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_lab_wave_wrap{opacity:1;filter:drop-shadow(0 0 3.5px rgba(132,248,224,.82))}
+.altek-icon[data-icon="lab"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_lab_probe{transform:rotate(-15deg) translate(-2px,2px)}
+.altek-icon[data-icon="lab"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_lab_knob{transform:rotate(45deg)}
+.altek-icon[data-icon="lab"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_lab_bezel{opacity:.88}
+@keyframes altekSdLabWave{to{stroke-dashoffset:-98}}
+@keyframes altekSdLabLed{0%,100%{opacity:.42}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="lab"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="lab"] .sd_lab_pulse{stroke-dasharray:none}
+}
+.altek-icon[data-icon="linkedin"] .sd_li_glint{stroke-dasharray:34;stroke-dashoffset:0;animation:altekSdLiGlint 4.4s ease-in-out infinite}
+.altek-icon[data-icon="linkedin"] .sd_li_dot{transform-box:view-box;transform-origin:52px 12px;animation:altekSdLiDot 3s ease-in-out infinite}
+.altek-icon[data-icon="linkedin"] .sd_li_brand{transform-box:view-box;transform-origin:32px 32px;transform:translateY(0) scale(1);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="linkedin"] .sd_li_rim{opacity:.42;transition:opacity .28s ease}
+.altek-icon[data-icon="linkedin"] .sd_li_sheen{transform-box:view-box;transform:translateX(-40px);opacity:0;transition:transform .52s cubic-bezier(.2,.82,.2,1),opacity .16s ease}
+.altek-icon[data-icon="linkedin"] .sd_li_dot_wrap{transform-box:view-box;transform-origin:52px 12px;transform:scale(1);transition:transform .34s cubic-bezier(.22,.88,.2,1)}
+.altek-icon[data-icon="linkedin"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_li_brand{transform:translateY(-1.5px) scale(1.07)}
+.altek-icon[data-icon="linkedin"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_li_rim{opacity:1}
+.altek-icon[data-icon="linkedin"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_li_sheen{transform:translateX(56px);opacity:.48}
+.altek-icon[data-icon="linkedin"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_li_dot_wrap{transform:scale(1.22)}
+@keyframes altekSdLiGlint{0%,100%{stroke-dashoffset:0;opacity:.38}50%{stroke-dashoffset:12;opacity:.85}}
+@keyframes altekSdLiDot{0%,100%{transform:scale(.9);opacity:.65}50%{transform:scale(1.12);opacity:1}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="linkedin"] *{animation:none!important;transition:none!important}}
+.altek-icon[data-icon="mail"] .mail-micro-letter{opacity:.28;transform:translateY(5px);transform-box:view-box;transition:transform .42s cubic-bezier(.22,.84,.2,1),opacity .26s ease}
+.altek-icon[data-icon="mail"] .altek_micro_mail_flap{transform-origin:32px 20px;transform-box:view-box;transition:transform .42s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="mail"] .mail-micro-notification{animation:altekMailMicroDot 2.2s ease-in-out infinite}
+.altek-icon[data-icon="mail"] .mail-micro-halo{opacity:.25;transform-box:fill-box;transform-origin:center;animation:altekMailMicroHalo 2.2s ease-out infinite}
+.altek-icon[data-icon="mail"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .mail-micro-letter{opacity:1;transform:translateY(-5px)}
+.altek-icon[data-icon="mail"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_micro_mail_flap{transform:translateY(-5px) rotate(-9deg) scaleY(.76)}
+@keyframes altekMailMicroDot{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes altekMailMicroHalo{0%{opacity:.35;transform:scale(.75)}70%,100%{opacity:0;transform:scale(1.45)}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="mail"] *{animation:none!important;transition:none!important}}
+.altek-master-icon[data-icon="megaphone"] .altek_micro_megaphone_signal-wave{
+ opacity:.42;stroke-dasharray:5 6;stroke-dashoffset:0;
+ animation:altekMegaphoneMicroWave 3.6s linear infinite;
+ transition:opacity .28s ease,filter .28s ease;
+}
+.altek-master-icon[data-icon="megaphone"] .megaphone-micro-wave-outer{
+ opacity:.32;stroke-dasharray:5 7;stroke-dashoffset:0;
+ animation:altekMegaphoneMicroWave 4.4s linear -1.4s infinite;
+ transition:opacity .28s ease,filter .28s ease;
+}
+.altek-master-icon[data-icon="megaphone"] .megaphone-micro-status{
+ opacity:.52;transform-box:view-box;transform-origin:25px 34px;
+ animation:altekMegaphoneMicroStatus 2.6s ease-in-out infinite;
+ transition:opacity .28s ease;
+}
+.altek-master-icon[data-icon="megaphone"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_micro_megaphone_signal-wave,
+.altek-master-icon[data-icon="megaphone"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .megaphone-micro-wave-outer{opacity:1;filter:drop-shadow(0 0 2.5px rgba(130,245,220,.75));}
+.altek-master-icon[data-icon="megaphone"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .megaphone-micro-status{opacity:1;}
+@keyframes altekMegaphoneMicroWave{to{stroke-dashoffset:-22}}
+@keyframes altekMegaphoneMicroStatus{0%,100%{opacity:.4;transform:scale(.92)}50%{opacity:.95;transform:scale(1.1)}}
+@media(prefers-reduced-motion:reduce){
+ .altek-master-icon[data-icon="megaphone"] *{animation:none!important;transition:none!important}
+ .altek-master-icon[data-icon="megaphone"] .altek_micro_megaphone_signal-wave,
+ .altek-master-icon[data-icon="megaphone"] .megaphone-micro-wave-outer{stroke-dasharray:none;opacity:.75}
+}
+.altek-icon[data-icon="menu"] .altek_detail_menu_top{transform-box:view-box;transform-origin:64px 41px;transform:translateY(0) rotate(0deg);transition:transform .36s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="menu"] .altek_detail_menu_mid{transform-box:view-box;transform-origin:64px 62px;transform:scaleX(1);opacity:1;transition:transform .22s ease,opacity .18s ease}
+.altek-icon[data-icon="menu"] .altek_detail_menu_bot{transform-box:view-box;transform-origin:64px 83px;transform:translateY(0) rotate(0deg);transition:transform .36s cubic-bezier(.22,.84,.2,1) .03s}
+.altek-icon[data-icon="menu"] .altek_detail_menu_dot{transform-box:view-box;transform-origin:96px 30px;transform:scale(1);transition:transform .3s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="menu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_menu_top{transform:translateY(21px) rotate(45deg)}
+.altek-icon[data-icon="menu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_menu_mid{transform:scaleX(0);opacity:0}
+.altek-icon[data-icon="menu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_menu_bot{transform:translateY(-21px) rotate(-45deg)}
+.altek-icon[data-icon="menu"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_menu_dot{transform:scale(1.16)}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="menu"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="monitor"] .sd_mon_s1{transform-box:view-box;transform:translateX(0);opacity:1;transition:transform .4s cubic-bezier(.22,.82,.2,1),opacity .24s ease}
+.altek-icon[data-icon="monitor"] .sd_mon_s2{transform-box:view-box;transform:translateX(16px);opacity:0;transition:transform .4s cubic-bezier(.22,.82,.2,1),opacity .26s ease .04s}
+.altek-icon[data-icon="monitor"] .sd_mon_sheen{transform-box:view-box;transform:translateX(-68px);opacity:0;transition:transform .54s cubic-bezier(.2,.82,.2,1) .04s,opacity .16s ease .04s}
+.altek-icon[data-icon="monitor"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_mon_s1{transform:translateX(-16px);opacity:0}
+.altek-icon[data-icon="monitor"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_mon_s2{transform:translateX(0);opacity:1}
+.altek-icon[data-icon="monitor"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_mon_sheen{transform:translateX(116px);opacity:.55}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="monitor"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="moon"] .altek_detail_moon_crescent{transform-box:view-box;transform-origin:64px 62px;transform:rotate(0deg);transition:transform .42s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="moon"] .altek_detail_moon_star{transform-box:view-box;transform-origin:93px 40px;transform:rotate(0deg) scale(1);opacity:.9;transition:transform .42s cubic-bezier(.22,.86,.2,1),opacity .26s ease}
+.altek-icon[data-icon="moon"] .altek_detail_moon_dots{opacity:.55;transform-box:view-box;transform:translate(0,0);transition:opacity .3s ease,transform .36s cubic-bezier(.22,.82,.2,1)}
+.altek-icon[data-icon="moon"] .altek_detail_moon_rim{opacity:.35;transition:opacity .28s ease}
+.altek-icon[data-icon="moon"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_moon_crescent{transform:rotate(-14deg)}
+.altek-icon[data-icon="moon"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_moon_star{transform:translate(2.5px,-2.5px) rotate(28deg) scale(1.22);opacity:1}
+.altek-icon[data-icon="moon"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_moon_dots{opacity:1;transform:translate(1.5px,-1.5px)}
+.altek-icon[data-icon="moon"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_moon_rim{opacity:.78}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="moon"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="network"] .altek_micro_network_micro-go{transition:transform .42s cubic-bezier(.22,.75,.2,1),opacity .26s;transform-box:view-box}
+.altek-master-icon[data-icon="network"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_micro_network_micro-go{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){.altek-master-icon *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="network"] .network-node{transform-box:fill-box;transform-origin:center;animation:altekNetworkMicroNode 2.1s ease-in-out infinite}
+.altek-master-icon[data-icon="network"] .node-a{animation-delay:0s}
+.altek-master-icon[data-icon="network"] .node-b{animation-delay:.28s}
+.altek-master-icon[data-icon="network"] .node-c{animation-delay:.56s}
+.altek-master-icon[data-icon="network"] .node-d{animation-delay:.84s}
+.altek-master-icon[data-icon="network"] .node-e{animation-delay:1.12s}
+@keyframes altekNetworkMicroNode{0%,100%{opacity:.62;transform:scale(.9)}50%{opacity:1;transform:scale(1.25)}}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="network"] .network-node{animation:none!important;opacity:1!important;transform:none!important}}
+.altek-master-icon[data-icon="network"] .network-micro-packet{
+ transform-box:view-box;opacity:.45;
+}
+.altek-master-icon[data-icon="network"] .network-micro-packet-a{
+ animation:altekNetworkMicroPacketA 3.6s ease-in-out infinite;
+}
+.altek-master-icon[data-icon="network"] .network-micro-packet-b{
+ animation:altekNetworkMicroPacketB 4s ease-in-out infinite;
+}
+@keyframes altekNetworkMicroPacketA{
+ 0%,10%{transform:translateX(0);opacity:0}
+ 20%{opacity:.8}
+ 82%{transform:translateX(40px);opacity:.8}
+ 94%,100%{transform:translateX(40px);opacity:0}
+}
+@keyframes altekNetworkMicroPacketB{
+ 0%,20%{transform:translateX(0);opacity:0}
+ 30%{opacity:.8}
+ 88%{transform:translateX(-40px);opacity:.8}
+ 100%{transform:translateX(-40px);opacity:0}
+}
+.altek-master-icon[data-icon="network"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .network-micro-packet-a,
+.altek-master-icon[data-icon="network"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .network-micro-packet-b{filter:brightness(1.12)}
+@media(prefers-reduced-motion:reduce){
+ .altek-master-icon[data-icon="network"] .network-micro-packet{animation:none!important;opacity:.7}
+}
+.altek-icon[data-icon="opamp"] .sd_op_in{stroke-dasharray:6 10;stroke-dashoffset:0;animation:altekSdOpFlow 3.2s linear infinite}
+.altek-icon[data-icon="opamp"] .sd_op_out{stroke-dasharray:7 9;stroke-dashoffset:0;animation:altekSdOpFlow 3.2s linear -.6s infinite}
+.altek-icon[data-icon="opamp"] .sd_op_wave{stroke-dasharray:16 12;stroke-dashoffset:0;animation:altekSdOpWave 3.6s linear infinite}
+.altek-icon[data-icon="opamp"] .sd_op_flows{opacity:.72;transition:opacity .3s ease,filter .3s ease}
+.altek-icon[data-icon="opamp"] .sd_op_glow{opacity:0;transition:opacity .3s ease}
+.altek-icon[data-icon="opamp"] .sd_op_gain{transform-box:view-box;transform-origin:83px 59px;transform:scale(1);transition:transform .34s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="opamp"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_op_flows{opacity:1;filter:drop-shadow(0 0 3px rgba(255,225,140,.8))}
+.altek-icon[data-icon="opamp"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_op_glow{opacity:.52}
+.altek-icon[data-icon="opamp"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_op_gain{transform:scale(1.25)}
+@keyframes altekSdOpFlow{to{stroke-dashoffset:-32}}
+@keyframes altekSdOpWave{to{stroke-dashoffset:-56}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="opamp"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="opamp"] .sd_op_in,.altek-icon[data-icon="opamp"] .sd_op_out,.altek-icon[data-icon="opamp"] .sd_op_wave{stroke-dasharray:none}
+}
+.altek-master-icon[data-icon="play"] .altek_detail_play_slate{transform-box:view-box;transform-origin:24px 34px;transform:rotate(0deg);transition:transform .42s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="play"] .altek_detail_play_btn{transform-box:view-box;transform-origin:64px 66px;transform:scale(1);transition:transform .34s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="play"] .altek_detail_play_tri{transform-box:view-box;transform-origin:64px 66px;transform:scale(1);opacity:1;transition:transform .26s ease,opacity .2s ease}
+.altek-master-icon[data-icon="play"] .altek_detail_play_pause{transform-box:view-box;transform-origin:64px 66px;transform:scale(.74);opacity:0;transition:transform .3s cubic-bezier(.22,.86,.2,1) .05s,opacity .22s ease .05s}
+.altek-master-icon[data-icon="play"] .altek_detail_play_bar{transform-box:view-box;transform-origin:33px 89.5px;transform:scaleX(.34);transition:transform .46s cubic-bezier(.22,.82,.2,1)}
+.altek-master-icon[data-icon="play"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_play_slate{transform:rotate(-13deg)}
+.altek-master-icon[data-icon="play"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_play_btn{transform:scale(1.06)}
+.altek-master-icon[data-icon="play"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_play_tri{transform:scale(.74);opacity:0}
+.altek-master-icon[data-icon="play"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_play_pause{transform:scale(1);opacity:1}
+.altek-master-icon[data-icon="play"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_play_bar{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="play"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="plug"] .altek_detail_plug_body{transform-box:view-box;transform:translateX(-14px);transition:transform .38s cubic-bezier(.22,.86,.2,1)}
+.altek-master-icon[data-icon="plug"] .altek_detail_plug_cord{transform-box:view-box;transform-origin:17px 102px;transform:scaleX(.86);transition:transform .38s cubic-bezier(.22,.86,.2,1)}
+.altek-master-icon[data-icon="plug"] .altek_detail_plug_led{opacity:.22;transform-box:view-box;transform-origin:94px 39px;transform:scale(.85);transition:opacity .22s ease .16s,transform .32s cubic-bezier(.22,.86,.2,1) .16s}
+.altek-master-icon[data-icon="plug"] .altek_detail_plug_bolt{transform-box:view-box;transform-origin:88px 20px;transform:translateY(5px) scale(.65);opacity:0;transition:transform .36s cubic-bezier(.22,.88,.2,1) .16s,opacity .22s ease .16s}
+.altek-master-icon[data-icon="plug"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_plug_body{transform:translateX(0)}
+.altek-master-icon[data-icon="plug"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_plug_cord{transform:scaleX(1)}
+.altek-master-icon[data-icon="plug"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_plug_led{opacity:1;transform:scale(1.12)}
+.altek-master-icon[data-icon="plug"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_plug_bolt{transform:translateY(0) scale(1);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="plug"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="power"] .altek_detail_power_flow1{
+ stroke-dasharray:6 10;stroke-dashoffset:0;
+ animation:altekPowerFlow 3.4s linear infinite;
+}
+.altek-master-icon[data-icon="power"] .altek_detail_power_flow2{
+ stroke-dasharray:6 10;stroke-dashoffset:0;
+ animation:altekPowerFlow 3.4s linear -1.1s infinite;
+}
+.altek-master-icon[data-icon="power"] .altek_detail_power_coilpulse{
+ animation:altekPowerCoil 3.4s ease-in-out infinite;
+}
+.altek-master-icon[data-icon="power"] .altek_detail_power_flow_wrap{
+ opacity:.65;transition:opacity .3s ease,filter .3s ease;
+}
+.altek-master-icon[data-icon="power"] .altek_detail_power_coil_wrap{
+ opacity:.42;transition:opacity .34s ease,filter .34s ease;
+}
+.altek-master-icon[data-icon="power"] .altek_detail_power_needle{
+ transform-box:view-box;transform-origin:98px 80px;transform:rotate(-20deg);
+ transition:transform .46s cubic-bezier(.22,.84,.2,1);
+}
+.altek-master-icon[data-icon="power"] .altek_detail_power_bolt{
+ transform-box:view-box;transform-origin:64px 28px;transform:translateY(2px) scale(.92);opacity:.74;
+ transition:transform .38s cubic-bezier(.22,.86,.2,1),opacity .28s ease,filter .28s ease;
+}
+.altek-master-icon[data-icon="power"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_power_flow_wrap{opacity:1;filter:drop-shadow(0 0 2.5px rgba(255,208,92,.72));}
+.altek-master-icon[data-icon="power"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_power_coil_wrap{opacity:1;filter:drop-shadow(0 0 3px rgba(255,218,117,.65));}
+.altek-master-icon[data-icon="power"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_power_needle{transform:rotate(34deg);}
+.altek-master-icon[data-icon="power"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_power_bolt{transform:translateY(-2.5px) scale(1.08);opacity:1;filter:drop-shadow(0 0 3px rgba(255,222,125,.75));}
+@keyframes altekPowerFlow{to{stroke-dashoffset:-32}}
+@keyframes altekPowerCoil{0%,100%{opacity:.32}50%{opacity:.82}}
+@media(prefers-reduced-motion:reduce){
+ .altek-master-icon[data-icon="power"] *{animation:none!important;transition:none!important}
+ .altek-master-icon[data-icon="power"] .altek_detail_power_flow1,
+ .altek-master-icon[data-icon="power"] .altek_detail_power_flow2{stroke-dasharray:none}
+}
+.altek-icon[data-icon="presentation"] .sd_pres_b1i{transform-box:view-box;transform-origin:42px 84px;animation:altekSdPresIdle 3.2s ease-in-out infinite}
+.altek-icon[data-icon="presentation"] .sd_pres_b2i{transform-box:view-box;transform-origin:64px 84px;animation:altekSdPresIdle 3.2s ease-in-out -.6s infinite}
+.altek-icon[data-icon="presentation"] .sd_pres_b3i{transform-box:view-box;transform-origin:86px 84px;animation:altekSdPresIdle 3.2s ease-in-out -1.2s infinite}
+.altek-icon[data-icon="presentation"] .sd_pres_doti{transform-box:view-box;transform-origin:90px 36px;animation:altekSdPresDot 2.6s ease-in-out infinite}
+.altek-icon[data-icon="presentation"] .sd_pres_b1{transform-box:view-box;transform-origin:42px 84px;transform:scaleY(.72);transition:transform .38s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="presentation"] .sd_pres_b2{transform-box:view-box;transform-origin:64px 84px;transform:scaleY(.78);transition:transform .38s cubic-bezier(.22,.86,.2,1) .06s}
+.altek-icon[data-icon="presentation"] .sd_pres_b3{transform-box:view-box;transform-origin:86px 84px;transform:scaleY(.8);transition:transform .38s cubic-bezier(.22,.86,.2,1) .12s}
+.altek-icon[data-icon="presentation"] .sd_pres_trend{
+ stroke-dasharray:86;stroke-dashoffset:44;opacity:.62;
+ transition:stroke-dashoffset .46s cubic-bezier(.22,.84,.2,1) .05s,opacity .26s ease .05s;
+}
+.altek-icon[data-icon="presentation"] .sd_pres_arrow{
+ transform-box:view-box;transform-origin:90px 36px;transform:scale(.7);opacity:0;
+ transition:transform .36s cubic-bezier(.22,.88,.2,1) .24s,opacity .22s ease .24s;
+}
+.altek-icon[data-icon="presentation"] .sd_pres_dot_wrap{
+ transform-box:view-box;transform-origin:90px 36px;transform:scale(.9);
+ transition:transform .36s cubic-bezier(.22,.88,.2,1) .16s,filter .28s ease;
+}
+.altek-icon[data-icon="presentation"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pres_b1{transform:scaleY(1.06)}
+.altek-icon[data-icon="presentation"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pres_b2{transform:scaleY(1.1)}
+.altek-icon[data-icon="presentation"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pres_b3{transform:scaleY(1.12)}
+.altek-icon[data-icon="presentation"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pres_trend{stroke-dashoffset:0;opacity:1}
+.altek-icon[data-icon="presentation"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pres_arrow{transform:scale(1);opacity:1}
+.altek-icon[data-icon="presentation"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_pres_dot_wrap{transform:scale(1.24);filter:drop-shadow(0 0 4px rgba(246,188,78,.8))}
+@keyframes altekSdPresIdle{0%,100%{transform:scaleY(.94)}50%{transform:scaleY(1.04)}}
+@keyframes altekSdPresDot{0%,100%{transform:scale(.9);opacity:.72}50%{transform:scale(1.12);opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="presentation"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="presentation"] .sd_pres_b1,.altek-icon[data-icon="presentation"] .sd_pres_b2,.altek-icon[data-icon="presentation"] .sd_pres_b3{transform:scaleY(1)}
+ .altek-icon[data-icon="presentation"] .sd_pres_trend{stroke-dashoffset:0;opacity:1}
+}
+.altek-icon[data-icon="resistor"] .sd_res_flow{stroke-dasharray:7 10;stroke-dashoffset:0;animation:altekSdResFlow 3.4s linear infinite}
+.altek-icon[data-icon="resistor"] .sd_res_h1{transform-box:view-box;transform-origin:48px 43px;animation:altekSdResHeat 2.6s ease-out infinite}
+.altek-icon[data-icon="resistor"] .sd_res_h2{transform-box:view-box;transform-origin:64px 40px;animation:altekSdResHeat 2.6s ease-out -.86s infinite}
+.altek-icon[data-icon="resistor"] .sd_res_h3{transform-box:view-box;transform-origin:80px 43px;animation:altekSdResHeat 2.6s ease-out -1.72s infinite}
+.altek-icon[data-icon="resistor"] .sd_res_flow_wrap{opacity:.76;transition:opacity .3s ease,filter .3s ease}
+.altek-icon[data-icon="resistor"] .sd_res_heat_wrap{opacity:.56;transform-box:view-box;transform-origin:64px 45px;transform:scaleY(.92);transition:opacity .34s ease,transform .38s cubic-bezier(.22,.84,.2,1),filter .34s ease}
+.altek-icon[data-icon="resistor"] .sd_res_aura{opacity:.25;transform-box:view-box;transform-origin:64px 72px;transform:scale(.9);transition:opacity .36s ease,transform .4s cubic-bezier(.22,.84,.2,1)}
+.altek-icon[data-icon="resistor"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_res_flow_wrap{opacity:1;filter:drop-shadow(0 0 3px rgba(255,226,143,.8))}
+.altek-icon[data-icon="resistor"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_res_heat_wrap{opacity:1;transform:scaleY(1.08);filter:drop-shadow(0 0 3.5px rgba(246,154,75,.68))}
+.altek-icon[data-icon="resistor"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_res_aura{opacity:.92;transform:scale(1.12)}
+@keyframes altekSdResFlow{to{stroke-dashoffset:-34}}
+@keyframes altekSdResHeat{
+ 0%{transform:translateY(6px) scaleY(.72);opacity:0}
+ 20%{opacity:1}
+ 65%{opacity:.85}
+ 84%{transform:translateY(-8px) scaleY(1.06);opacity:0}
+ 100%{transform:translateY(6px) scaleY(.72);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="resistor"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="resistor"] .sd_res_flow{stroke-dasharray:none}
+ .altek-icon[data-icon="resistor"] .sd_res_h1,.altek-icon[data-icon="resistor"] .sd_res_h2,.altek-icon[data-icon="resistor"] .sd_res_h3{opacity:.82;transform:none}
+ .altek-icon[data-icon="resistor"] .sd_res_heat_wrap{opacity:.82;transform:none}
+}
+.altek-icon[data-icon="search"] .altek_detail_search_unit{
+ transform-box:view-box;transform-origin:64px 64px;transform:translate(0,0) rotate(0deg);
+ transition:transform .38s cubic-bezier(.22,.84,.2,1);
+}
+.altek-icon[data-icon="search"] .altek_detail_search_lens{
+ transform-box:view-box;transform-origin:55px 53px;transform:scale(1);
+ transition:transform .36s cubic-bezier(.22,.84,.2,1);
+}
+.altek-icon[data-icon="search"] .altek_detail_search_sheen{
+ transform-box:view-box;transform:translateX(-38px);opacity:0;
+ transition:transform .5s cubic-bezier(.2,.82,.2,1) .04s,opacity .16s ease .04s;
+}
+.altek-icon[data-icon="search"] .altek_detail_search_spark{
+ transform-box:view-box;transform-origin:103px 31px;transform:scale(.45) rotate(-22deg);opacity:0;
+ transition:transform .38s cubic-bezier(.22,.88,.2,1) .08s,opacity .22s ease .08s;
+}
+.altek-icon[data-icon="search"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_search_unit{transform:translate(-2px,-2px) rotate(-5deg);}
+.altek-icon[data-icon="search"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_search_lens{transform:scale(1.04);}
+.altek-icon[data-icon="search"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_search_sheen{transform:translateX(56px);opacity:.72;}
+.altek-icon[data-icon="search"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_search_spark{transform:scale(1) rotate(0deg);opacity:1;}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="search"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="sliders"] .sd_sliders_bar{transform-box:view-box;transform-origin:27px 38px;transform:scaleX(.54);transition:transform .42s cubic-bezier(.22,.82,.2,1)}
+.altek-icon[data-icon="sliders"] .sd_sliders_led{opacity:.58;transition:opacity .24s ease}
+.altek-icon[data-icon="sliders"] .sd_sliders_f1{transform-box:view-box;transform:translateY(0);transition:transform .42s cubic-bezier(.22,.82,.2,1)}
+.altek-icon[data-icon="sliders"] .sd_sliders_f2{transform-box:view-box;transform:translateY(0);transition:transform .42s cubic-bezier(.22,.82,.2,1) .05s}
+.altek-icon[data-icon="sliders"] .sd_sliders_needle{transform-box:view-box;transform-origin:90px 81px;transform:rotate(-28deg);transition:transform .46s cubic-bezier(.22,.84,.2,1) .04s}
+.altek-icon[data-icon="sliders"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_sliders_bar{transform:scaleX(1)}
+.altek-icon[data-icon="sliders"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_sliders_led{opacity:1}
+.altek-icon[data-icon="sliders"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_sliders_f1{transform:translateY(-16px)}
+.altek-icon[data-icon="sliders"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_sliders_f2{transform:translateY(14px)}
+.altek-icon[data-icon="sliders"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_sliders_needle{transform:rotate(38deg)}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="sliders"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="spark"] .altek_detail_spark_main{
+ transform-box:view-box;transform-origin:64px 64px;
+ animation:altekSparkMain 3.8s ease-in-out infinite;
+}
+.altek-icon[data-icon="spark"] .altek_detail_spark_sub1{
+ transform-box:view-box;transform-origin:101px 31px;
+ animation:altekSparkTwinkle 3.2s ease-in-out -.6s infinite;
+}
+.altek-icon[data-icon="spark"] .altek_detail_spark_sub2{
+ transform-box:view-box;transform-origin:27px 92px;
+ animation:altekSparkTwinkle 3.6s ease-in-out -1.8s infinite;
+}
+.altek-icon[data-icon="spark"] .altek_detail_spark_dot{
+ transform-box:view-box;transform-origin:27px 31px;
+ animation:altekSparkDot 3s ease-in-out -1.1s infinite;
+}
+.altek-icon[data-icon="spark"] .altek_detail_spark_main_wrap{
+ transform-box:view-box;transform-origin:64px 64px;transform:scale(1) rotate(0deg);
+ filter:drop-shadow(0 0 0 rgba(246,188,78,0));
+ transition:transform .42s cubic-bezier(.22,.86,.2,1),filter .34s ease;
+}
+.altek-icon[data-icon="spark"] .altek_detail_spark_sub1_wrap{
+ transform-box:view-box;transform-origin:101px 31px;transform:scale(1) rotate(0deg);
+ transition:transform .42s cubic-bezier(.22,.86,.2,1) .04s;
+}
+.altek-icon[data-icon="spark"] .altek_detail_spark_sub2_wrap{
+ transform-box:view-box;transform-origin:27px 92px;transform:scale(1) rotate(0deg);
+ transition:transform .42s cubic-bezier(.22,.86,.2,1) .06s;
+}
+.altek-icon[data-icon="spark"] .altek_detail_spark_ring{
+ transform-box:view-box;transform-origin:64px 64px;transform:scale(.84);opacity:0;
+ transition:transform .44s cubic-bezier(.22,.84,.2,1),opacity .3s ease;
+}
+.altek-icon[data-icon="spark"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_spark_main_wrap{transform:scale(1.06) rotate(12deg);filter:drop-shadow(0 0 6px rgba(246,188,78,.65));}
+.altek-icon[data-icon="spark"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_spark_sub1_wrap{transform:scale(1.16) rotate(-18deg);}
+.altek-icon[data-icon="spark"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_spark_sub2_wrap{transform:scale(1.18) rotate(18deg);}
+.altek-icon[data-icon="spark"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_spark_ring{transform:scale(1.04);opacity:.72;}
+@keyframes altekSparkMain{0%,100%{transform:scale(.96)}50%{transform:scale(1.03)}}
+@keyframes altekSparkTwinkle{0%,100%{transform:scale(.82);opacity:.62}50%{transform:scale(1.08);opacity:1}}
+@keyframes altekSparkDot{0%,100%{transform:scale(.86);opacity:.55}50%{transform:scale(1.12);opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .altek-icon[data-icon="spark"] *{animation:none!important;transition:none!important}
+ .altek-icon[data-icon="spark"] .altek_detail_spark_sub1,
+ .altek-icon[data-icon="spark"] .altek_detail_spark_sub2,
+ .altek-icon[data-icon="spark"] .altek_detail_spark_dot{opacity:.95}
+}
+.altek-icon[data-icon="sun"] .altek_detail_sun_rays{
+ transform-box:view-box;transform-origin:64px 62px;transform:rotate(0deg) scale(1);
+ transition:transform .48s cubic-bezier(.22,.84,.2,1);
+}
+.altek-icon[data-icon="sun"] .altek_detail_sun_core{
+ transform-box:view-box;transform-origin:64px 62px;transform:scale(1);
+ transition:transform .38s cubic-bezier(.22,.84,.2,1);
+}
+.altek-icon[data-icon="sun"] .altek_detail_sun_halo{
+ transform-box:view-box;transform-origin:64px 62px;transform:scale(.94);opacity:.38;
+ transition:transform .42s cubic-bezier(.22,.84,.2,1),opacity .3s ease;
+}
+.altek-icon[data-icon="sun"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_sun_rays{transform:rotate(30deg) scale(1.05);}
+.altek-icon[data-icon="sun"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_sun_core{transform:scale(1.05);}
+.altek-icon[data-icon="sun"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_sun_halo{transform:scale(1.06);opacity:.9;}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="sun"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="tutorial"] .sd_tut_play{
+ transform-box:view-box;transform-origin:64px 55px;transform:scale(1);
+ transition:transform .38s cubic-bezier(.22,.86,.2,1),filter .3s ease;
+}
+.altek-icon[data-icon="tutorial"] .sd_tut_ripple{
+ transform-box:view-box;transform-origin:64px 55px;transform:scale(.76);opacity:0;
+ transition:transform .44s cubic-bezier(.22,.84,.2,1),opacity .26s ease;
+}
+.altek-icon[data-icon="tutorial"] .sd_tut_wave{
+ stroke-dasharray:46;stroke-dashoffset:24;opacity:.48;
+ transition:stroke-dashoffset .48s cubic-bezier(.22,.82,.2,1) .04s,opacity .26s ease .04s;
+}
+.altek-icon[data-icon="tutorial"] .sd_tut_prog{
+ transform-box:view-box;transform-origin:28px 97px;transform:scaleX(.32);
+ transition:transform .48s cubic-bezier(.22,.84,.2,1);
+}
+.altek-icon[data-icon="tutorial"] .sd_tut_knob{
+ transform-box:view-box;transform:translateX(0);
+ transition:transform .48s cubic-bezier(.22,.84,.2,1);
+}
+.altek-icon[data-icon="tutorial"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_tut_play{transform:scale(1.1);filter:drop-shadow(0 0 4px rgba(150,245,223,.75));}
+.altek-icon[data-icon="tutorial"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_tut_ripple{transform:scale(1.18);opacity:.92;}
+.altek-icon[data-icon="tutorial"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_tut_wave{stroke-dashoffset:0;opacity:1;}
+.altek-icon[data-icon="tutorial"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_tut_prog{transform:scaleX(1);}
+.altek-icon[data-icon="tutorial"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_tut_knob{transform:translateX(49px);}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="tutorial"] *{transition:none!important;animation:none!important}}
+.altek-master-icon[data-icon="upload"] .altek_detail_upload_arrow{transform-box:view-box;transform:translateY(0);transition:transform .38s cubic-bezier(.22,.86,.2,1)}
+.altek-master-icon[data-icon="upload"] .altek_detail_upload_cloud{transform-box:view-box;transform:translateY(0);transition:transform .4s cubic-bezier(.22,.82,.2,1)}
+.altek-master-icon[data-icon="upload"] .altek_detail_upload_notch{opacity:.78;transition:opacity .26s ease}
+.altek-master-icon[data-icon="upload"] .altek_detail_upload_badge{transform-box:view-box;transform-origin:99px 30px;transform:translateY(4px) scale(.75);opacity:0;transition:transform .36s cubic-bezier(.22,.88,.2,1) .08s,opacity .22s ease .08s}
+.altek-master-icon[data-icon="upload"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_upload_arrow{transform:translateY(-9px)}
+.altek-master-icon[data-icon="upload"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_upload_cloud{transform:translateY(-3px)}
+.altek-master-icon[data-icon="upload"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_upload_notch{opacity:1}
+.altek-master-icon[data-icon="upload"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_upload_badge{transform:translateY(0) scale(1);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="upload"] *{transition:none!important;animation:none!important}}
+.altek-icon[data-icon="user"] .sd_user_halo_i{transform-box:view-box;transform-origin:32px 21px;animation:altekSdUserHalo 3.6s ease-in-out infinite}
+.altek-icon[data-icon="user"] .sd_user_head_i{transform-box:view-box;transform-origin:32px 21px;animation:altekSdUserBob 3.8s ease-in-out infinite}
+.altek-icon[data-icon="user"] .sd_user_badge_i{transform-box:view-box;transform-origin:50px 14px;animation:altekSdUserBadge 3.2s ease-in-out infinite}
+.altek-icon[data-icon="user"] .sd_user_head_w{transform-box:view-box;transform-origin:32px 21px;transform:translateY(0) scale(1);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="user"] .sd_user_body{transform-box:view-box;transform-origin:32px 56px;transform:scale(1);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="user"] .sd_user_halo_w{transform-box:view-box;transform-origin:32px 21px;transform:scale(.95);opacity:.45;transition:transform .38s cubic-bezier(.22,.86,.2,1),opacity .28s ease}
+.altek-icon[data-icon="user"] .sd_user_badge_w{transform-box:view-box;transform-origin:50px 14px;transform:scale(1);transition:transform .36s cubic-bezier(.22,.88,.2,1)}
+.altek-icon[data-icon="user"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_user_head_w{transform:translateY(-2.5px) scale(1.06)}
+.altek-icon[data-icon="user"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_user_body{transform:scale(1.03)}
+.altek-icon[data-icon="user"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_user_halo_w{transform:scale(1.1);opacity:1}
+.altek-icon[data-icon="user"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_user_badge_w{transform:scale(1.22)}
+@keyframes altekSdUserHalo{0%,100%{transform:scale(.95);opacity:.5}50%{transform:scale(1.05);opacity:1}}
+@keyframes altekSdUserBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2px)}}
+@keyframes altekSdUserBadge{0%,100%{transform:scale(.94)}50%{transform:scale(1.06)}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="user"] *{animation:none!important;transition:none!important}}
+.altek-icon[data-icon="users"] .sd_users_li{animation:altekSdUsersBob 4s ease-in-out infinite}
+.altek-icon[data-icon="users"] .sd_users_ri{animation:altekSdUsersBob 4s ease-in-out -2s infinite}
+.altek-icon[data-icon="users"] .sd_users_ci{animation:altekSdUsersCenter 3.4s ease-in-out infinite}
+.altek-icon[data-icon="users"] .sd_users_hi{transform-box:view-box;transform-origin:32px 24px;animation:altekSdUsersHalo 3.6s ease-in-out infinite}
+.altek-icon[data-icon="users"] .sd_users_bi{transform-box:view-box;transform-origin:50px 49px;animation:altekSdUsersBadge 3s ease-in-out infinite}
+.altek-icon[data-icon="users"] .sd_users_lw{transform-box:view-box;transform:translate(0,0);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="users"] .sd_users_rw{transform-box:view-box;transform:translate(0,0);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="users"] .sd_users_cw{transform-box:view-box;transform-origin:32px 38px;transform:translateY(0) scale(1);transition:transform .36s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="users"] .sd_users_hw{transform-box:view-box;transform-origin:32px 24px;transform:scale(.95);opacity:.42;transition:transform .38s cubic-bezier(.22,.86,.2,1),opacity .28s ease}
+.altek-icon[data-icon="users"] .sd_users_bw{transform-box:view-box;transform-origin:50px 49px;transform:scale(1);transition:transform .36s cubic-bezier(.22,.88,.2,1)}
+.altek-icon[data-icon="users"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_users_lw{transform:translate(-1.8px,-1.5px)}
+.altek-icon[data-icon="users"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_users_rw{transform:translate(1.8px,-1.5px)}
+.altek-icon[data-icon="users"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_users_cw{transform:translateY(-2px) scale(1.05)}
+.altek-icon[data-icon="users"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_users_hw{transform:scale(1.12);opacity:1}
+.altek-icon[data-icon="users"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_users_bw{transform:scale(1.22)}
+@keyframes altekSdUsersBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2px)}}
+@keyframes altekSdUsersCenter{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.6px)}}
+@keyframes altekSdUsersHalo{0%,100%{transform:scale(.95);opacity:.5}50%{transform:scale(1.05);opacity:1}}
+@keyframes altekSdUsersBadge{0%,100%{transform:scale(.94)}50%{transform:scale(1.06)}}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="users"] *{animation:none!important;transition:none!important}}
+.altek-master-icon[data-icon="wallet"] .altek_detail_wallet_card{transform-box:view-box;transform:translateY(0);transition:transform .42s cubic-bezier(.22,.84,.2,1)}
+.altek-master-icon[data-icon="wallet"] .altek_detail_wallet_coin{transform-box:view-box;transform-origin:45px 38px;transform:translateY(0) rotate(0deg);transition:transform .44s cubic-bezier(.22,.86,.2,1) .05s}
+.altek-master-icon[data-icon="wallet"] .altek_detail_wallet_clasp{transform-box:view-box;transform:translateX(0);transition:transform .38s cubic-bezier(.22,.82,.2,1)}
+.altek-master-icon[data-icon="wallet"] .altek_detail_wallet_spark{transform-box:view-box;transform-origin:100px 27px;transform:scale(.45) rotate(-20deg);opacity:0;transition:transform .4s cubic-bezier(.22,.86,.2,1) .12s,opacity .24s ease .12s}
+.altek-master-icon[data-icon="wallet"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_wallet_card{transform:translateY(-10px)}
+.altek-master-icon[data-icon="wallet"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_wallet_coin{transform:translateY(-13px) rotate(15deg)}
+.altek-master-icon[data-icon="wallet"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_wallet_clasp{transform:translateX(3.5px)}
+.altek-master-icon[data-icon="wallet"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .altek_detail_wallet_spark{transform:scale(1) rotate(0deg);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-master-icon[data-icon="wallet"] *{transition:none!important;animation:none!important}}
+
+.altek-icon[data-icon="praktikum"] .sd_prak_probe{transform-box:view-box;transform-origin:90px 62px;transform:translate(3px,-4px) rotate(5deg);transition:transform .38s cubic-bezier(.22,.86,.2,1)}
+.altek-icon[data-icon="praktikum"] .sd_prak_wire_pulse{stroke-dasharray:52;stroke-dashoffset:52;opacity:0;transition:stroke-dashoffset .44s cubic-bezier(.22,.84,.2,1) .08s,opacity .22s ease .08s}
+.altek-icon[data-icon="praktikum"] .sd_prak_led{transform-box:view-box;transform-origin:35px 42px;transform:scale(1);transition:transform .36s cubic-bezier(.22,.88,.2,1) .1s,filter .3s ease .1s}
+.altek-icon[data-icon="praktikum"] .sd_prak_led_glow{transform-box:view-box;transform-origin:35px 42px;transform:scale(.68);opacity:0;transition:transform .38s cubic-bezier(.22,.86,.2,1) .1s,opacity .28s ease .1s}
+.altek-icon[data-icon="praktikum"] .sd_prak_spark{transform-box:view-box;transform-origin:86px 66px;transform:scale(.4) rotate(-25deg);opacity:0;transition:transform .36s cubic-bezier(.22,.88,.2,1) .12s,opacity .22s ease .12s}
+.altek-icon[data-icon="praktikum"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_prak_probe{transform:translate(0,0) rotate(0deg)}
+.altek-icon[data-icon="praktikum"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_prak_wire_pulse{stroke-dashoffset:0;opacity:1}
+.altek-icon[data-icon="praktikum"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_prak_led{transform:scale(1.12);filter:drop-shadow(0 0 4px rgba(255,214,102,.85))}
+.altek-icon[data-icon="praktikum"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_prak_led_glow{transform:scale(1.18);opacity:.92}
+.altek-icon[data-icon="praktikum"]:is(:focus-visible,.is-active,.is-playing,.is-hovered,.is-keyfocus) .sd_prak_spark{transform:scale(1) rotate(0deg);opacity:1}
+@media(prefers-reduced-motion:reduce){.altek-icon[data-icon="praktikum"] *{transition:none!important;animation:none!important}}

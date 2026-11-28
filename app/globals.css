@@ -1,29 +1,1324 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./altek-icons.css";
+@import "./altek-components.css";
+@import "./altek-home.css";
+@import "./altek-informasi.css";
+@import "./altek-praktikum.css";
+@import "./altek-keanggotaan.css";
+@import "./altek-about.css";
+
+/* ============================================================================
+   ALTEK UNSOED — Global Design Tokens & Shell (Zero Violet / Ink Navy)
+   ============================================================================ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Ink Navy Scale */
+  --altek-navy-950: #0b1624;
+  --altek-navy-900: #0d1b2c;
+  --altek-navy-850: #14263d;
+  --altek-navy-800: #1d3552;
+  --altek-navy-750: #1d3c5c;
+
+  /* Light Mode Semantic Tokens */
+  --altek-bg: #f1f5fa;
+  --altek-surface: #ffffff;
+  --altek-surface-2: #e8eff7;
+  --altek-surface-elevated: #ffffff;
+  --altek-text: #14263d;
+  --altek-muted: #516880;
+  --altek-line: #d2deeb;
+
+  /* Technical Accents (Zero Violet) */
+  --altek-teal: #0e8f9e;
+  --altek-teal-soft: rgba(14, 143, 158, 0.12);
+  --altek-gold: #d98f28;
+  --altek-gold-soft: rgba(217, 143, 40, 0.14);
+  --altek-sky: #2c87c5;
+
+  /* Status Tokens */
+  --altek-success: #247a59;
+  --altek-success-bg: #e8f5ef;
+  --altek-warning: #9a6a19;
+  --altek-warning-bg: #fff4df;
+
+  /* Elevations & Radii */
+  --altek-radius: 16px;
+  --altek-radius-lg: 24px;
+  --altek-shadow: 0 12px 32px rgba(11, 22, 36, 0.08);
+  --altek-shadow-card: 0 1px 3px rgba(11, 22, 36, 0.05);
+  --altek-shadow-hover: 0 6px 18px rgba(11, 22, 36, 0.08);
+  --altek-hero-gradient: linear-gradient(
+    118deg,
+    #0b1624 0%,
+    #0d1b2c 36%,
+    #14263d 68%,
+    #1d3c5c 100%
+  );
+
+  /* Shared Alias Tokens */
+  --navy-950: var(--altek-navy-950);
+  --navy-900: var(--altek-navy-850);
+  --navy-800: var(--altek-navy-800);
+  --navy-700: var(--altek-navy-750);
+  --bg: var(--altek-bg);
+  --surface: var(--altek-surface);
+  --surface-2: var(--altek-surface-2);
+  --surface-3: #dce7f3;
+  --text: var(--altek-text);
+  --muted: var(--altek-muted);
+  --line: var(--altek-line);
+  --accent: var(--altek-teal);
+  --success: var(--altek-success);
+  --success-bg: var(--altek-success-bg);
+  --warning: var(--altek-warning);
+  --warning-bg: var(--altek-warning-bg);
+  --radius: var(--altek-radius);
+  --shadow: var(--altek-shadow);
+  --shadow-card: var(--altek-shadow-card);
+  --shadow-hover: var(--altek-shadow-hover);
+  --gradient-brand: linear-gradient(
+    125deg,
+    #0d1b2c 0%,
+    #14263d 48%,
+    #0e8f9e 100%
+  );
+  --gradient-soft: linear-gradient(
+    135deg,
+    rgba(14, 143, 158, 0.1),
+    rgba(44, 135, 197, 0.07) 58%,
+    rgba(217, 143, 40, 0.07)
+  );
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html[data-theme="dark"] {
+  --altek-bg: #0b1420;
+  --altek-surface: #111f30;
+  --altek-surface-2: #192d44;
+  --altek-surface-elevated: #132438;
+  --altek-text: #edf4fc;
+  --altek-muted: #9db4ca;
+  --altek-line: #233a54;
+
+  --altek-teal: #5ee0df;
+  --altek-teal-soft: rgba(94, 224, 223, 0.14);
+  --altek-gold: #f5c15d;
+  --altek-gold-soft: rgba(245, 193, 93, 0.16);
+  --altek-sky: #6ac8f4;
+
+  --altek-success: #76c6a2;
+  --altek-success-bg: #17382f;
+  --altek-warning: #e2bd74;
+  --altek-warning-bg: #3a2e1a;
+
+  --altek-shadow: 0 16px 38px rgba(0, 0, 0, 0.34);
+  --altek-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.22);
+  --altek-shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.3);
+
+  --bg: var(--altek-bg);
+  --surface: var(--altek-surface);
+  --surface-2: var(--altek-surface-2);
+  --surface-3: #213a56;
+  --text: var(--altek-text);
+  --muted: var(--altek-muted);
+  --line: var(--altek-line);
+  --accent: var(--altek-teal);
+  --success: var(--altek-success);
+  --success-bg: var(--altek-success-bg);
+  --warning: var(--altek-warning);
+  --warning-bg: var(--altek-warning-bg);
+  --shadow: var(--altek-shadow);
+  --shadow-card: var(--altek-shadow-card);
+  --shadow-hover: var(--altek-shadow-hover);
+  --gradient-soft: linear-gradient(
+    135deg,
+    rgba(94, 224, 223, 0.13),
+    rgba(106, 200, 244, 0.09) 55%,
+    rgba(245, 193, 93, 0.09)
+  );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--altek-bg);
+    background-image:
+      radial-gradient(
+        circle at 8% 0%,
+        rgba(14, 143, 158, 0.07),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 92% 18%,
+        rgba(20, 38, 61, 0.055),
+        transparent 36%
+      );
+    color: var(--altek-text);
+    font-family:
+      var(--font-sans),
+      Inter,
+      "Plus Jakarta Sans",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    line-height: 1.55;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+  }
+
+  html[data-theme="dark"] body {
+    background-image:
+      radial-gradient(
+        circle at 10% 0%,
+        rgba(94, 224, 223, 0.08),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 90% 20%,
+        rgba(29, 60, 92, 0.28),
+        transparent 40%
+      );
+  }
+
+  button,
+  a {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.altek-container,
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+/* ============================================================================
+   Icon Tones (amber, blue, cyan, mint, rose, sky — Zero Violet)
+   ============================================================================ */
+
+.tone-amber,
+.quick-icon.tone-amber,
+.course-icon.tone-amber,
+.division-card-icon.tone-amber,
+.module-card-icon.tone-amber,
+.policy-icon.tone-amber,
+.starterpack-icon.tone-amber,
+.role-avatar.tone-amber {
+  background: linear-gradient(145deg, #fff2d9, #f7dca7);
+  color: #9b681b;
+}
+
+.tone-blue,
+.quick-icon.tone-blue,
+.course-icon.tone-blue,
+.division-card-icon.tone-blue,
+.module-card-icon.tone-blue,
+.policy-icon.tone-blue,
+.starterpack-icon.tone-blue,
+.role-avatar.tone-blue {
+  background: linear-gradient(145deg, #e2efff, #bfd9f8);
+  color: #2766aa;
+}
+
+.tone-cyan,
+.quick-icon.tone-cyan,
+.course-icon.tone-cyan,
+.division-card-icon.tone-cyan,
+.module-card-icon.tone-cyan,
+.policy-icon.tone-cyan,
+.starterpack-icon.tone-cyan,
+.role-avatar.tone-cyan {
+  background: linear-gradient(145deg, #d8f7fa, #a8e8ed);
+  color: #087d91;
+}
+
+.tone-mint,
+.quick-icon.tone-mint,
+.course-icon.tone-mint,
+.division-card-icon.tone-mint,
+.module-card-icon.tone-mint,
+.policy-icon.tone-mint,
+.starterpack-icon.tone-mint,
+.role-avatar.tone-mint {
+  background: linear-gradient(145deg, #ddf8ed, #b2ead3);
+  color: #18785c;
+}
+
+.tone-rose,
+.quick-icon.tone-rose,
+.course-icon.tone-rose,
+.division-card-icon.tone-rose,
+.module-card-icon.tone-rose,
+.policy-icon.tone-rose,
+.starterpack-icon.tone-rose,
+.role-avatar.tone-rose {
+  background: linear-gradient(145deg, #ffe8ef, #f5c5d4);
+  color: #a84669;
+}
+
+.tone-sky,
+.quick-icon.tone-sky,
+.course-icon.tone-sky,
+.division-card-icon.tone-sky,
+.module-card-icon.tone-sky,
+.policy-icon.tone-sky,
+.starterpack-icon.tone-sky,
+.role-avatar.tone-sky {
+  background: linear-gradient(145deg, #e2eef9, #c4dbf0);
+  color: #1d3c5c;
+}
+
+html[data-theme="dark"] .tone-amber,
+html[data-theme="dark"] .quick-icon.tone-amber,
+html[data-theme="dark"] .course-icon.tone-amber,
+html[data-theme="dark"] .division-card-icon.tone-amber,
+html[data-theme="dark"] .module-card-icon.tone-amber,
+html[data-theme="dark"] .policy-icon.tone-amber,
+html[data-theme="dark"] .starterpack-icon.tone-amber,
+html[data-theme="dark"] .role-avatar.tone-amber {
+  background: linear-gradient(145deg, #57401f, #80602c);
+  color: #ffdc9b;
+}
+
+html[data-theme="dark"] .tone-blue,
+html[data-theme="dark"] .quick-icon.tone-blue,
+html[data-theme="dark"] .course-icon.tone-blue,
+html[data-theme="dark"] .division-card-icon.tone-blue,
+html[data-theme="dark"] .module-card-icon.tone-blue,
+html[data-theme="dark"] .policy-icon.tone-blue,
+html[data-theme="dark"] .starterpack-icon.tone-blue,
+html[data-theme="dark"] .role-avatar.tone-blue {
+  background: linear-gradient(145deg, #203f62, #285b86);
+  color: #a9d0ff;
+}
+
+html[data-theme="dark"] .tone-cyan,
+html[data-theme="dark"] .quick-icon.tone-cyan,
+html[data-theme="dark"] .course-icon.tone-cyan,
+html[data-theme="dark"] .division-card-icon.tone-cyan,
+html[data-theme="dark"] .module-card-icon.tone-cyan,
+html[data-theme="dark"] .policy-icon.tone-cyan,
+html[data-theme="dark"] .starterpack-icon.tone-cyan,
+html[data-theme="dark"] .role-avatar.tone-cyan {
+  background: linear-gradient(145deg, #174753, #1b6876);
+  color: #8de9f1;
+}
+
+html[data-theme="dark"] .tone-mint,
+html[data-theme="dark"] .quick-icon.tone-mint,
+html[data-theme="dark"] .course-icon.tone-mint,
+html[data-theme="dark"] .division-card-icon.tone-mint,
+html[data-theme="dark"] .module-card-icon.tone-mint,
+html[data-theme="dark"] .policy-icon.tone-mint,
+html[data-theme="dark"] .starterpack-icon.tone-mint,
+html[data-theme="dark"] .role-avatar.tone-mint {
+  background: linear-gradient(145deg, #17483d, #206b58);
+  color: #9aefd0;
+}
+
+html[data-theme="dark"] .tone-rose,
+html[data-theme="dark"] .quick-icon.tone-rose,
+html[data-theme="dark"] .course-icon.tone-rose,
+html[data-theme="dark"] .division-card-icon.tone-rose,
+html[data-theme="dark"] .module-card-icon.tone-rose,
+html[data-theme="dark"] .policy-icon.tone-rose,
+html[data-theme="dark"] .starterpack-icon.tone-rose,
+html[data-theme="dark"] .role-avatar.tone-rose {
+  background: linear-gradient(145deg, #5c3044, #81425e);
+  color: #ffc1d5;
+}
+
+html[data-theme="dark"] .tone-sky,
+html[data-theme="dark"] .quick-icon.tone-sky,
+html[data-theme="dark"] .course-icon.tone-sky,
+html[data-theme="dark"] .division-card-icon.tone-sky,
+html[data-theme="dark"] .module-card-icon.tone-sky,
+html[data-theme="dark"] .policy-icon.tone-sky,
+html[data-theme="dark"] .starterpack-icon.tone-sky,
+html[data-theme="dark"] .role-avatar.tone-sky {
+  background: linear-gradient(145deg, #1b3652, #254b70);
+  color: #8fd2f7;
+}
+
+/* ============================================================================
+   SVG Icon & Brand Logo Calibration
+   ============================================================================ */
+
+svg.altek-v110-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: visible;
+  transform: none;
+  animation: none;
+  filter: none;
+  pointer-events: none;
+}
+
+svg.altek-v110-icon.altek-icon-offscreen,
+svg.altek-v110-icon.altek-icon-offscreen * {
+  animation-play-state: paused !important;
+}
+
+.quick-icon,
+.course-icon,
+.module-card-icon,
+.altek-module-icon,
+.starterpack-icon,
+.policy-icon,
+.altek-social-icon,
+.altek-division-badge,
+.altek-role-symbol,
+.altek-empty-core {
+  overflow: visible;
+}
+
+.altek-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.altek-mini svg {
+  width: 100%;
+  height: 100%;
+}
+
+.motion-icon {
+  display: inline-grid;
+  place-items: center;
+}
+
+.altek-brand-logo {
+  display: block;
+  flex-shrink: 0;
+  color: var(--altek-navy-850);
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-brand:hover .altek-footer-logo,
+  .altek-hero-identity-pill:hover .altek-brand-logo {
+    transform: scale(1.05);
+  }
+}
+
+html[data-theme="dark"] .altek-brand-logo {
+  color: #edf4fc;
+}
+
+/* Practicum course card icon sizing (64/52 desktop, 56/46 mobile) */
+.practicum-course-card .course-icon {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  border-radius: 16px;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+}
+
+.practicum-course-card .course-icon svg,
+.practicum-course-card .course-icon svg.altek-v110-icon {
+  width: 52px;
+  height: 52px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+@media (max-width: 680px) {
+  .practicum-course-card .course-icon {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    border-radius: 14px;
+    padding: 4px;
+  }
+
+  .practicum-course-card .course-icon svg,
+  .practicum-course-card .course-icon svg.altek-v110-icon {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* Clean calm cards (1px border, subtle shadow, no shine sweep / icon tilt) */
+.card {
+  background: var(--altek-surface);
+  border: 1px solid var(--altek-line);
+  border-radius: var(--altek-radius);
+  box-shadow: var(--altek-shadow-card);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:not(.role-member-card):not(.schedule-empty-card):hover {
+    transform: translateY(-1px);
+    box-shadow: var(--altek-shadow-hover);
+    border-color: color-mix(in srgb, var(--altek-teal) 32%, var(--altek-line));
+  }
+}
+
+/* ============================================================================
+   Sticky Responsive Navbar
+   ============================================================================ */
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--altek-surface) 95%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid color-mix(in srgb, var(--altek-line) 65%, transparent);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.topbar.is-scrolled {
+  background: color-mix(in srgb, var(--altek-surface) 92%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--altek-line);
+  box-shadow: 0 10px 28px rgba(11, 22, 36, 0.09);
+}
+
+html[data-theme="dark"] .topbar {
+  background: color-mix(in srgb, #111f30 94%, transparent);
+  border-bottom-color: rgba(35, 58, 84, 0.65);
+}
+
+html[data-theme="dark"] .topbar.is-scrolled {
+  background: color-mix(in srgb, #111f30 92%, transparent);
+  border-bottom-color: #233a54;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.36);
+}
+
+.nav-wrap {
+  height: 74px;
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.brand-text {
+  min-width: 0;
+}
+
+.altek-wordmark-img {
+  display: block;
+  width: auto;
+  height: 21px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.brand .altek-wordmark-nav {
+  height: 21px;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(32%) saturate(1020%)
+    hue-rotate(176deg) brightness(93%) contrast(94%);
+  transition:
+    filter 220ms ease,
+    transform 220ms ease;
+}
+
+html[data-theme="dark"] .brand .altek-wordmark-nav {
+  filter: none;
+}
+
+.brand:hover .altek-nav-logo {
+  transform: scale(1.05);
+}
+
+.brand-sub {
+  font-size: 10px;
+  color: var(--altek-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 5px;
+  min-width: 0;
+}
+
+.nav-links .nav-link {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 9px 13px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  color: var(--altek-muted);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-links .nav-link .altek-mini {
+  width: 22px;
+  height: 22px;
+}
+
+.nav-links .nav-link:hover {
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  transform: translateY(-1px);
+}
+
+.nav-links .nav-link.active {
+  background: var(--altek-teal-soft);
+  border-color: color-mix(in srgb, var(--altek-teal) 42%, var(--altek-line));
+  color: var(--altek-text);
+}
+
+html[data-theme="dark"] .nav-links .nav-link.active {
+  background: rgba(94, 224, 223, 0.14);
+  border-color: rgba(94, 224, 223, 0.42);
+  color: #edf4fc;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.icon-btn,
+.menu-btn {
+  position: relative;
+  overflow: hidden;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-text);
+  display: grid;
+  place-items: center;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+html[data-theme="dark"] .icon-btn,
+html[data-theme="dark"] .menu-btn {
+  background: var(--altek-surface-2);
+  border-color: #2b4563;
+  color: #edf4fc;
+}
+
+.icon-btn:hover,
+.menu-btn:hover {
+  border-color: color-mix(in srgb, var(--altek-teal) 48%, var(--altek-line));
+  background: var(--altek-teal-soft);
+}
+
+.icon-btn .altek-mini,
+.menu-btn .altek-mini {
+  width: 24px;
+  height: 24px;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.menu-btn[aria-expanded="true"] {
+  background: var(--altek-teal-soft);
+  border-color: var(--altek-teal);
+}
+
+.icon-btn:focus-visible,
+.menu-btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.mobile-nav {
+  display: none;
+  border-top: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: 0 18px 36px rgba(11, 22, 36, 0.14);
+}
+
+html[data-theme="dark"] .mobile-nav {
+  background: #111f30;
+  border-top-color: #233a54;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-nav.open {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 14px 20px 18px;
+  animation: altekMobileNavIn 190ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes altekMobileNavIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 11px;
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 13px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.mobile-nav .nav-link .altek-mini {
+  width: 22px;
+  height: 22px;
+}
+
+.mobile-nav .nav-link.active {
+  background: var(--altek-teal-soft);
+  border-color: color-mix(in srgb, var(--altek-teal) 52%, var(--altek-line));
+  font-weight: 800;
+}
+
+.mobile-nav .nav-link.active::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--altek-teal);
+  flex: 0 0 6px;
+  margin-left: auto;
+}
+
+html[data-theme="dark"] .mobile-nav .nav-link {
+  background: #192d44;
+  border-color: #233a54;
+  color: #edf4fc;
+}
+
+html[data-theme="dark"] .mobile-nav .nav-link.active {
+  background: rgba(94, 224, 223, 0.14);
+  border-color: rgba(94, 224, 223, 0.48);
+}
+
+.mobile-nav .nav-link:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1120px) and (min-width: 961px) {
+  .nav-links .nav-link {
+    padding: 9px 10px;
+    font-size: 12.5px;
+    gap: 6px;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-wrap {
+    height: 70px;
+    min-height: 70px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: grid;
+  }
+
+  .brand {
+    flex: 1;
+  }
+}
+
+@media (min-width: 961px) {
+  .mobile-nav,
+  .mobile-nav.open {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .nav-wrap {
+    height: 66px;
+    min-height: 66px;
+    gap: 8px;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .mobile-nav.open {
+    padding: 12px 16px 16px;
+  }
+}
+
+@media (max-width: 460px) {
+  .mobile-nav.open {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .mobile-nav .nav-link {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .topbar .altek-container {
+    width: calc(100% - 24px);
+  }
+
+  .brand {
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .altek-nav-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand .altek-wordmark-nav {
+    height: 17px;
+  }
+}
+
+/* ============================================================================
+   3-Column Ink Navy Footer
+   ============================================================================ */
+
+.footer {
+  background: #101d2d;
+  color: #eaf1f8;
+  border-top: 1px solid rgba(94, 224, 223, 0.18);
+  padding: 40px 0 22px;
+  margin-top: auto;
+}
+
+.footer .footer-grid.altek-footer-3col {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.footer .footer-brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer .footer-brand .altek-footer-logo {
+  width: 54px;
+  height: 54px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+}
+
+.footer .footer-brand .altek-wordmark-img {
+  height: 22px;
+  margin-bottom: 4px;
+}
+
+.footer .footer-brand-sub {
+  font-size: 11px;
+  color: #8fd8e0;
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+.footer .footer-brand-desc {
+  max-width: 360px;
+  margin: 13px 0 0;
+  color: #b4c8dc;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+.footer h4 {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+.footer .altek-footer-nav-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+}
+
+.footer .altek-footer-nav-cols a {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  color: #c2d4e6;
+  font-size: 12.5px;
+  font-weight: 600;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.footer .altek-footer-nav-cols a:hover,
+.footer .altek-footer-nav-cols a:focus-visible {
+  color: #5ee0df;
+  transform: translateX(2px);
+}
+
+.footer .footer-contact-email {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  border-radius: 11px;
+  border: 1px solid rgba(159, 215, 240, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #edf4fc;
+  font-size: 12.5px;
+  font-weight: 650;
+  margin: 0 0 12px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.footer .footer-contact-email:hover {
+  border-color: rgba(94, 224, 223, 0.45);
+  background: rgba(94, 224, 223, 0.11);
+}
+
+.footer .footer-mini-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: rgba(94, 224, 223, 0.14);
+  color: #5ee0df;
+}
+
+.footer .footer-mini-icon .altek-mini {
+  width: 16px;
+  height: 16px;
+}
+
+.footer .footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.footer .footer-social-link {
+  position: relative;
+  overflow: hidden;
+  width: 42px;
+  height: 42px;
+  padding: 5px;
+  border-radius: 11px;
+  border: 1px solid rgba(159, 215, 240, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.footer .footer-social-link:hover {
+  background: rgba(94, 224, 223, 0.16);
+  border-color: rgba(94, 224, 223, 0.48);
+}
+
+.footer .footer-social-link svg.altek-v110-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.footer .footer-contact-caption {
+  display: block;
+  margin-top: 10px;
+  font-size: 11.5px;
+  color: #9cb3c9;
+}
+
+.footer .copyright {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 18px;
+  border-top: 1px solid rgba(159, 215, 240, 0.16);
+  margin-top: 26px;
+  padding-top: 16px;
+  color: #9cb3c9;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .footer .footer-grid.altek-footer-3col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+  }
+
+  .footer .footer-grid.altek-footer-3col > .footer-identity-block {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 28px 0 18px;
+  }
+
+  .footer .footer-grid.altek-footer-3col {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer .footer-grid.altek-footer-3col > .footer-identity-block {
+    grid-column: auto;
+  }
+
+  .footer .copyright {
+    margin-top: 20px;
+    padding-top: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .topbar,
+  .mobile-nav.open,
+  .nav-links .nav-link,
+  .icon-btn,
+  .menu-btn,
+  .altek-brand-logo,
+  .footer .altek-footer-nav-cols a,
+  .footer .footer-contact-email,
+  .footer .footer-social-link,
+  .card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .click-ripple {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================================================
+   REVEAL (scroll-into-view animation, v0.6.13: 380ms + grid stagger)
+   .reveal starts visible (SSR friendly). Once JS boots and adds .js-motion
+   to <html>, .reveal elements become hidden until IntersectionObserver
+   triggers .is-visible. If JS never boots, content stays visible.
+   ============================================================================ */
+
+html.js-motion .reveal {
+  opacity: 0;
+  translate: 0 18px;
+  transition:
+    opacity 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    translate 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 190ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 190ms ease,
+    box-shadow 190ms ease,
+    background-color 190ms ease;
+}
+
+html.js-motion .reveal.is-visible,
+html.js-motion .reveal[data-reveal="visible"] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+html.js-motion :is(
+  .altek-quick-grid,
+  .altek-info-grid,
+  .altek-course-grid,
+  .altek-module-grid,
+  .altek-policy-grid,
+  .altek-tut-grid,
+  .altek-bph-grid,
+  .altek-division-list,
+  .altek-about-topics,
+  .altek-role-accordion,
+  .altek-social-grid
+) > .reveal:nth-child(2) {
+  transition-delay: 45ms, 45ms, 0s, 0s, 0s, 0s;
+}
+
+html.js-motion :is(
+  .altek-quick-grid,
+  .altek-info-grid,
+  .altek-course-grid,
+  .altek-module-grid,
+  .altek-policy-grid,
+  .altek-tut-grid,
+  .altek-bph-grid,
+  .altek-division-list,
+  .altek-about-topics,
+  .altek-role-accordion,
+  .altek-social-grid
+) > .reveal:nth-child(3) {
+  transition-delay: 90ms, 90ms, 0s, 0s, 0s, 0s;
+}
+
+html.js-motion :is(
+  .altek-quick-grid,
+  .altek-info-grid,
+  .altek-course-grid,
+  .altek-module-grid,
+  .altek-policy-grid,
+  .altek-tut-grid,
+  .altek-bph-grid,
+  .altek-division-list,
+  .altek-about-topics,
+  .altek-role-accordion,
+  .altek-social-grid
+) > .reveal:nth-child(4) {
+  transition-delay: 135ms, 135ms, 0s, 0s, 0s, 0s;
+}
+
+html.js-motion :is(
+  .altek-quick-grid,
+  .altek-info-grid,
+  .altek-course-grid,
+  .altek-module-grid,
+  .altek-policy-grid,
+  .altek-tut-grid,
+  .altek-bph-grid,
+  .altek-division-list,
+  .altek-about-topics,
+  .altek-role-accordion,
+  .altek-social-grid
+) > .reveal:nth-child(n + 5) {
+  transition-delay: 160ms, 160ms, 0s, 0s, 0s, 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-motion .reveal {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================================
+   SHARED ACCORDION / TAB ENTRANCE (HTML v0.6.13 line 4089)
+   ============================================================================ */
+
+@keyframes altekAccordionContentIn {
+  from {
+    opacity: 0.2;
+    transform: translateY(-7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   CLICK RIPPLE (pointer feedback)
+   ============================================================================ */
+
+@keyframes altekRippleOut {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.click-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(14, 143, 158, 0.24) 0%,
+    rgba(44, 135, 197, 0.14) 45%,
+    transparent 72%
+  );
+  transform: scale(0);
+  opacity: 0.9;
+  animation: altekRippleOut 0.62s ease-out forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+html[data-theme="dark"] .click-ripple {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.34) 0%,
+    rgba(94, 224, 223, 0.2) 45%,
+    transparent 72%
+  );
+}
+
+/* ============================================================================
+   HERO ANIMATIONS — shared @keyframes for all hero SVGs
+   (h4-drift/h4-pulse for Beranda & Informasi,
+    h2-wave/h2-bar for Praktikum,
+    h3-tile/h3-orb for Keanggotaan,
+    h5-drift/h5-pulse for About)
+   ============================================================================ */
+
+/* --- Beranda & Informasi (h4) --- */
+@keyframes h4Drift {
+  0%, 100% { transform: translate(0px, 0px); }
+  50% { transform: translate(8px, -6px); }
+}
+@keyframes h4Pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.9; }
+}
+.h4-drift { animation: h4Drift 12s ease-in-out infinite; }
+.h4-pulse { animation: h4Pulse 6s ease-in-out infinite; }
+
+/* --- Praktikum (h2) --- */
+@keyframes h2Drift {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(-18px); }
+}
+@keyframes h2Bar {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+.h2-wave   { animation: h2Drift 10s ease-in-out infinite; }
+.h2-wave-b { animation: h2Drift 13s ease-in-out 1.5s infinite reverse; }
+.h2-bar    { animation: h2Bar 5s ease-in-out infinite; }
+.h2-bar-2  { animation: h2Bar 5s ease-in-out 1.2s infinite; }
+.h2-bar-3  { animation: h2Bar 5s ease-in-out 2.4s infinite; }
+
+/* --- Keanggotaan (h3) --- */
+@keyframes h3Bob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes h3Glow {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+.h3-tile-a { animation: h3Bob 9s ease-in-out infinite; }
+.h3-tile-b { animation: h3Bob 11s ease-in-out 1.8s infinite reverse; }
+.h3-orb    { animation: h3Glow 6.5s ease-in-out infinite; }
+
+/* --- About (h5) --- */
+@keyframes h5Drift {
+  0%, 100% { transform: translate(0px, 0px); }
+  50% { transform: translate(-7px, -6px); }
+}
+@keyframes h5Pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+.h5-drift { animation: h5Drift 12s ease-in-out infinite; }
+.h5-pulse { animation: h5Pulse 7s ease-in-out infinite; }
+
+/* --- Reduced motion: disable all hero animations --- */
+@media (prefers-reduced-motion: reduce) {
+  .h4-drift, .h4-pulse,
+  .h2-wave, .h2-wave-b, .h2-bar, .h2-bar-2, .h2-bar-3,
+  .h3-tile-a, .h3-tile-b, .h3-orb,
+  .h5-drift, .h5-pulse {
+    animation: none;
+  }
 }

@@ -1,17 +1,89 @@
+import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+import AltekEffects from "@/components/altek/AltekEffects";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const SITE_TITLE = "ALTEK UNSOED — Informasi Praktikum, Arsip & Organisasi";
+const SITE_DESCRIPTION =
+  "Informasi dan arsip Aliansi Laboratorium Teknik Elektro (ALTEK) UNSOED: daftar praktikum, modul, pedoman, dan struktur kepengurusan.";
 
 export const metadata: Metadata = {
-  title: "Altek",
-  description: "Website Organisasi Altek",
+  title: {
+    default: SITE_TITLE,
+    template: "%s | ALTEK UNSOED",
+  },
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: "ALTEK UNSOED",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/assets/branding/og-altek-unsoed.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ALTEK UNSOED — Aliansi Laboratorium Teknik Elektro Universitas Jenderal Soedirman",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/assets/branding/og-altek-unsoed.jpg"],
+  },
   icons: {
-    icon: "/LogoAltek.png",
-    apple: "/LogoAltek.png",
+    icon: [
+      { url: "/assets/branding/favicon.ico" },
+      { url: "/assets/branding/favicon-64.png", type: "image/png" },
+    ],
   },
 };
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
+
+const THEME_INIT_SCRIPT = `(function(){
+  var theme = 'light';
+  try {
+    var saved = window.localStorage && window.localStorage.getItem('altek-theme');
+    if (saved === 'dark' || saved === 'light') {
+      theme = saved;
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      theme = 'dark';
+    }
+  } catch (e) {
+    try {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+    } catch (e2) {}
+  }
+  document.documentElement.setAttribute('data-theme', theme);
+  var color = theme === 'dark' ? '#111f30' : '#ffffff';
+  var metas = document.querySelectorAll('meta[name="theme-color"]');
+  if (metas.length) {
+    for (var i = 0; i < metas.length; i++) {
+      metas[i].removeAttribute('media');
+      metas[i].setAttribute('content', color);
+    }
+  } else {
+    var meta = document.createElement('meta');
+    meta.name = 'theme-color';
+    meta.content = color;
+    document.head.appendChild(meta);
+  }
+})();`;
 
 export default function RootLayout({
   children,
@@ -19,20 +91,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className="scroll-smooth">
-      <body className="flex flex-col min-h-screen bg-slate-950 text-slate-200 antialiased selection:bg-sky-500/30 selection:text-white">
-        {/* Navbar */}
+    <html
+      lang="id"
+      data-theme="light"
+      className={plusJakartaSans.variable}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
+      <body className="flex flex-col min-h-screen antialiased selection:bg-[#0e8f9e]/20">
         <Navbar />
-
-        {/* Konten Utama - pt-14 md:pt-16 disesuaikan dengan tinggi navbar baru */}
-        <main className="flex-1 pt-14 md:pt-16 w-full overflow-x-hidden flex flex-col">
+        <AltekEffects />
+        <main className="flex-1 w-full overflow-x-hidden flex flex-col">
           {children}
         </main>
-
-        {/* Tombol Back to Top Melayang */}
-        <ScrollToTop />
-
-        {/* Footer */}
         <Footer />
       </body>
     </html>

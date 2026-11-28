@@ -1,210 +1,215 @@
-import Link from "next/link";
-import { PrismaClient } from "@prisma/client";
-import { Orbitron } from "next/font/google";
+import { Suspense } from "react";
+import type { Metadata } from "next";
+import Image from "next/image";
 import {
-  BookOpen,
-  ChevronRight,
-  Zap,
-  Network,
-  Cpu,
-  Activity,
-  Settings,
-  Code,
-  Radio,
-  Monitor,
-  Terminal,
-  Wrench,
-} from "lucide-react";
+  getAllCourseModules,
+  getCourses,
+  getCurrentSemester,
+  getPolicies,
+} from "@/data/courses";
+import { getTutorials } from "@/data/tutorials";
+import {
+  PraktikumTabs,
+  type PraktikumTabKey,
+} from "@/components/altek/PraktikumTabs";
 
-const prisma = new PrismaClient();
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-});
-
-// --- HELPER FUNCTIONS ---
-const getModulIcon = (title: string) => {
-  const lowerTitle = title.toLowerCase();
-
-  if (
-    lowerTitle.includes("listrik") ||
-    lowerTitle.includes("energi") ||
-    lowerTitle.includes("daya") ||
-    lowerTitle.includes("tegangan")
-  )
-    return Zap;
-  if (
-    lowerTitle.includes("jaringan") ||
-    lowerTitle.includes("internet") ||
-    lowerTitle.includes("informasi")
-  )
-    return Network;
-  if (
-    lowerTitle.includes("otomasi") ||
-    lowerTitle.includes("kendali") ||
-    lowerTitle.includes("plc") ||
-    lowerTitle.includes("mesin")
-  )
-    return Settings;
-  if (
-    lowerTitle.includes("sistem") ||
-    lowerTitle.includes("digital") ||
-    lowerTitle.includes("mikro") ||
-    lowerTitle.includes("elektronika")
-  )
-    return Cpu;
-  if (
-    lowerTitle.includes("dasar") ||
-    lowerTitle.includes("pengukuran") ||
-    lowerTitle.includes("fisika")
-  )
-    return Activity;
-  if (
-    lowerTitle.includes("pemrograman") ||
-    lowerTitle.includes("algoritma") ||
-    lowerTitle.includes("software")
-  )
-    return Code;
-  if (
-    lowerTitle.includes("telekomunikasi") ||
-    lowerTitle.includes("sinyal") ||
-    lowerTitle.includes("antena") ||
-    lowerTitle.includes("gelombang")
-  )
-    return Radio;
-  if (lowerTitle.includes("komputer") || lowerTitle.includes("arsitektur"))
-    return Monitor;
-  if (
-    lowerTitle.includes("basis data") ||
-    lowerTitle.includes("data") ||
-    lowerTitle.includes("script")
-  )
-    return Terminal;
-  if (
-    lowerTitle.includes("bengkel") ||
-    lowerTitle.includes("mekanik") ||
-    lowerTitle.includes("perawatan")
-  )
-    return Wrench;
-
-  return BookOpen;
+export const metadata: Metadata = {
+  title: "Informasi Praktikum — ALTEK UNSOED",
+  description:
+    "Praktikum semester aktif, mata kuliah praktikum, modul, aturan, dan tutorial dalam satu tempat.",
 };
 
-export default async function PraktikumPage() {
-  // Ambil semua modul dari database PostgreSQL, urutkan berdasarkan semester
-  const modules = await prisma.module.findMany({
-    include: {
-      concentration: true,
-    },
-    orderBy: {
-      semester: "asc",
-    },
-  });
+interface PraktikumPageProps {
+  searchParams: Promise<{ tab?: string }>;
+}
 
-  // Kelompokkan modul berdasarkan semester secara dinamis
-  const semestersMap = new Map<number, typeof modules>();
-  modules.forEach((mod) => {
-    const sem = mod.semester;
-    if (!semestersMap.has(sem)) {
-      semestersMap.set(sem, []);
-    }
-    semestersMap.get(sem)!.push(mod);
-  });
+const VALID_TABS: readonly PraktikumTabKey[] = [
+  "semester-ini",
+  "daftar",
+  "modul",
+  "tutorial",
+];
 
-  // Ubah map jadi array terurut per semester
-  const praktikumBySemester = Array.from(semestersMap.entries()).map(
-    ([semester, praktikum]) => ({
-      semester,
-      praktikum,
-    }),
-  );
+function normalizeTab(tab?: string): PraktikumTabKey {
+  if (tab && (VALID_TABS as readonly string[]).includes(tab)) {
+    return tab as PraktikumTabKey;
+  }
+  return "semester-ini";
+}
+
+export default async function PraktikumPage({
+  searchParams,
+}: PraktikumPageProps) {
+  const resolvedParams = await searchParams;
+  const initialTab = normalizeTab(resolvedParams.tab);
+
+  const courses = getCourses();
+  const currentSemester = getCurrentSemester();
+  const allModules = getAllCourseModules();
+  const policies = getPolicies();
+  const tutorials = getTutorials();
 
   return (
-    // TONE WARNA BACKGROUND SUDAH DISAMAKAN DENGAN HALAMAN ABOUT (900-800-900)
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative w-full flex flex-col items-center pb-20">
-      {/* Efek Cahaya Background */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[300px] md:w-[600px] h-[150px] bg-sky-600/10 blur-[100px] rounded-full pointer-events-none" />
-
-      <div className="w-full max-w-7xl mx-auto px-6 pt-10 md:pt-16 relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-16 relative z-10">
-          <h1
-            className={`text-3xl md:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-400 to-white drop-shadow-[0_0_15px_rgba(56,189,248,0.5)] tracking-widest uppercase mb-4 ${orbitron.className}`}
-          >
-            Daftar Praktikum
-          </h1>
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-[15px] font-mono leading-relaxed">
-            Pilih modul praktikum berdasarkan semester untuk melihat panduan dan
-            materi secara lengkap.
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-sky-500/80 to-transparent mx-auto mt-6 rounded-full" />
+    <div className="altek-praktikum-page" id="page-praktikum">
+      <section className="altek-hero altek-page-hero" data-model="praktikum">
+        <div className="altek-hero-photo-layer" aria-hidden="true">
+          <Image
+            src="/assets/custom/gedung-lab-ft.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+          />
         </div>
 
-        {/* List Praktikum per Semester dari Database */}
-        {praktikumBySemester.map((item) => (
-          <section key={item.semester} className="mb-16 relative z-10">
-            {/* Judul Semester */}
-            <div className="flex items-center gap-4 mb-8">
-              <h2
-                className={`text-xl md:text-2xl text-sky-400 tracking-wider uppercase font-bold drop-shadow-md ${orbitron.className}`}
+        <div className="altek-hero-svg-layer" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 540"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            <defs>
+              <linearGradient
+                id="altekPrakWedge"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
               >
-                Semester {item.semester}
-              </h2>
-              <div className="flex-1 h-[1px] bg-gradient-to-r from-sky-500/50 to-transparent" />
+                <stop offset="0%" stopColor="#0E8F9E" stopOpacity="0.28" />
+                <stop offset="100%" stopColor="#0B1624" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient
+                id="altekPrakWaveA"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
+                <stop offset="0%" stopColor="#5EE0DF" stopOpacity="0.24" />
+                <stop offset="100%" stopColor="#5EE0DF" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient
+                id="altekPrakWaveB"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
+                <stop offset="0%" stopColor="#F5C15D" stopOpacity="0.18" />
+                <stop offset="100%" stopColor="#F5C15D" stopOpacity="0" />
+              </linearGradient>
+              <pattern
+                id="altekPrakDots"
+                width="24"
+                height="24"
+                patternUnits="userSpaceOnUse"
+              >
+                <circle cx="2" cy="2" r="1.1" fill="#8CD7F4" opacity="0.24" />
+              </pattern>
+            </defs>
+            <polygon
+              points="688,0 742,0 648,540 592,540"
+              fill="url(#altekPrakWedge)"
+            />
+            <polygon
+              points="706,0 714,0 620,540 612,540"
+              fill="#5EE0DF"
+              fillOpacity="0.26"
+            />
+            <rect
+              x="40"
+              y="340"
+              width="420"
+              height="160"
+              fill="url(#altekPrakDots)"
+              opacity="0.55"
+            />
+            <g className="h2-wave">
+              <path
+                d="M360 456 C460 398, 560 492, 670 436 S880 388, 995 442 S1140 468, 1240 426 L1240 540 L360 540 Z"
+                fill="url(#altekPrakWaveA)"
+              />
+            </g>
+            <g className="h2-wave-b">
+              <path
+                d="M430 476 C530 436, 625 504, 735 462 S940 424, 1060 470 S1180 494, 1250 458 L1250 540 L430 540 Z"
+                fill="url(#altekPrakWaveB)"
+              />
+            </g>
+            <g transform="translate(1042 28)">
+              <rect className="h2-bar" x="0" y="12" width="10" height="24" rx="5" fill="#5EE0DF" />
+              <rect className="h2-bar-2" x="18" y="4" width="10" height="32" rx="5" fill="#6AC8F4" />
+              <rect
+                className="h2-bar-3"
+                x="36"
+                y="16"
+                width="10"
+                height="20"
+                rx="5"
+                fill="#F5C15D"
+              />
+              <rect className="h2-bar" x="54" y="8" width="10" height="28" rx="5" fill="#5EE0DF" />
+              <rect className="h2-bar-2" x="72" y="0" width="10" height="36" rx="5" fill="#8CD7F4" />
+              <rect
+                className="h2-bar-3"
+                x="90"
+                y="14"
+                width="10"
+                height="22"
+                rx="5"
+                fill="#5EE0DF"
+              />
+            </g>
+            <rect
+              x="656"
+              y="464"
+              width="46"
+              height="8"
+              rx="4"
+              fill="#5EE0DF"
+              fillOpacity="0.5"
+            />
+            <circle cx="716" cy="468" r="4" fill="#F5C15D" fillOpacity="0.8" />
+          </svg>
+        </div>
+
+        <div className="altek-container altek-hero-inner altek-page-hero-flex">
+          <div className="altek-hero-copy">
+            <div className="altek-hero-eyebrow">
+              <i aria-hidden="true" />
+              <span>INFORMASI PRAKTIKUM · SEMESTER 1–5</span>
             </div>
+            <h1>
+              Informasi <span>Praktikum</span>
+            </h1>
+            <p>
+              Praktikum semester aktif, mata kuliah praktikum, modul, aturan,
+              dan tutorial dalam satu tempat.
+            </p>
+          </div>
+          <div className="altek-page-hero-chip">
+            <i aria-hidden="true" />
+            <span>{courses.length} Mata Kuliah · Pedoman 2026</span>
+          </div>
+        </div>
+      </section>
 
-            {/* Grid Praktikum */}
-            <div className="grid grid-cols-1 place-items-center sm:place-items-stretch sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {item.praktikum.map((p) => {
-                const IconComponent = getModulIcon(p.title);
-
-                return (
-                  <Link
-                    key={p.slug}
-                    href={`/praktikum/${p.slug}`}
-                    className="w-full max-w-md mx-auto sm:max-w-none sm:mx-0 group relative bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 hover:border-sky-500/50 rounded-2xl p-6 transition-all duration-500 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] flex flex-col h-full overflow-hidden"
-                  >
-                    {/* Efek Glow di hover */}
-                    <div className="absolute -top-20 -right-20 w-40 h-40 bg-sky-500/10 rounded-full blur-[50px] group-hover:bg-sky-500/25 transition-all duration-500 pointer-events-none" />
-
-                    {/* Header Card (Icon + Concentration Badge) */}
-                    <div className="flex items-start justify-between mb-5 relative z-10">
-                      <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-3 rounded-xl border border-slate-700 group-hover:border-sky-400/50 group-hover:from-sky-900/40 group-hover:to-slate-900 transition-colors">
-                        <IconComponent className="w-6 h-6 text-sky-400 group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-
-                      {p.concentration && (
-                        <span className="text-[10px] font-mono font-bold tracking-widest text-sky-300 bg-sky-900/30 border border-sky-500/30 px-2 py-1 rounded-md">
-                          {p.concentration.name}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Konten Text */}
-                    <div className="relative z-10 flex-grow mb-6">
-                      <h3
-                        className={`text-lg text-slate-200 font-bold mb-2 group-hover:text-sky-300 transition-colors tracking-wide ${orbitron.className}`}
-                      >
-                        {p.title}
-                      </h3>
-                      <p className="text-slate-400 text-[13px] font-mono leading-relaxed group-hover:text-slate-300 transition-colors line-clamp-3">
-                        {p.description}
-                      </p>
-                    </div>
-
-                    {/* Indikator "Buka Modul" */}
-                    <div className="relative z-10 flex items-center gap-2 text-sky-400/80 group-hover:text-sky-300 text-sm font-semibold tracking-wide font-mono mt-auto pt-4 border-t border-slate-700/50 group-hover:border-sky-500/30 transition-colors">
-                      <span>Buka Modul</span>
-                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        ))}
-      </div>
+      <section className="altek-container altek-page-content">
+        <Suspense
+          fallback={
+            <div className="altek-info-note">Memuat konten praktikum...</div>
+          }
+        >
+          <PraktikumTabs
+            initialTab={initialTab}
+            currentSemester={currentSemester}
+            courses={courses}
+            allModules={allModules}
+            policies={policies}
+            tutorials={tutorials}
+          />
+        </Suspense>
+      </section>
     </div>
   );
 }

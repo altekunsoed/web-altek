@@ -1,0 +1,1458 @@
+/* ============================================================================
+   ALTEK UNSOED — Komponen Kartu Informasi, Modal Detail, Lightbox & Tutorial
+   Mengacu pada UI v0.6.13 (Zero Violet / Ink Navy, Light & Dark via data-theme)
+   ============================================================================ */
+
+/* --- Toolbar & Grid Informasi --- */
+.altek-info-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.altek-info-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.altek-info-filter-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-muted);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.altek-info-filter-btn span {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--altek-surface-2);
+  color: var(--altek-muted);
+}
+
+.altek-info-filter-btn:hover {
+  border-color: color-mix(in srgb, var(--altek-teal) 45%, var(--altek-line));
+  color: var(--altek-text);
+}
+
+.altek-info-filter-btn.active {
+  background: var(--altek-navy-850);
+  border-color: var(--altek-navy-850);
+  color: var(--altek-surface);
+}
+
+html[data-theme="dark"] .altek-info-filter-btn.active {
+  background: var(--altek-teal);
+  border-color: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.altek-info-filter-btn.active span {
+  background: rgba(255, 255, 255, 0.16);
+  color: inherit;
+}
+
+html[data-theme="dark"] .altek-info-filter-btn.active span {
+  background: rgba(11, 22, 36, 0.18);
+}
+
+.altek-info-search-wrap {
+  flex: 1 1 230px;
+  max-width: 310px;
+  min-width: 200px;
+}
+
+.altek-info-search-wrap input {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-text);
+  font: inherit;
+  font-size: 13px;
+}
+
+.altek-info-search-wrap input:focus {
+  outline: none;
+  border-color: var(--altek-teal);
+  box-shadow: 0 0 0 3px var(--altek-teal-soft);
+}
+
+.altek-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* --- InfoCard --- */
+.altek-info-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--altek-radius);
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    transform 190ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-info-card {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-info-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 46%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+}
+
+.altek-info-card-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.altek-info-card-trigger:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: -3px;
+}
+
+.altek-info-poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--altek-surface-2);
+  border-bottom: 1px solid var(--altek-line);
+  overflow: hidden;
+}
+
+.altek-info-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-info-card:hover .altek-info-poster img {
+    transform: scale(1.03);
+  }
+}
+
+.altek-info-poster-fallback {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  text-align: center;
+  background: var(--altek-navy-900);
+  color: var(--altek-surface-2);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.altek-info-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 18px 18px;
+  gap: 8px;
+}
+
+.altek-info-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.altek-info-cat {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 750;
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  border: 1px solid var(--altek-line);
+}
+
+.altek-info-cat[data-cat="Rekrutmen"] {
+  background: var(--altek-gold-soft);
+  border-color: color-mix(in srgb, var(--altek-gold) 35%, var(--altek-line));
+}
+
+.altek-info-cat[data-cat="Evaluasi & Layanan"] {
+  background: var(--altek-teal-soft);
+  border-color: color-mix(in srgb, var(--altek-teal) 35%, var(--altek-line));
+}
+
+.altek-info-date {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--altek-muted);
+}
+
+.altek-info-card h3 {
+  margin: 2px 0 0;
+  font-size: 15.5px;
+  font-weight: 750;
+  line-height: 1.38;
+  color: var(--altek-text);
+}
+
+.altek-info-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.58;
+  color: var(--altek-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.altek-info-foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--altek-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--altek-teal);
+}
+
+.altek-info-link-badge {
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--altek-muted);
+}
+
+.altek-info-more-wrap {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.altek-info-more-btn {
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-text);
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.altek-info-more-btn:hover {
+  border-color: var(--altek-teal);
+  background: var(--altek-teal-soft);
+}
+
+.altek-info-empty-search {
+  grid-column: 1 / -1;
+  padding: 28px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  text-align: center;
+  color: var(--altek-muted);
+  font-size: 14px;
+}
+
+/* --- InfoDetailModal & Sheet --- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 160;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  padding: 20px 20px 0;
+  background: rgba(5, 10, 18, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: altekModalFade 180ms ease both;
+}
+
+html[data-theme="dark"] .modal-backdrop {
+  background: rgba(5, 10, 18, 0.78);
+}
+
+@keyframes altekModalFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scrollbar modal disembunyikan seperti HTML v0.6.13 (scroll tetap bisa). */
+.modal-backdrop,
+.modal-sheet,
+.altek-video-backdrop,
+.altek-video-dialog,
+.altek-lightbox-backdrop,
+.altek-lightbox-dialog {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overscroll-behavior: contain;
+}
+
+.modal-backdrop::-webkit-scrollbar,
+.modal-sheet::-webkit-scrollbar,
+.altek-video-backdrop::-webkit-scrollbar,
+.altek-video-dialog::-webkit-scrollbar,
+.altek-lightbox-backdrop::-webkit-scrollbar,
+.altek-lightbox-dialog::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.modal-sheet {
+  position: relative;
+  width: min(820px, 100%);
+  max-height: min(90dvh, 840px);
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 22px 26px 24px;
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 26%, var(--altek-line));
+  border-bottom: 0;
+  border-radius: 24px 24px 0 0;
+  background: var(--altek-surface);
+  box-shadow: 0 -18px 60px rgba(0, 0, 0, 0.28);
+  overscroll-behavior: contain;
+  animation: altekSheetRise 240ms cubic-bezier(0.18, 0.82, 0.24, 1) both;
+}
+
+html[data-theme="dark"] .modal-sheet {
+  background: var(--altek-surface-elevated);
+  border-color: color-mix(in srgb, var(--altek-teal) 30%, var(--altek-line));
+}
+
+@keyframes altekSheetRise {
+  from {
+    opacity: 0.4;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sheet-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  border: 1px solid var(--altek-line);
+  border-radius: 16px;
+  background: var(--altek-surface-2);
+}
+
+.sheet-heading {
+  min-width: 0;
+}
+
+.modal-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  margin-bottom: 9px;
+  border-radius: 999px;
+  color: var(--altek-teal);
+  background: var(--altek-surface);
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 26%, var(--altek-line));
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.modal-sheet h3 {
+  font-size: clamp(19px, 3vw, 25px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--altek-text);
+}
+
+.close-modal {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--altek-line);
+  border-radius: 12px;
+  background: var(--altek-surface);
+  color: var(--altek-text);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.close-modal:hover {
+  background: var(--altek-navy-850);
+  border-color: var(--altek-navy-850);
+  color: var(--altek-surface);
+}
+
+html[data-theme="dark"] .close-modal {
+  background: var(--altek-surface-2);
+}
+
+html[data-theme="dark"] .close-modal:hover {
+  background: var(--altek-teal);
+  border-color: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.close-modal:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.close-modal .altek-mini {
+  width: 22px;
+  height: 22px;
+}
+
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 8px;
+}
+
+.modal-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 6px 0 8px;
+}
+
+.modal-body > p {
+  margin: 4px 0 14px;
+  padding: 12px 15px;
+  border: 1px solid var(--altek-line);
+  border-radius: 13px;
+  background: var(--altek-surface-2);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--altek-muted);
+}
+
+.altek-info-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.altek-info-poster-stage {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-navy-950);
+  cursor: zoom-in;
+  position: relative;
+  text-align: left;
+}
+
+.altek-info-poster-stage:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-info-poster-stage img {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+}
+
+.altek-info-poster-hint {
+  display: block;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--altek-line);
+  background: var(--altek-navy-900);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.altek-info-detail-box {
+  display: grid;
+  gap: 14px;
+}
+
+.altek-info-kv {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--altek-line);
+  border-radius: 14px;
+  background: var(--altek-surface);
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .altek-info-kv {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-info-kv li {
+  padding: 11px 15px;
+  border-bottom: 1px solid var(--altek-line);
+  display: grid;
+  gap: 3px;
+}
+
+.altek-info-kv li:last-child {
+  border-bottom: 0;
+}
+
+.altek-info-kv small {
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--altek-muted);
+}
+
+.altek-info-kv strong {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--altek-text);
+}
+
+.altek-info-note-box {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--altek-surface-2);
+  border: 1px solid var(--altek-line);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+}
+
+.altek-info-ext-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.altek-info-ext-links a {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 11px;
+  background: var(--altek-navy-850);
+  color: var(--altek-surface);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+html[data-theme="dark"] .altek-info-ext-links a {
+  background: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.altek-info-ext-links a:hover {
+  opacity: 0.92;
+}
+
+/* --- Poster Lightbox --- */
+.altek-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(7, 15, 26, 0.84);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: altekModalFade 180ms ease both;
+}
+
+.altek-lightbox-dialog {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: 92dvh;
+  border-radius: 22px;
+  border: 1px solid rgba(94, 224, 223, 0.28);
+  background: var(--altek-surface);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: altekLightboxIn 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-theme="dark"] .altek-lightbox-dialog {
+  background: var(--altek-surface);
+  border-color: rgba(94, 224, 223, 0.34);
+}
+
+@keyframes altekLightboxIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.altek-lightbox-stage {
+  position: relative;
+  width: 100%;
+  background: var(--altek-navy-950);
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  min-height: 260px;
+}
+
+.altek-lightbox-stage img {
+  display: block;
+  width: 100%;
+  max-height: min(68dvh, 560px);
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.altek-lightbox-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(11, 22, 36, 0.8);
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.altek-lightbox-close:hover {
+  background: var(--altek-teal);
+  border-color: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.altek-lightbox-close:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-lightbox-caption {
+  padding: 16px 20px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+}
+
+.altek-lightbox-meta {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.altek-lightbox-meta strong {
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--altek-text);
+}
+
+.altek-lightbox-meta small {
+  font-size: 12.5px;
+  color: var(--altek-muted);
+  line-height: 1.4;
+}
+
+.altek-lightbox-pill {
+  flex: 0 0 auto;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: var(--altek-teal-soft);
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 32%, var(--altek-line));
+  color: var(--altek-text);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* --- TutorialGrid & Cards --- */
+.altek-tut-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.altek-tut-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.altek-tut-filter-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 7px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-muted);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.altek-tut-filter-btn span {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--altek-surface-2);
+  color: var(--altek-muted);
+}
+
+.altek-tut-filter-btn:hover {
+  border-color: color-mix(in srgb, var(--altek-teal) 45%, var(--altek-line));
+  color: var(--altek-text);
+}
+
+.altek-tut-filter-btn.active {
+  background: var(--altek-navy-850);
+  border-color: var(--altek-navy-850);
+  color: var(--altek-surface);
+}
+
+html[data-theme="dark"] .altek-tut-filter-btn.active {
+  background: var(--altek-teal);
+  border-color: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.altek-tut-filter-btn.active span {
+  background: rgba(255, 255, 255, 0.16);
+  color: inherit;
+}
+
+html[data-theme="dark"] .altek-tut-filter-btn.active span {
+  background: rgba(11, 22, 36, 0.18);
+}
+
+.altek-tut-search {
+  flex: 1 1 230px;
+  max-width: 310px;
+  min-width: 200px;
+}
+
+.altek-tut-search input {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  color: var(--altek-text);
+  font: inherit;
+  font-size: 13px;
+}
+
+.altek-tut-search input:focus {
+  outline: none;
+  border-color: var(--altek-teal);
+  box-shadow: 0 0 0 3px var(--altek-teal-soft);
+}
+
+.altek-tut-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.altek-tut-grid--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.altek-tut-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--altek-radius);
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    transform 190ms ease,
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-tut-card {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-tut-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 50%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+
+  .altek-tut-card:hover .altek-tut-thumb img {
+    transform: scale(1.03);
+  }
+
+  .altek-tut-card:hover .altek-tut-play-badge {
+    background: var(--altek-teal);
+    color: #ffffff;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+.altek-tut-card:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-tut-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--altek-navy-900);
+  border-bottom: 1px solid var(--altek-line);
+  overflow: hidden;
+}
+
+.altek-tut-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 340ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.altek-tut-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 22, 36, 0.06) 0%,
+    rgba(11, 22, 36, 0.44) 100%
+  );
+  pointer-events: none;
+}
+
+.altek-tut-play-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(11, 22, 36, 0.82);
+  border: 2px solid rgba(255, 255, 255, 0.86);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.altek-tut-play-badge svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  margin-left: 2px;
+}
+
+.altek-tut-duration {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: rgba(11, 22, 36, 0.86);
+  color: #edf4fc;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+}
+
+.altek-tut-year-tag {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 2;
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: rgba(11, 22, 36, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #dcebf8;
+  font-size: 10.5px;
+  font-weight: 750;
+}
+
+.altek-tut-year-tag.is-new {
+  background: rgba(14, 143, 158, 0.9);
+  border-color: rgba(94, 224, 223, 0.45);
+  color: #ffffff;
+}
+
+.altek-tut-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 15px 17px 16px;
+  gap: 8px;
+}
+
+.altek-tut-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.altek-tut-course-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 750;
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  border: 1px solid var(--altek-line);
+}
+
+.altek-tut-software-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--altek-teal);
+}
+
+.altek-tut-card h3 {
+  margin: 2px 0 0;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.38;
+  color: var(--altek-text);
+}
+
+.altek-tut-card p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--altek-muted);
+}
+
+.altek-tut-foot {
+  margin-top: auto;
+  padding-top: 11px;
+  border-top: 1px solid var(--altek-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--altek-teal);
+}
+
+.altek-tut-foot small {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--altek-muted);
+}
+
+.altek-tut-channel-bar {
+  margin-top: 22px;
+  padding: 15px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+html[data-theme="dark"] .altek-tut-channel-bar {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-tut-channel-bar p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--altek-muted);
+  line-height: 1.55;
+}
+
+.altek-tut-channel-bar strong {
+  color: var(--altek-text);
+}
+
+.altek-tut-channel-link {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--altek-surface-2);
+  border: 1px solid var(--altek-line);
+  color: var(--altek-text);
+  font-size: 12.5px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.altek-tut-channel-link:hover {
+  border-color: var(--altek-teal);
+  background: var(--altek-teal-soft);
+}
+
+/* --- VideoPlayerModal (16:9 YouTube-nocookie + Mini Playlist) --- */
+.altek-video-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 230;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(7, 15, 26, 0.84);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: altekModalFade 180ms ease both;
+}
+
+.altek-video-dialog {
+  width: min(880px, 100%);
+  max-height: 92dvh;
+  overflow-y: auto;
+  border-radius: 20px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  animation: altekLightboxIn 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-theme="dark"] .altek-video-dialog {
+  background: var(--altek-surface);
+  border-color: var(--altek-line);
+}
+
+.altek-video-head {
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid var(--altek-line);
+}
+
+.altek-video-head-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.altek-video-head-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 750;
+  color: var(--altek-teal);
+}
+
+.altek-video-head h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--altek-text);
+}
+
+.altek-video-close {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 23px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.altek-video-close:hover {
+  background: var(--altek-navy-850);
+  color: var(--altek-surface);
+  border-color: var(--altek-navy-850);
+}
+
+html[data-theme="dark"] .altek-video-close:hover {
+  background: var(--altek-teal);
+  color: var(--altek-navy-950);
+  border-color: var(--altek-teal);
+}
+
+.altek-video-close:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-video-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+}
+
+.altek-video-stage iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.altek-video-body {
+  padding: 16px 20px 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.altek-video-desc-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.altek-video-desc-row p {
+  margin: 0;
+  flex: 1 1 320px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+}
+
+.altek-video-yt-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 9px 16px;
+  border-radius: 11px;
+  background: var(--altek-navy-850);
+  color: var(--altek-surface);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity 180ms ease;
+}
+
+html[data-theme="dark"] .altek-video-yt-btn {
+  background: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+.altek-video-yt-btn:hover {
+  opacity: 0.92;
+}
+
+.altek-video-related {
+  padding-top: 12px;
+  border-top: 1px solid var(--altek-line);
+  display: grid;
+  gap: 9px;
+}
+
+.altek-video-related-label {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--altek-muted);
+}
+
+.altek-video-related-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.altek-video-related-chip {
+  position: relative;
+  overflow: hidden;
+  padding: 7px 11px;
+  border-radius: 9px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  color: var(--altek-text);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.altek-video-related-chip:hover {
+  border-color: var(--altek-teal);
+  background: var(--altek-teal-soft);
+}
+
+.altek-video-related-chip.is-current {
+  background: var(--altek-navy-850);
+  border-color: var(--altek-navy-850);
+  color: var(--altek-surface);
+}
+
+html[data-theme="dark"] .altek-video-related-chip.is-current {
+  background: var(--altek-teal);
+  border-color: var(--altek-teal);
+  color: var(--altek-navy-950);
+}
+
+/* --- Responsive --- */
+@media (max-width: 960px) {
+  .altek-info-grid,
+  .altek-tut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .altek-info-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .modal-backdrop {
+    padding: 0;
+  }
+
+  .modal-sheet {
+    width: 100%;
+    max-height: 90dvh;
+    border-radius: 22px 22px 0 0;
+    padding: 18px 18px max(20px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 640px) {
+  .altek-info-grid,
+  .altek-tut-grid,
+  .altek-tut-grid--compact {
+    grid-template-columns: 1fr;
+  }
+
+  .altek-info-search-wrap,
+  .altek-tut-search {
+    max-width: none;
+    width: 100%;
+  }
+
+  .altek-video-backdrop {
+    padding: 10px;
+  }
+
+  .altek-video-head {
+    padding: 14px 15px;
+  }
+
+  .altek-video-body {
+    padding: 14px 15px 16px;
+  }
+
+  .altek-video-yt-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .altek-lightbox-backdrop {
+    padding: 12px;
+  }
+
+  .altek-lightbox-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop,
+  .modal-sheet,
+  .altek-lightbox-backdrop,
+  .altek-lightbox-dialog,
+  .altek-video-backdrop,
+  .altek-video-dialog,
+  .altek-info-card,
+  .altek-info-poster img,
+  .altek-info-filter-btn,
+  .altek-info-more-btn,
+  .altek-tut-card,
+  .altek-tut-thumb img,
+  .altek-tut-play-badge,
+  .altek-tut-filter-btn,
+  .altek-tut-channel-link,
+  .altek-video-related-chip,
+  .close-modal,
+  .altek-lightbox-close,
+  .altek-video-close {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,965 @@
+/* ============================================================================
+   ALTEK UNSOED — Halaman About, Tugas Pengurus, Kontak & Peta (UI v0.6.13)
+   ============================================================================ */
+
+.altek-about-page {
+  width: 100%;
+}
+
+/* --- Hero About Model 5 (Sculpted Arch-Chamfer Photo Portal) --- */
+.altek-hero[data-model="about"] {
+  padding: 44px 0 46px;
+}
+
+.altek-hero[data-model="about"] .altek-hero-eyebrow {
+  background: rgba(94, 224, 223, 0.11);
+  border-color: rgba(94, 224, 223, 0.3);
+  color: #a2f0f2;
+}
+
+.altek-hero[data-model="about"] .altek-hero-eyebrow i {
+  background: #5ee0df;
+  box-shadow: 0 0 10px rgba(94, 224, 223, 0.85);
+}
+
+.altek-hero[data-model="about"] h1 span {
+  color: #5ee0df;
+}
+
+.altek-hero[data-model="about"] .altek-hero-photo-layer img {
+  object-position: 18% 22%;
+  filter: saturate(0.38) blur(2px) contrast(1.04);
+  transform: scale(1.12);
+  opacity: 0.16;
+}
+
+.altek-hero[data-model="about"] .altek-hero-photo-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    #0b1624 0%,
+    rgba(13, 27, 44, 0.92) 52%,
+    rgba(20, 38, 61, 0.8) 100%
+  );
+}
+
+.altek-about-hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 36px;
+  align-items: center;
+}
+
+.altek-about-sculpted-stage {
+  position: relative;
+  max-width: 440px;
+  width: 100%;
+  margin-left: auto;
+}
+
+.altek-about-sculpted-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 22px 42px rgba(4, 10, 18, 0.46));
+}
+
+/* --- Siapa Kami Intro --- */
+.altek-about-intro {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(28px, 5vw, 56px);
+  padding: 6px 0 8px;
+}
+
+.altek-about-intro h2 {
+  font-size: clamp(25px, 3vw, 35px);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+  line-height: 1.16;
+  margin: 10px 0 18px;
+  color: var(--altek-text);
+}
+
+.altek-about-intro p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--altek-muted);
+  margin: 0 0 12px;
+}
+
+.altek-about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0 22px;
+}
+
+.altek-about-facts span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 12px;
+  border: 1px solid var(--altek-line);
+  border-radius: 14px;
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+}
+
+html[data-theme="dark"] .altek-about-facts span {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-about-facts strong {
+  font-size: 21px;
+  line-height: 1.15;
+  color: var(--altek-text);
+  font-weight: 850;
+  letter-spacing: -0.025em;
+}
+
+.altek-about-facts small {
+  font-size: 11.5px;
+  color: var(--altek-muted);
+  font-weight: 650;
+}
+
+.altek-about-intro-action {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 10px 17px;
+  border-radius: 12px;
+  background: var(--altek-navy-850);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  border: 1px solid color-mix(in srgb, var(--altek-teal) 32%, var(--altek-line));
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+html[data-theme="dark"] .altek-about-intro-action {
+  background: var(--altek-teal);
+  color: var(--altek-navy-950);
+  border-color: var(--altek-teal);
+}
+
+.altek-about-intro-action:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.altek-about-intro-action .altek-mini {
+  width: 17px;
+  height: 17px;
+}
+
+.altek-about-visual {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(94, 224, 223, 0.16) 0%, transparent 46%),
+    radial-gradient(circle at 86% 84%, rgba(245, 193, 93, 0.11) 0%, transparent 44%),
+    linear-gradient(142deg, #0b1624 0%, #12263f 54%, #1a3756 100%);
+  border-radius: 22px;
+  min-height: 270px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(94, 224, 223, 0.22);
+  box-shadow: var(--altek-shadow);
+  padding: 28px;
+  cursor: pointer;
+  transition:
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.altek-about-visual:hover,
+.altek-about-visual:focus-within,
+.altek-about-visual.altek-logo-engaged {
+  border-color: rgba(94, 224, 223, 0.48);
+  box-shadow:
+    0 22px 46px rgba(11, 22, 36, 0.26),
+    0 0 0 1px rgba(94, 224, 223, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.altek-about-visual .altek-brand-logo {
+  width: 172px;
+  height: 172px;
+  color: #ffffff;
+  filter: drop-shadow(0 12px 26px rgba(4, 12, 22, 0.45));
+}
+
+.altek-about-visual .altek_logo_star {
+  transform-box: view-box;
+  transform-origin: 216px 67px;
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 260ms ease,
+    filter 260ms ease;
+}
+
+.altek-about-visual .altek_logo_bolt_l {
+  transform-box: view-box;
+  transform-origin: 96px 156px;
+  transition:
+    transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 260ms ease,
+    filter 260ms ease;
+}
+
+.altek-about-visual .altek_logo_bolt_r {
+  transform-box: view-box;
+  transform-origin: 333px 156px;
+  transition:
+    transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 260ms ease,
+    filter 260ms ease;
+}
+
+.altek-about-visual .altek_logo_book_l,
+.altek-about-visual .altek_logo_book_r {
+  transform-box: view-box;
+  transform-origin: 215px 264px;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-about-visual:hover .altek_logo_bolt_l {
+    transform: translate(-4px, -2.5px) scale(1.04);
+    color: #5ee0df;
+    filter: drop-shadow(0 0 8px rgba(94, 224, 223, 0.62));
+  }
+
+  .altek-about-visual:hover .altek_logo_bolt_r {
+    transform: translate(4px, -2.5px) scale(1.04);
+    color: #5ee0df;
+    filter: drop-shadow(0 0 8px rgba(94, 224, 223, 0.62));
+  }
+
+  .altek-about-visual:hover .altek_logo_star {
+    transform: scale(1.24) rotate(20deg);
+    color: #f5c15d;
+    filter: drop-shadow(0 0 8px rgba(245, 193, 93, 0.72));
+  }
+
+  .altek-about-visual:hover .altek_logo_book_l {
+    transform: rotate(-2.8deg);
+  }
+
+  .altek-about-visual:hover .altek_logo_book_r {
+    transform: rotate(2.8deg);
+  }
+}
+
+.altek-about-visual.altek-logo-engaged .altek_logo_bolt_l {
+  transform: translate(-4px, -2.5px) scale(1.04);
+  color: #5ee0df;
+  filter: drop-shadow(0 0 8px rgba(94, 224, 223, 0.62));
+}
+
+.altek-about-visual.altek-logo-engaged .altek_logo_bolt_r {
+  transform: translate(4px, -2.5px) scale(1.04);
+  color: #5ee0df;
+  filter: drop-shadow(0 0 8px rgba(94, 224, 223, 0.62));
+}
+
+.altek-about-visual.altek-logo-engaged .altek_logo_star {
+  transform: scale(1.24) rotate(20deg);
+  color: #f5c15d;
+  filter: drop-shadow(0 0 8px rgba(245, 193, 93, 0.72));
+}
+
+.altek-about-visual.altek-logo-engaged .altek_logo_book_l {
+  transform: rotate(-2.4deg);
+}
+
+.altek-about-visual.altek-logo-engaged .altek_logo_book_r {
+  transform: rotate(2.4deg);
+}
+
+/* --- Section Dividers --- */
+.altek-about-section {
+  border-top: 1px solid var(--altek-line);
+  margin-top: 42px;
+  padding-top: 34px;
+}
+
+/* --- Profil, Sejarah, & Peran (3 Topic Cards) --- */
+.altek-about-topics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.altek-about-feature {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 190ms ease,
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-about-feature {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-about-feature:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 46%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+}
+
+.altek-about-feature[aria-expanded="true"] {
+  border-color: var(--altek-teal);
+  background: var(--altek-teal-soft);
+}
+
+.altek-about-feature:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-about-topic-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.altek-about-topic-index {
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  color: var(--altek-muted);
+}
+
+.altek-about-topic-tag {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+  border: 1px solid var(--altek-line);
+  border-radius: 999px;
+  padding: 4px 9px;
+  background: var(--altek-surface-2);
+  color: var(--altek-teal);
+}
+
+.altek-about-feature .course-icon {
+  width: 66px;
+  height: 66px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  margin-bottom: 16px;
+}
+
+.altek-about-feature .course-icon .altek-icon-box,
+.altek-about-feature .course-icon svg {
+  width: 54px;
+  height: 54px;
+}
+
+.altek-about-feature h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: var(--altek-text);
+}
+
+.altek-about-feature p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--altek-muted);
+  margin: 0 0 18px;
+}
+
+.altek-about-feature-meta {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--altek-line);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--altek-teal);
+}
+
+.altek-about-feature-meta .altek-mini {
+  width: 16px;
+  height: 16px;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.altek-about-feature[aria-expanded="true"] .altek-about-feature-meta .altek-mini {
+  transform: rotate(180deg);
+}
+
+/* Inline expansion panel under topics */
+.altek-about-inline-panel {
+  margin-top: 20px;
+  padding: 22px 24px;
+  border: 1px solid var(--altek-line);
+  border-radius: 16px;
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+}
+
+.altek-about-inline-panel:not([hidden]) {
+  animation: altekAccordionContentIn 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-theme="dark"] .altek-about-inline-panel {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-inline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.altek-inline-header h3 {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--altek-text);
+}
+
+.altek-about-inline-panel p {
+  font-size: 14px;
+  line-height: 1.72;
+  color: var(--altek-muted);
+  margin: 4px 0 0;
+}
+
+.altek-about-process {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.altek-about-process-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 13px;
+  align-items: start;
+  border: 1px solid var(--altek-line);
+  border-radius: 14px;
+  background: var(--altek-surface-2);
+  padding: 15px;
+}
+
+.altek-about-process-item > span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: var(--altek-surface);
+  border: 1px solid var(--altek-line);
+  color: var(--altek-teal);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.altek-about-process-item h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-about-process-item p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+}
+
+/* --- Tugas Pengurus ALTEK (Editorial Numbered Accordion, Garis Pemisah 1px) --- */
+.altek-role-accordion {
+  display: grid;
+  gap: 11px;
+}
+
+.altek-role-item {
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  overflow: hidden;
+  transition:
+    transform 190ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+html[data-theme="dark"] .altek-role-item {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-role-item:not(.is-open):hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 38%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+
+  .altek-role-trigger:hover {
+    background: color-mix(in srgb, var(--altek-surface-2) 55%, transparent);
+  }
+}
+
+.altek-role-item.is-open {
+  border-color: color-mix(in srgb, var(--altek-teal) 52%, var(--altek-line));
+  box-shadow: var(--altek-shadow);
+}
+
+.altek-role-trigger {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  color: var(--altek-text);
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.altek-role-item.is-open > .altek-role-trigger {
+  background: var(--altek-teal-soft);
+}
+
+.altek-role-trigger:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: -3px;
+}
+
+.altek-role-symbol {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+}
+
+.altek-role-symbol .altek-icon-box,
+.altek-role-symbol svg {
+  width: 48px;
+  height: 48px;
+}
+
+.altek-role-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.altek-role-meta strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--altek-text);
+}
+
+.altek-role-meta small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--altek-muted);
+}
+
+.altek-role-item.is-open .altek-caret-holder {
+  transform: rotate(180deg);
+}
+
+.altek-role-body {
+  padding: 18px 22px 20px;
+  border-top: 1px solid var(--altek-line);
+}
+
+.altek-role-item.is-open .altek-role-body:not([hidden]) {
+  animation: altekAccordionContentIn 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.altek-role-heading {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--altek-teal);
+  margin-bottom: 10px;
+}
+
+.altek-role-body ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  counter-reset: altek-role-task;
+}
+
+.altek-role-body li {
+  counter-increment: altek-role-task;
+  position: relative;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--altek-line);
+  border-radius: 0;
+  padding: 12px 4px 12px 38px;
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: var(--altek-text);
+}
+
+.altek-role-body li:last-child {
+  border-bottom: 0;
+  padding-bottom: 4px;
+}
+
+.altek-role-body li::before {
+  content: counter(altek-role-task, decimal-leading-zero);
+  position: absolute;
+  left: 4px;
+  top: 13px;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--altek-muted);
+}
+
+/* --- Kanal Informasi, Pesan Langsung & Peta Lokasi (#kontak) --- */
+#kontak {
+  scroll-margin-top: 96px;
+}
+
+.altek-about-connect {
+  padding-bottom: 64px;
+}
+
+.altek-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.altek-social-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 16px;
+  min-width: 0;
+  border-radius: 16px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+html[data-theme="dark"] .altek-social-card {
+  background: var(--altek-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-social-card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--altek-teal) 46%, var(--altek-line));
+    box-shadow: var(--altek-shadow-hover);
+  }
+}
+
+.altek-social-card:focus-visible {
+  outline: 3px solid var(--altek-teal);
+  outline-offset: 2px;
+}
+
+.altek-social-icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+}
+
+.altek-social-icon .altek-icon-box,
+.altek-social-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.altek-social-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.altek-social-copy small {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  font-weight: 850;
+  color: var(--altek-muted);
+}
+
+.altek-social-copy strong {
+  font-size: 14.5px;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  color: var(--altek-text);
+}
+
+.altek-social-copy em {
+  font-size: 12px;
+  line-height: 1.45;
+  font-style: normal;
+  color: var(--altek-muted);
+}
+
+.altek-social-arrow {
+  color: var(--altek-teal);
+  display: inline-flex;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .altek-social-card:hover .altek-social-arrow {
+    transform: translate(3px, -3px);
+  }
+}
+
+.altek-social-arrow .altek-mini {
+  width: 17px;
+  height: 17px;
+}
+
+.altek-contact-extras {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.altek-contact-panel {
+  border: 1px solid var(--altek-line);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--altek-surface);
+  box-shadow: var(--altek-shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+html[data-theme="dark"] .altek-contact-panel {
+  background: var(--altek-surface-elevated);
+}
+
+.altek-contact-panel-head {
+  display: grid;
+  gap: 5px;
+}
+
+.altek-contact-panel-head h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--altek-text);
+  letter-spacing: -0.02em;
+}
+
+.altek-contact-panel-head p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+}
+
+.altek-map-address {
+  padding: 12px 14px;
+  border-radius: 13px;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--altek-muted);
+}
+
+.altek-map-address strong {
+  display: block;
+  color: var(--altek-text);
+  margin-bottom: 3px;
+}
+
+.altek-map-frame {
+  flex: 1;
+  min-height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid var(--altek-line);
+  background: var(--altek-surface-2);
+}
+
+.altek-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: 0;
+  display: block;
+}
+
+html[data-theme="dark"] .altek-map-frame iframe {
+  filter: invert(90%) hue-rotate(180deg) contrast(108%);
+}
+
+/* --- Responsive Calibration --- */
+@media (max-width: 900px) {
+  .altek-about-topics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .altek-about-hero-split {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 44px 0 42px;
+  }
+
+  .altek-about-sculpted-stage {
+    margin-left: 0;
+    max-width: 420px;
+  }
+
+  .altek-about-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .altek-contact-extras {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .altek-role-trigger {
+    padding: 15px 16px;
+    gap: 11px;
+    flex-wrap: wrap;
+  }
+
+  .altek-role-symbol {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+    border-radius: 14px;
+  }
+
+  .altek-role-symbol .altek-icon-box,
+  .altek-role-symbol svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .altek-role-body {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .altek-about-topics,
+  .altek-social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .altek-contact-panel {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .altek-about-facts {
+    gap: 7px;
+  }
+
+  .altek-about-facts span {
+    padding: 11px 8px;
+  }
+
+  .altek-about-facts strong {
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .altek-about-intro-action,
+  .altek-about-visual,
+  .altek-about-visual .altek_logo_star,
+  .altek-about-visual .altek_logo_bolt_l,
+  .altek-about-visual .altek_logo_bolt_r,
+  .altek-about-visual .altek_logo_book_l,
+  .altek-about-visual .altek_logo_book_r,
+  .altek-about-feature,
+  .altek-about-feature-meta .altek-mini,
+  .altek-about-inline-panel,
+  .altek-role-item,
+  .altek-role-trigger,
+  .altek-role-body,
+  .altek-social-card,
+  .altek-social-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
