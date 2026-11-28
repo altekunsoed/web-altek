@@ -4,7 +4,7 @@ import { getInformasi } from "@/data/informasi";
 import { InformasiBrowser } from "@/components/altek/InformasiBrowser";
 
 export const metadata: Metadata = {
-  title: "Informasi & Berita — ALTEK UNSOED",
+  title: "Informasi & Berita",
   description:
     "Pengumuman praktikum, jadwal kegiatan, dan kabar terbaru ALTEK UNSOED.",
 };

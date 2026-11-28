@@ -13,7 +13,7 @@ import { AltekIcon } from "@/components/altek/AltekIcon";
 import { AboutInteractive } from "@/components/altek/AboutInteractive";
 
 export const metadata: Metadata = {
-  title: "Tentang ALTEK UNSOED — ALTEK UNSOED",
+  title: "Tentang ALTEK",
   description:
     "Organisasi, pengurus, peran, kanal kontak resmi, dan lokasi laboratorium ALTEK Teknik Elektro Universitas Jenderal Soedirman.",
 };

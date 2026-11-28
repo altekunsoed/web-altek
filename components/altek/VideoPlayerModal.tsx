@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { TutorialVideo } from "@/data/tutorials";
 import {
   getTutorialsByCourse,
@@ -135,9 +136,9 @@ export function VideoPlayerModal({
     return () => document.removeEventListener("keydown", onKeyDown, true);
   }, [isOpen, onClose]);
 
-  if (!video) return null;
+  if (!video || typeof document === "undefined") return null;
 
-  return (
+  return createPortal(
     <div
       className="altek-video-backdrop"
       onClick={(event) => {
@@ -217,6 +218,7 @@ export function VideoPlayerModal({
           ) : null}
         </div>
       </section>
-    </div>
+    </div>,
+    document.body,
   );
 }

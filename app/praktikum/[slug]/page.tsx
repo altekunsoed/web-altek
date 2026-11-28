@@ -30,11 +30,11 @@ export async function generateMetadata({
   const course = getCourseBySlug(slug);
   if (!course) {
     return {
-      title: "Mata Kuliah Tidak Ditemukan — ALTEK UNSOED",
+      title: "Mata Kuliah Tidak Ditemukan",
     };
   }
   return {
-    title: `Praktikum ${course.name} — ALTEK UNSOED`,
+    title: `Praktikum ${course.name}`,
     description: course.description,
   };
 }

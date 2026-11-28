@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AltekEffects from "@/components/altek/AltekEffects";
+import { getSiteUrl } from "@/lib/site";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -17,6 +18,10 @@ const SITE_DESCRIPTION =
   "Informasi dan arsip Aliansi Laboratorium Teknik Elektro (ALTEK) UNSOED: daftar praktikum, modul, pedoman, dan struktur kepengurusan.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
+  alternates: {
+    canonical: "./",
+  },
   title: {
     default: SITE_TITLE,
     template: "%s | ALTEK UNSOED",

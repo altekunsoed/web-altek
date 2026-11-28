@@ -7,7 +7,7 @@ import {
 import { MembershipBrowser } from "@/components/altek/MembershipBrowser";
 
 export const metadata: Metadata = {
-  title: "Keanggotaan ALTEK — ALTEK UNSOED",
+  title: "Keanggotaan & Kepengurusan",
   description:
     "Daftar Badan Pengurus Harian, lima divisi, dan penanggung jawab praktikum ALTEK periode 2026.",
 };

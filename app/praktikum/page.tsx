@@ -14,7 +14,7 @@ import {
 } from "@/components/altek/PraktikumTabs";
 
 export const metadata: Metadata = {
-  title: "Informasi Praktikum — ALTEK UNSOED",
+  title: "Informasi Praktikum",
   description:
     "Praktikum semester aktif, mata kuliah praktikum, modul, aturan, dan tutorial dalam satu tempat.",
 };
